@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Devis - G.D.F Pro-Cleaners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/quote-calculator.css">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <!-- Header -->
+        <div class="calculator-header">
+            <a href="index.html" class="back-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                <span data-i18n="calc.back">Retour</span>
+            </a>
+            <div class="logo-section">
+                <img src="assets/images/Untitled design (6).jpg" alt="G.D.F Pro-Cleaners" class="calculator-logo">
+                <h1 data-i18n="calc.title">Calculateur de Devis</h1>
+                <p data-i18n="calc.subtitle">Obtenez une estimation instantanée de votre service de nettoyage</p>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+
+        <!-- Calculator Form -->
+        <div class="calculator-content">
+            <div class="calculator-grid">
+                <!-- Column 1: Service Selection -->
+                <div class="calculator-section">
+                    <h2 class="section-title" data-i18n="calc.selectService">Choisissez le service</h2>
+
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="radio" name="service" value="deep" checked>
+                            <span class="service-card">
+                                <span class="service-name" data-i18n="calc.deepCleaning">Nettoyage en Profondeur</span>
+                                <span class="service-type" data-i18n="calc.residential">Résidentiel</span>
+                            </span>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="moving">
+                            <span class="service-card">
+                                <span class="service-name" data-i18n="calc.movingCleaning">Nettoyage Déménagement</span>
+                                <span class="service-type" data-i18n="calc.residential">Résidentiel</span>
+                            </span>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="regular">
+                            <span class="service-card">
+                                <span class="service-name" data-i18n="calc.regularCleaning">Nettoyage Régulier</span>
+                                <span class="service-type" data-i18n="calc.residential">Résidentiel</span>
+                            </span>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="airbnb">
+                            <span class="service-card">
+                                <span class="service-name" data-i18n="calc.airbnbCleaning">Nettoyage AirBNB</span>
+                                <span class="service-type" data-i18n="calc.shortTermRental">Location courte durée</span>
+                            </span>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="carpet">
+                            <span class="service-card">
+                                <span class="service-name" data-i18n="calc.carpetCleaning">Nettoyage de Tapis</span>
+                                <span class="service-type" data-i18n="calc.carpetsAndRugs">Tapis & Moquettes</span>
+                            </span>
+                        </label>
+
+                        <label class="service-option">
+                            <input type="radio" name="service" value="commercial">
+                            <span class="service-card">
+                                <span class="service-name" data-i18n="calc.commercialCleaning">Commercial</span>
+                                <span class="service-type" data-i18n="calc.officesAndRetail">Bureaux & Commerces</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Column 2: Service Details -->
+                <div class="calculator-section">
+                    <h2 class="section-title" data-i18n="calc.details">Détails du service</h2>
+
+                    <!-- Groupe Résidentiel (Deep, Moving, Regular) -->
+                    <div id="residential-fields" class="service-fields">
+                        <div class="input-group">
+                            <label for="bedrooms" data-i18n="calc.bedrooms">Chambres</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="bedrooms">−</button>
+                                <input type="number" id="bedrooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="bedrooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="bathrooms" data-i18n="calc.bathrooms">Salles de bain</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="bathrooms">−</button>
+                                <input type="number" id="bathrooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="bathrooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="kitchen" data-i18n="calc.kitchen">Cuisine</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="kitchen">−</button>
+                                <input type="number" id="kitchen" value="0" min="0" max="5" readonly>
+                                <button type="button" class="plus" data-target="kitchen">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="basement" data-i18n="calc.basement">Sous-sol</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="basement">−</button>
+                                <input type="number" id="basement" value="0" min="0" max="5" readonly>
+                                <button type="button" class="plus" data-target="basement">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Groupe AirBNB -->
+                    <div id="airbnb-fields" class="service-fields" style="display: none;">
+                        <div class="input-group">
+                            <label for="airbnb-bedrooms" data-i18n="calc.bedrooms">Chambres</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="airbnb-bedrooms">−</button>
+                                <input type="number" id="airbnb-bedrooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="airbnb-bedrooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="airbnb-bathrooms" data-i18n="calc.bathrooms">Salles de bain</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="airbnb-bathrooms">−</button>
+                                <input type="number" id="airbnb-bathrooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="airbnb-bathrooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="airbnb-kitchen" data-i18n="calc.kitchen">Cuisine</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="airbnb-kitchen">−</button>
+                                <input type="number" id="airbnb-kitchen" value="0" min="0" max="5" readonly>
+                                <button type="button" class="plus" data-target="airbnb-kitchen">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Groupe Carpet -->
+                    <div id="carpet-fields" class="service-fields" style="display: none;">
+                        <div class="input-group">
+                            <label for="carpet-rooms" data-i18n="calc.roomsWithCarpet">Pièces avec tapis</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="carpet-rooms">−</button>
+                                <input type="number" id="carpet-rooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="carpet-rooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="carpet-basement" data-i18n="calc.basementCarpet">Sous-sol avec tapis</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="carpet-basement">−</button>
+                                <input type="number" id="carpet-basement" value="0" min="0" max="5" readonly>
+                                <button type="button" class="plus" data-target="carpet-basement">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Groupe Commercial -->
+                    <div id="commercial-fields" class="service-fields" style="display: none;">
+                        <div class="input-group">
+                            <label for="square-feet" data-i18n="calc.squareFeet">Superficie (pieds carrés)</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="square-feet" data-step="100">−</button>
+                                <input type="number" id="square-feet" value="0" min="0" max="50000" step="100" readonly>
+                                <button type="button" class="plus" data-target="square-feet" data-step="100">+</button>
+                            </div>
+                            <p class="input-hint" data-i18n="calc.sqftHint">~1000-5000 pi² pour bureau moyen</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="frequency" data-i18n="calc.frequency">Fréquence</label>
+                            <select id="frequency" class="form-select">
+                                <option value="one-time" data-i18n="calc.oneTime">Ponctuel</option>
+                                <option value="weekly" data-i18n="calc.weekly">Hebdomadaire</option>
+                                <option value="biweekly" data-i18n="calc.biweekly">2x/semaine</option>
+                                <option value="monthly" data-i18n="calc.monthly">Mensuel</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Summary -->
+                <div class="calculator-summary">
+                    <div class="summary-card">
+                        <h2 class="summary-title" data-i18n="calc.estimate">Estimation</h2>
+
+                        <div class="summary-details">
+                            <div class="detail-row highlight">
+                                <span data-i18n="calc.serviceType">Type de service:</span>
+                                <span id="summary-service" data-i18n="calc.deepCleaning">Deep Cleaning</span>
+                            </div>
+                            <div id="summary-rooms"></div>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-total">
+                            <div class="total-row">
+                                <span data-i18n="calc.estimatedTime">Temps estimé:</span>
+                                <span id="total-time" class="total-value">0 heure</span>
+                            </div>
+                            <div class="total-row price">
+                                <span data-i18n="calc.estimatedPrice">Prix estimé:</span>
+                                <span id="total-price" class="total-value price-value">$0 CAD</span>
+                            </div>
+                        </div>
+
+                        <div class="disclaimer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <p data-i18n="calc.disclaimer">Prix et durée approximatifs. Une évaluation précise sera
+                                fournie après inspection.</p>
+                        </div>
+
+                        <button id="continue-btn" class="continue-btn" data-i18n="calc.continueBtn">
+                            Continuer avec G.D.F Pro-Cleaners →
+                        </button>
+
+                        <button class="reset-btn" id="reset-btn" data-i18n="calc.reset">
+                            Réinitialiser
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/quote-calculator.js"></script>
+</body>
+
+</html>

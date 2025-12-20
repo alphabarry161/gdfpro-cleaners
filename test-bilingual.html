@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Bilingual System - G.D.F Pro-Cleaners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .lang-selector {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .lang-btn {
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid #2563eb;
+            background: white;
+            color: #2563eb;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: #eff6ff;
+        }
+
+        .lang-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            border-left: 4px solid #2563eb;
+        }
+
+        .demo-section h2 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .demo-item {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .demo-item .label {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .demo-item .value {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin: 2rem 0;
+            font-weight: 600;
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .link:hover {
+            background: #1e40af;
+        }
+    </style>
+    <script src="js/translations.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌐 Test du Système Bilingue</h1>
+
+        <div class="lang-selector">
+            <button class="lang-btn active" data-lang="fr">🇫🇷 Français</button>
+            <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+        </div>
+
+        <div class="success">
+            ✅ Système de traduction chargé avec succès !
+        </div>
+
+        <div class="demo-section">
+            <h2>📋 Navigation</h2>
+            <div class="demo-item">
+                <span class="label">nav.home</span>
+                <span class="value" data-i18n="nav.home">Accueil</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">nav.about</span>
+                <span class="value" data-i18n="nav.about">À propos</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">nav.services</span>
+                <span class="value" data-i18n="nav.services">Services</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">nav.contact</span>
+                <span class="value" data-i18n="nav.contact">Contact</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🏠 Services</h2>
+            <div class="demo-item">
+                <span class="label">service1.title</span>
+                <span class="value" data-i18n="service1.title">Nettoyage résidentiel</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">service2.title</span>
+                <span class="value" data-i18n="service2.title">Nettoyage commercial</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">service3.title</span>
+                <span class="value" data-i18n="service3.title">Conciergerie & Airbnb</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📝 Formulaire</h2>
+            <div class="demo-item">
+                <span class="label">form.submit</span>
+                <span class="value" data-i18n="form.submit">Envoyer la demande</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">form.success</span>
+                <span class="value" data-i18n="form.success">Merci pour votre demande !</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📊 Statistiques</h2>
+            <div class="demo-item">
+                <span class="label">hero.stat1.label</span>
+                <span class="value" data-i18n="hero.stat1.label">Clients satisfaits</span>
+            </div>
+            <div class="demo-item">
+                <span class="label">hero.stat2.label</span>
+                <span class="value" data-i18n="hero.stat2.label">Produits écologiques</span>
+            </div>
+        </div>
+
+        <a href="index.html" class="link">
+            ← Retour au site principal
+        </a>
+    </div>
+
+    <script>
+        // Langue par défaut
+        let currentLanguage = 'fr';
+
+        // Fonction de changement de langue
+        function changeLanguage(lang) {
+            if (!translations[lang]) {
+                console.error(`Langue non supportée: ${lang}`);
+                return;
+            }
+
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+
+            // Met à jour tous les éléments avec data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = translations[lang][key];
+
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Met à jour les boutons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Ajoute les écouteurs sur les boutons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                changeLanguage(btn.dataset.lang);
+            });
+        });
+
+        // Applique la langue par défaut
+        changeLanguage(currentLanguage);
+
+        console.log('🎉 Test page loaded!');
+        console.log('📚 Available languages:', Object.keys(translations));
+        console.log('🔤 Total translation keys:', Object.keys(translations.fr).length);
+    </script>
+</body>
+
+</html>

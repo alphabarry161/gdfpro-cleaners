@@ -1,0 +1,26 @@
+{
+    "name": "gdf-procleaners-website",
+    "version": "1.0.0",
+    "description": "Site web professionnel pour G.D.F Pro-Cleaners - Services de nettoyage résidentiel et commercial",
+    "main": "index.html",
+    "scripts": {
+        "start": "python3 -m http.server 8000",
+        "dev": "python3 -m http.server 8000"
+    },
+    "keywords": [
+        "nettoyage",
+        "cleaning",
+        "résidentiel",
+        "commercial",
+        "gatineau",
+        "ottawa",
+        "conciergerie",
+        "airbnb"
+    ],
+    "author": "G.D.F Pro-Cleaners Inc.",
+    "license": "UNLICENSED",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/votre-compte/gdf-procleaners"
+    }
+}
