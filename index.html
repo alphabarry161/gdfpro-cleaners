@@ -35,10 +35,10 @@
          ================================================ -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <!-- Logo de l'entreprise - Slideshow -->
+            <!-- Logo de l'entreprise -->
             <div class="nav-brand">
                 <a href="#home">
-                    <img src="assets/img/WhatsApp Image 2025-12-20 at 15.17.39.jpeg" alt="G.D.F Pro-Cleaners" class="logo-image logo-slider" id="logoSlider">
+                    <img src="assets/images/Untitled design (6).jpg" alt="G.D.F Pro-Cleaners" class="logo-image">
                 </a>
             </div>
 
@@ -183,10 +183,10 @@
                     </div>
                 </div>
 
-                <!-- Logo de l'entreprise -->
+                <!-- Logo de l'entreprise - Slideshow -->
                 <div class="about-image">
                     <div class="about-logo-container">
-                        <img src="assets/images/Untitled design (6).jpg" alt="G.D.F Pro-Cleaners" class="about-logo">
+                        <img src="assets/img/WhatsApp Image 2025-12-20 at 15.17.39.jpeg" alt="G.D.F Pro-Cleaners" class="about-logo" id="aboutLogoSlider">
                     </div>
                 </div>
             </div>
@@ -1051,18 +1051,18 @@
         ];
         
         let currentLogoIndex = 0;
-        const logoSlider = document.getElementById('logoSlider');
+        const aboutLogoSlider = document.getElementById('aboutLogoSlider');
         
         function changeLogoImage() {
             currentLogoIndex = (currentLogoIndex + 1) % logoImages.length;
-            logoSlider.style.opacity = '0';
-            
+            aboutLogoSlider.style.opacity = '0';
+
             setTimeout(() => {
-                logoSlider.src = logoImages[currentLogoIndex];
-                logoSlider.style.opacity = '1';
+                aboutLogoSlider.src = logoImages[currentLogoIndex];
+                aboutLogoSlider.style.opacity = '1';
             }, 300);
         }
-        
+
         // Change image every 3 seconds
         setInterval(changeLogoImage, 3000);
     </script>
