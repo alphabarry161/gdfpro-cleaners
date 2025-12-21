@@ -349,7 +349,7 @@ button {
 .about-logo {
     max-width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 550px;
     object-fit: contain;
     border-radius: 1rem;
     transition: opacity 0.3s ease, transform 0.3s ease;
