@@ -35,10 +35,10 @@
          ================================================ -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <!-- Logo de l'entreprise -->
+            <!-- Logo de l'entreprise - Slideshow -->
             <div class="nav-brand">
                 <a href="#home">
-                    <img src="assets/images/Untitled design (6).jpg" alt="G.D.F Pro-Cleaners" class="logo-image">
+                    <img src="assets/img/WhatsApp Image 2025-12-20 at 15.17.39.jpeg" alt="G.D.F Pro-Cleaners" class="logo-image logo-slider" id="logoSlider">
                 </a>
             </div>
 
@@ -982,6 +982,90 @@
          SCRIPTS JAVASCRIPT - Chargement en fin de page
          ================================================ -->
     <script src="js/script.js"></script>
+    <script>
+        // Logo slider
+        const logoImages = [
+            "assets/img/WhatsApp Image 2025-12-20 at 15.17.39.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.17.41.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.04 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.04 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.04.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.14 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.14.jpeg"
+        ];
+        
+        let currentLogoIndex = 0;
+        const logoSlider = document.getElementById('logoSlider');
+        
+        function changeLogoImage() {
+            currentLogoIndex = (currentLogoIndex + 1) % logoImages.length;
+            logoSlider.style.opacity = '0';
+            
+            setTimeout(() => {
+                logoSlider.src = logoImages[currentLogoIndex];
+                logoSlider.style.opacity = '1';
+            }, 300);
+        }
+        
+        // Change image every 3 seconds
+        setInterval(changeLogoImage, 3000);
+    </script>
 
 </body>
 
