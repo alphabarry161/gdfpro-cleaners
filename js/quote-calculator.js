@@ -45,13 +45,21 @@ const PRICING = {
     }
 };
 
-// Temps estimés (en heures)
+// Temps estimés (en heures) - basés sur le fichier Excel
 const TIME_ESTIMATES = {
     deep: 4,
     moving: 5,
     airbnb: 1.5,
     regular: 2,
     carpet: 3
+};
+
+// Temps additionnel par pièce (en minutes)
+const TIME_PER_ROOM = {
+    bedroom: 30,      // 30 minutes par chambre
+    bathroom: 20,     // 20 minutes par salle de bain
+    kitchen: 30,      // 30 minutes pour la cuisine
+    basement: 45      // 45 minutes pour le sous-sol
 };
 
 // État global
@@ -256,8 +264,14 @@ function calculateTotal() {
             totalPrice += state.kitchen * PRICING.kitchen[service];
             totalPrice += state.basement * PRICING.basement[service];
 
-            // Temps estimé basé sur les pièces
-            totalTime = TIME_ESTIMATES[service];
+            // Temps estimé: temps de base + temps additionnel par pièce
+            let additionalTime = 0;
+            additionalTime += state.bedrooms * TIME_PER_ROOM.bedroom;
+            additionalTime += state.bathrooms * TIME_PER_ROOM.bathroom;
+            if (state.kitchen > 0) additionalTime += TIME_PER_ROOM.kitchen;
+            if (state.basement > 0) additionalTime += TIME_PER_ROOM.basement;
+            
+            totalTime = TIME_ESTIMATES[service] + (additionalTime / 60); // Convertir minutes en heures
         }
     } else if (service === 'airbnb') {
         // AirBNB (pas de sous-sol)
@@ -273,7 +287,13 @@ function calculateTotal() {
             totalPrice += state['airbnb-bathrooms'] * PRICING.bathrooms.airbnb;
             totalPrice += state['airbnb-kitchen'] * PRICING.kitchen.airbnb;
 
-            totalTime = TIME_ESTIMATES.airbnb;
+            // Temps estimé: temps de base + temps additionnel
+            let additionalTime = 0;
+            additionalTime += state['airbnb-bedrooms'] * TIME_PER_ROOM.bedroom;
+            additionalTime += state['airbnb-bathrooms'] * TIME_PER_ROOM.bathroom;
+            if (state['airbnb-kitchen'] > 0) additionalTime += TIME_PER_ROOM.kitchen;
+            
+            totalTime = TIME_ESTIMATES.airbnb + (additionalTime / 60);
         }
     } else if (service === 'carpet') {
         // Nettoyage de tapis
@@ -288,7 +308,12 @@ function calculateTotal() {
             totalPrice += state['carpet-rooms'] * PRICING.bedrooms.carpet;
             totalPrice += state['carpet-basement'] * PRICING.basement.carpet;
 
-            totalTime = TIME_ESTIMATES.carpet;
+            // Temps estimé: temps de base + temps additionnel
+            let additionalTime = 0;
+            additionalTime += state['carpet-rooms'] * TIME_PER_ROOM.bedroom;
+            if (state['carpet-basement'] > 0) additionalTime += TIME_PER_ROOM.basement;
+            
+            totalTime = TIME_ESTIMATES.carpet + (additionalTime / 60);
         }
     } else if (service === 'commercial') {
         // Commercial - basé sur pieds carrés
