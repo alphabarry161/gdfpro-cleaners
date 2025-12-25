@@ -6,6 +6,15 @@
 
 // Prix basés sur le fichier Excel
 const PRICING = {
+    // Prix de base pour chaque service
+    basePrice: {
+        deep: 250,        // Deep cleaning: 250$ de base
+        moving: 300,      // Moving/Out: 300$ de base
+        airbnb: 100,      // AirBNB: 100$ de base
+        regular: 120,     // Regular: 120$ de base
+        carpet: 180       // Carpet: 180$ de base
+    },
+    // Prix additionnels par pièce
     bedrooms: {
         deep: 20,
         moving: 25,
@@ -14,10 +23,10 @@ const PRICING = {
         carpet: 40
     },
     bathrooms: {
-        deep: 0,
-        moving: 0,
-        airbnb: 0,
-        regular: 0,
+        deep: 25,
+        moving: 30,
+        airbnb: 15,
+        regular: 20,
         carpet: 0
     },
     kitchen: {
@@ -233,40 +242,53 @@ function calculateTotal() {
     let totalTime = 0;
 
     if (service === 'deep' || service === 'moving' || service === 'regular') {
-        // Services résidentiels
-        totalPrice += state.bedrooms * PRICING.bedrooms[service];
-        totalPrice += state.bathrooms * PRICING.bathrooms[service];
-        totalPrice += state.kitchen * PRICING.kitchen[service];
-        totalPrice += state.basement * PRICING.basement[service];
-
+        // Services résidentiels - commencer avec le prix de base
         const totalRooms = state.bedrooms + state.bathrooms + state.kitchen + state.basement;
+
         if (totalRooms === 0) {
+            totalPrice = 0;
             totalTime = 0;
         } else {
-            totalTime = TIME_ESTIMATES[service] + (totalRooms * 0.25);
+            // Prix de base + coûts additionnels par pièce
+            totalPrice = PRICING.basePrice[service];
+            totalPrice += state.bedrooms * PRICING.bedrooms[service];
+            totalPrice += state.bathrooms * PRICING.bathrooms[service];
+            totalPrice += state.kitchen * PRICING.kitchen[service];
+            totalPrice += state.basement * PRICING.basement[service];
+
+            // Temps estimé basé sur les pièces
+            totalTime = TIME_ESTIMATES[service];
         }
     } else if (service === 'airbnb') {
         // AirBNB (pas de sous-sol)
-        totalPrice += state['airbnb-bedrooms'] * PRICING.bedrooms.airbnb;
-        totalPrice += state['airbnb-bathrooms'] * PRICING.bathrooms.airbnb;
-        totalPrice += state['airbnb-kitchen'] * PRICING.kitchen.airbnb;
-
         const totalRooms = state['airbnb-bedrooms'] + state['airbnb-bathrooms'] + state['airbnb-kitchen'];
+
         if (totalRooms === 0) {
+            totalPrice = 0;
             totalTime = 0;
         } else {
-            totalTime = TIME_ESTIMATES.airbnb + (totalRooms * 0.25);
+            // Prix de base + coûts additionnels
+            totalPrice = PRICING.basePrice.airbnb;
+            totalPrice += state['airbnb-bedrooms'] * PRICING.bedrooms.airbnb;
+            totalPrice += state['airbnb-bathrooms'] * PRICING.bathrooms.airbnb;
+            totalPrice += state['airbnb-kitchen'] * PRICING.kitchen.airbnb;
+
+            totalTime = TIME_ESTIMATES.airbnb;
         }
     } else if (service === 'carpet') {
         // Nettoyage de tapis
-        totalPrice += state['carpet-rooms'] * PRICING.bedrooms.carpet;
-        totalPrice += state['carpet-basement'] * PRICING.basement.carpet;
-
         const totalRooms = state['carpet-rooms'] + state['carpet-basement'];
+
         if (totalRooms === 0) {
+            totalPrice = 0;
             totalTime = 0;
         } else {
-            totalTime = TIME_ESTIMATES.carpet + (totalRooms * 0.5);
+            // Prix de base + coûts additionnels
+            totalPrice = PRICING.basePrice.carpet;
+            totalPrice += state['carpet-rooms'] * PRICING.bedrooms.carpet;
+            totalPrice += state['carpet-basement'] * PRICING.basement.carpet;
+
+            totalTime = TIME_ESTIMATES.carpet;
         }
     } else if (service === 'commercial') {
         // Commercial - basé sur pieds carrés

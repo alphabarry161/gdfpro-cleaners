@@ -1044,20 +1044,20 @@
             "assets/img/WhatsApp Image 2025-12-20 at 15.18.14 (1).jpeg",
             "assets/img/WhatsApp Image 2025-12-20 at 15.18.14.jpeg"
         ];
-        
+
         let currentLogoIndex = 0;
         const aboutLogoSlider = document.getElementById('aboutLogoSlider');
-        
+
         function changeLogoImage() {
             currentLogoIndex = (currentLogoIndex + 1) % logoImages.length;
             aboutLogoSlider.style.opacity = '0';
-            
+
             setTimeout(() => {
                 aboutLogoSlider.src = logoImages[currentLogoIndex];
                 aboutLogoSlider.style.opacity = '1';
             }, 300);
         }
-        
+
         // Change image every 3 seconds
         setInterval(changeLogoImage, 3000);
     </script>
