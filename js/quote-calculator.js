@@ -8,40 +8,40 @@
 const PRICING = {
     // Prix de base pour chaque service
     basePrice: {
-        deep: 250,        // Deep cleaning: 250$ de base
-        moving: 300,      // Moving/Out: 300$ de base
-        airbnb: 100,      // AirBNB: 100$ de base
-        regular: 120,     // Regular: 120$ de base
-        carpet: 180       // Carpet: 180$ de base
+        deep: 200,        // Deep cleaning: 200$ de base (2-3 chambres)
+        moving: 250,      // Moving/Out: 250$ de base
+        airbnb: 80,       // AirBNB: 80$ de base (studio/1 chambre)
+        regular: 100,     // Regular: 100$ de base
+        carpet: 150       // Carpet: 150$ de base
     },
     // Prix additionnels par pièce
     bedrooms: {
-        deep: 20,
-        moving: 25,
-        airbnb: 10,
-        regular: 15,
-        carpet: 40
+        deep: 25,
+        moving: 30,
+        airbnb: 15,
+        regular: 20,
+        carpet: 35
     },
     bathrooms: {
-        deep: 25,
-        moving: 30,
-        airbnb: 15,
-        regular: 20,
-        carpet: 0
-    },
-    kitchen: {
-        deep: 25,
-        moving: 30,
-        airbnb: 15,
-        regular: 20,
-        carpet: 0
-    },
-    basement: {
         deep: 30,
         moving: 35,
         airbnb: 20,
         regular: 25,
-        carpet: 60
+        carpet: 0
+    },
+    kitchen: {
+        deep: 30,
+        moving: 40,
+        airbnb: 20,
+        regular: 25,
+        carpet: 0
+    },
+    basement: {
+        deep: 40,
+        moving: 50,
+        airbnb: 0,
+        regular: 35,
+        carpet: 50
     }
 };
 
