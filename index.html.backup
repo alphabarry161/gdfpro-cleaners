@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Configuration de base du document -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="G.D.F Pro-Cleaners - Services de nettoyage professionnel résidentiel et commercial à Gatineau, Ottawa et environs. Plus de 1200 clients satisfaits.">
+    <meta name="keywords" content="nettoyage, ménage, conciergerie, Airbnb, Gatineau, Ottawa, résidentiel, commercial">
+    <meta name="author" content="G.D.F Pro-Cleaners Inc.">
+
+    <!-- Titre de la page -->
+    <title>G.D.F Pro-Cleaners | Nettoyage Professionnel - Gatineau & Ottawa</title>
+
+    <!-- Icône du site (favicon) -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Lien vers la feuille de style principale -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Préchargement des polices Google Fonts pour améliorer les performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fichier de traductions (doit être chargé avant script.js) -->
+    <script src="js/translations.js"></script>
+</head>
+
+<body>
+
+    <!-- ================================================
+         SECTION NAVIGATION - Menu principal du site
+         ================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <!-- Logo de l'entreprise -->
+            <div class="nav-brand">
+                <a href="#home">
+                    <span class="logo-text">G.D.F</span>
+                    <span class="logo-subtext">Pro-Cleaners</span>
+                </a>
+            </div>
+
+            <!-- Menu de navigation principal -->
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">À propos</a></li>
+                    <li><a href="#services" class="nav-link" data-i18n="nav.services">Services</a></li>
+                    <li><a href="#process" class="nav-link" data-i18n="nav.process">Notre processus</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+
+                <!-- Sélecteur de langue -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr" aria-label="Français">FR</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                </div>
+
+                <!-- Bouton d'appel à l'action dans le menu -->
+                <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Demander un devis</a>
+            </div>
+
+            <!-- Bouton hamburger pour mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================================================
+                <!-- Texte principal de présentation -->
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span data-i18n="hero.title.part1">Transformez vos espaces avec</span>
+                        <span class="highlight" data-i18n="hero.title.part2">G.D.F Pro-Cleaners</span>
+                    </h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">
+                        Services de nettoyage professionnel pour résidences et commerces.
+                        Plus de 1200 clients satisfaits à Gatineau, Ottawa et environs.
+                    </p>
+
+                    <!-- Boutons d'action principaux -->
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary btn-large" data-i18n="hero.btn.primary">
+                            Demander un devis gratuit
+                        </a>
+                        <a href="#services" class="btn btn-outline btn-large" data-i18n="hero.btn.secondary">
+                            Découvrir nos services
+                        </a>
+                    </div>
+
+                    <!-- Statistiques rapides -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-i18n="hero.stat1.number">1200+</span>
+                            <span class="stat-label" data-i18n="hero.stat1.label">Clients satisfaits</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-i18n="hero.stat2.number">100%</span>
+                            <span class="stat-label" data-i18n="hero.stat2.label">Produits écologiques</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-i18n="hero.stat3.number">24/7</span>
+                            <span class="stat-label" data-i18n="hero.stat3.label">Service disponible</span>
+                        </div>
+                    </div>
+                </div>  </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Service disponible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicateur de scroll -->
+        <div class="scroll-indicator">
+            <a href="#about" aria-label="Scroll to about section">
+                <span class="scroll-arrow"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION À PROPOS - Présentation de l'entreprise
+         ================================================ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Qui sommes-nous</span>
+                <h2 class="section-title">Excellence en nettoyage depuis des années</h2>
+                <p class="section-description">
+                    Chez G.D.F Pro-Cleaners, nous créons des environnements propres,
+                    sains et accueillants pour nos clients résidentiels et commerciaux.
+                </p>
+            </div>
+
+            <div class="about-content">
+                <!-- Texte de présentation -->
+                <div class="about-text">
+                    <p class="about-intro">
+                        Notre mission est simple : offrir des services de nettoyage professionnel
+                        adaptés à vos besoins spécifiques, qu'il s'agisse de votre maison,
+                        bureau ou espace commercial.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3>Équipe qualifiée</h3>
+                                <p>Personnel formé et expérimenté en nettoyage résidentiel et commercial</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3>Produits écologiques</h3>
+                                <p>Solutions de nettoyage sûres pour votre santé et l'environnement</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3>Service sur mesure</h3>
+                                <p>Solutions personnalisées adaptées à vos besoins et horaires</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3>Satisfaction garantie</h3>
+                                <p>Nous nous engageons à fournir un service impeccable à chaque fois</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone pour image ou illustration -->
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <!-- L'image sera ajoutée ici via CSS ou directement -->
+                        <div class="placeholder-content">
+                            <p>Image de l'équipe professionnelle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION SERVICES - Nos différents services
+         ================================================ -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nos services</span>
+                <h2 class="section-title">Solutions de nettoyage adaptées à vos besoins</h2>
+                <p class="section-description">
+                    Du résidentiel au commercial, nous offrons une gamme complète de services
+                    pour maintenir vos espaces impeccables.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- Service 1: Nettoyage résidentiel -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Nettoyage résidentiel</h3>
+                    <p class="service-description">
+                        Votre maison mérite une attention particulière. Nous assurons un entretien
+                        complet et méticuleux de vos espaces de vie.
+                    </p>
+                    <ul class="service-list">
+                        <li>Entretien régulier (hebdomadaire, bi-hebdomadaire)</li>
+                        <li>Grand nettoyage complet</li>
+                        <li>Nettoyage de planchers, vitres, cuisines</li>
+                        <li>Désinfection des surfaces</li>
+                        <li>Nettoyage après travaux ou déménagement</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Demander un devis →</a>
+                </div>
+
+                <!-- Service 2: Nettoyage commercial -->
+                <div class="service-card featured">
+                    <div class="service-badge">Populaire</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Nettoyage commercial</h3>
+                    <p class="service-description">
+                        Un espace de travail propre reflète le professionnalisme de votre entreprise.
+                        Nous maintenons vos locaux impeccables.
+                    </p>
+                    <ul class="service-list">
+                        <li>Bureaux et espaces professionnels</li>
+                        <li>Commerces et restaurants</li>
+                        <li>Aires communes et condominiums</li>
+                        <li>Entretien quotidien ou hebdomadaire</li>
+                        <li>Adaptation à vos horaires</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Demander un devis →</a>
+                </div>
+
+                <!-- Service 3: Conciergerie & Airbnb -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Conciergerie & Airbnb</h3>
+                    <p class="service-description">
+                        Service clé en main pour vos locations courte durée. Offrez une expérience
+                        5 étoiles à vos voyageurs.
+                    </p>
+                    <ul class="service-list">
+                        <li>Nettoyage complet entre chaque séjour</li>
+                        <li>Mise en place de la literie</li>
+                        <li>Vérification et réapprovisionnement</li>
+                        <li>Présentation soignée des espaces</li>
+                        <li>Service rapide et fiable</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Demander un devis →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION PROCESSUS - Comment nous travaillons
+         ================================================ -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Notre méthode</span>
+                <h2 class="section-title">Un processus simple et efficace</h2>
+                <p class="section-description">
+                    De la demande de devis au nettoyage final, nous assurons un service
+                    structuré et professionnel à chaque étape.
+                </p>
+            </div>
+
+            <div class="process-steps">
+
+                <!-- Étape 1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Demande de devis</h3>
+                        <p class="step-description">
+                            Contactez-nous par téléphone, email ou formulaire.
+                            Nous discutons de vos besoins spécifiques et établissons un devis gratuit.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item">⏱️ Réponse en 24h</span>
+                            <span class="meta-item">📋 Devis détaillé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Planification</h3>
+                        <p class="step-description">
+                            Une fois le devis accepté, nous planifions l'intervention selon
+                            votre disponibilité et vos préférences.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item">📅 Horaires flexibles</span>
+                            <span class="meta-item">✅ Confirmation rapide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Intervention professionnelle</h3>
+                        <p class="step-description">
+                            Notre équipe qualifiée se présente à l'heure prévue avec tout
+                            le matériel et les produits nécessaires pour un nettoyage impeccable.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item">👥 Équipe formée</span>
+                            <span class="meta-item">🧴 Produits écologiques</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Contrôle qualité</h3>
+                        <p class="step-description">
+                            Nous vérifions minutieusement le travail effectué et nous assurons
+                            de votre satisfaction complète avant de partir.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item">⭐ Satisfaction garantie</span>
+                            <span class="meta-item">🔄 Retouches gratuites</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION CONTACT - Formulaire et informations
+         ================================================ -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contactez-nous</span>
+                <h2 class="section-title">Prêt à transformer vos espaces ?</h2>
+                <p class="section-description">
+                    Demandez votre devis gratuit dès aujourd'hui et découvrez l'excellence
+                    du service G.D.F Pro-Cleaners.
+                </p>
+            </div>
+
+            <div class="contact-content">
+
+                <!-- Formulaire de contact -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+
+                        <!-- Type de service -->
+                        <div class="form-group">
+                            <label for="serviceType" class="form-label">Type de service *</label>
+                            <select id="serviceType" name="serviceType" class="form-input" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="residential">Nettoyage résidentiel</option>
+                                <option value="commercial">Nettoyage commercial</option>
+                                <option value="airbnb">Conciergerie & Airbnb</option>
+                            </select>
+                        </div>
+
+                        <!-- Fréquence -->
+                        <div class="form-group">
+                            <label for="frequency" class="form-label">Fréquence *</label>
+                            <select id="frequency" name="frequency" class="form-input" required>
+                                <option value="">Sélectionnez une fréquence</option>
+                                <option value="one-time">Nettoyage ponctuel</option>
+                                <option value="weekly">Hebdomadaire</option>
+                                <option value="biweekly">Bi-hebdomadaire</option>
+                                <option value="monthly">Mensuel</option>
+                            </select>
+                        </div>
+
+                        <!-- Nom complet -->
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Nom complet *</label>
+                            <input type="text" id="fullName" name="fullName" class="form-input"
+                                placeholder="Jean Dupont" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input"
+                                placeholder="jean.dupont@example.com" required>
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(613) 123-4567"
+                                required>
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="form-group">
+                            <label for="address" class="form-label">Adresse du service</label>
+                            <input type="text" id="address" name="address" class="form-input"
+                                placeholder="123 Rue Example, Gatineau, QC">
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group form-group-full">
+                            <label for="message" class="form-label">Message / Détails</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" rows="5"
+                                placeholder="Décrivez vos besoins spécifiques, la taille de l'espace, etc."></textarea>
+                        </div>
+
+                        <!-- Bouton de soumission -->
+                        <div class="form-group form-group-full">
+                            <button type="submit" class="btn btn-primary btn-large btn-block">
+                                Envoyer la demande
+                            </button>
+                        </div>
+
+                        <!-- Message de confirmation (caché par défaut) -->
+                        <div class="form-message" id="formMessage"></div>
+
+                    </form>
+                </div>
+
+                <!-- Informations de contact -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>Téléphone</h4>
+                        <p><a href="tel:+16135015274">(613) 501-5274</a></p>
+                        <p class="info-meta">Disponible 24/7</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h4>Email</h4>
+                        <p><a href="mailto:contact@gdfprocleaners.com">contact@gdfprocleaners.com</a></p>
+                        <p class="info-meta">Réponse en 24h</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h4>Zone de service</h4>
+                        <p>Gatineau, Ottawa</p>
+                        <p class="info-meta">et environs</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h4>Heures d'ouverture</h4>
+                        <p>Lun - Dim: 8h - 20h</p>
+                        <p class="info-meta">Service flexible</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         FOOTER - Pied de page avec liens et infos
+         ================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <!-- Colonne 1: À propos -->
+                <div class="footer-column">
+                    <h3 class="footer-title">G.D.F Pro-Cleaners</h3>
+                    <p class="footer-description">
+                        Services de nettoyage professionnel écologique pour résidences,
+                        commerces et locations courte durée à Gatineau, Ottawa et environs.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne 2: Services -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Nettoyage résidentiel</a></li>
+                        <li><a href="#services">Nettoyage commercial</a></li>
+                        <li><a href="#services">Conciergerie & Airbnb</a></li>
+                        <li><a href="#contact">Demander un devis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3: Entreprise -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Entreprise</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#process">Notre processus</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home">Zones d'intervention</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4: Contact rapide -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+16135015274">(613) 501-5274</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:contact@gdfprocleaners.com">contact@gdfprocleaners.com</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Gatineau, Ottawa, QC</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Barre de copyright -->
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2025 G.D.F Pro-Cleaners Inc. Tous droits réservés.
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Politique de confidentialité</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="legal-link">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================================================
+         BOUTON RETOUR EN HAUT - Apparaît au scroll
+         ================================================ -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Retour en haut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- ================================================
+         SCRIPTS JAVASCRIPT - Chargement en fin de page
+         ================================================ -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

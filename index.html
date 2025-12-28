@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Configuration de base du document -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="G.D.F Pro-Cleaners - Services de nettoyage professionnel résidentiel et commercial à Gatineau, Ottawa et environs. Plus de 1200 clients satisfaits.">
+    <meta name="keywords" content="nettoyage, ménage, conciergerie, Airbnb, Gatineau, Ottawa, résidentiel, commercial">
+    <meta name="author" content="G.D.F Pro-Cleaners Inc.">
+
+    <!-- Titre de la page -->
+    <title>G.D.F Pro-Cleaners | Nettoyage Professionnel - Gatineau & Ottawa</title>
+
+    <!-- Icône du site (favicon) -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Lien vers la feuille de style principale -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Préchargement des polices Google Fonts pour améliorer les performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fichier de traductions (doit être chargé avant script.js) -->
+    <script src="js/translations.js"></script>
+</head>
+
+<body>
+
+    <!-- ================================================
+         SECTION NAVIGATION - Menu principal du site
+         ================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <!-- Logo de l'entreprise -->
+            <div class="nav-brand">
+                <a href="#home">
+                    <img src="assets/images/Untitled design (6).jpg" alt="G.D.F Pro-Cleaners" class="logo-image">
+                </a>
+            </div>
+
+            <!-- Menu de navigation principal -->
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">À propos</a></li>
+                    <li><a href="#services" class="nav-link" data-i18n="nav.services">Services</a></li>
+                    <li><a href="#process" class="nav-link" data-i18n="nav.process">Notre processus</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+
+                <!-- Sélecteur de langue -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr" aria-label="Français">FR</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                </div>
+
+                <!-- Bouton d'appel à l'action dans le menu -->
+                <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Demander un devis</a>
+            </div>
+
+            <!-- Bouton hamburger pour mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================================================
+         SECTION HERO - Bannière principale d'accueil
+         ================================================ -->
+    <section class="hero" id="home">
+        <div class="container">
+            <!-- Texte principal de présentation -->
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span data-i18n="hero.title.part1">Transformez vos espaces avec</span>
+                    <span class="highlight" data-i18n="hero.title.part2">G.D.F Pro-Cleaners</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">
+                    Services de nettoyage professionnel pour résidences et commerces.
+                    Plus de 1200 clients satisfaits à Gatineau, Ottawa et environs.
+                </p>
+
+                <!-- Boutons d'action principaux -->
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large" data-i18n="hero.btn.primary">
+                        Demander un devis gratuit
+                    </a>
+                    <a href="#services" class="btn btn-outline btn-large" data-i18n="hero.btn.secondary">
+                        Découvrir nos services
+                    </a>
+                </div>
+
+                <!-- Statistiques rapides -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-i18n="hero.stat1.number">1200+</span>
+                        <span class="stat-label" data-i18n="hero.stat1.label">Clients satisfaits</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-i18n="hero.stat2.number">100%</span>
+                        <span class="stat-label" data-i18n="hero.stat2.label">Produits écologiques</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-i18n="hero.stat3.number">24/7</span>
+                        <span class="stat-label" data-i18n="hero.stat3.label">Service disponible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicateur de scroll -->
+        <div class="scroll-indicator">
+            <a href="#about" aria-label="Scroll to about section">
+                <span class="scroll-arrow"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION À PROPOS - Présentation de l'entreprise
+         ================================================ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-i18n="about.label">Qui sommes-nous</span>
+                <h2 class="section-title" data-i18n="about.title">Excellence en nettoyage depuis des années</h2>
+                <p class="section-description" data-i18n="about.description">
+                    Chez G.D.F Pro-Cleaners, nous créons des environnements propres,
+                    sains et accueillants pour nos clients résidentiels et commerciaux.
+                </p>
+            </div>
+
+            <div class="about-content">
+                <!-- Texte de présentation -->
+                <div class="about-text">
+                    <p class="about-intro" data-i18n="about.intro">
+                        Notre mission est simple : offrir des services de nettoyage professionnel
+                        adaptés à vos besoins spécifiques, qu'il s'agisse de votre maison,
+                        bureau ou espace commercial.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3 data-i18n="about.feature1.title">Équipe qualifiée</h3>
+                                <p data-i18n="about.feature1.desc">Personnel formé et expérimenté en nettoyage
+                                    résidentiel et commercial</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3 data-i18n="about.feature2.title">Produits écologiques</h3>
+                                <p data-i18n="about.feature2.desc">Solutions de nettoyage sûres pour votre santé et
+                                    l'environnement</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3 data-i18n="about.feature3.title">Service sur mesure</h3>
+                                <p data-i18n="about.feature3.desc">Solutions personnalisées adaptées à vos besoins et
+                                    horaires</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div class="feature-content">
+                                <h3 data-i18n="about.feature4.title">Satisfaction garantie</h3>
+                                <p data-i18n="about.feature4.desc">Nous nous engageons à fournir un service impeccable à
+                                    chaque fois</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo de l'entreprise - Slideshow -->
+                <div class="about-image">
+                    <div class="about-logo-container">
+                        <img src="assets/img/WhatsApp Image 2025-12-20 at 15.17.39.jpeg" alt="G.D.F Pro-Cleaners"
+                            class="about-logo" id="aboutLogoSlider">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION SERVICES - Nos différents services
+         ================================================ -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-i18n="services.label">Nos services</span>
+                <h2 class="section-title" data-i18n="services.title">Solutions de nettoyage adaptées à vos besoins</h2>
+                <p class="section-description" data-i18n="services.description">
+                    Du résidentiel au commercial, nous offrons une gamme complète de services
+                    pour maintenir vos espaces impeccables.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- Service 1: Nettoyage résidentiel -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="service1.title">Nettoyage résidentiel</h3>
+                    <p class="service-description" data-i18n="service1.desc">
+                        Votre maison mérite une attention particulière. Nous assurons un entretien
+                        complet et méticuleux de vos espaces de vie.
+                    </p>
+
+                    <!-- Deep Cleaning -->
+                    <div style="margin: 1rem 0;">
+                        <h4 style="color: #dc2626; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem;"
+                            data-i18n="service.deep.title">Nettoyage en profondeur</h4>
+                        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem;"
+                            data-i18n="service.deep.desc">Le nettoyage en profondeur se concentre sur les zones souvent
+                            négligées lors du nettoyage normal.</p>
+                        <p style="font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;"
+                            data-i18n="service.deep.included">Ce qui est inclus :</p>
+                        <ul class="service-list" style="margin-left: 1rem;">
+                            <li data-i18n="service.deep.item1">Tout ce qui est dans le nettoyage régulier plus :</li>
+                            <li data-i18n="service.deep.item2">Intérieur des électroménagers (four, réfrigérateur,
+                                micro-ondes)</li>
+                            <li data-i18n="service.deep.item3">Plinthes, rebords de fenêtres et cadres de portes</li>
+                            <li data-i18n="service.deep.item4">Luminaires et ventilateurs de plafond</li>
+                            <li data-i18n="service.deep.item5">Derrière et sous les meubles mobiles</li>
+                            <li data-i18n="service.deep.item6">Nettoyage détaillé des joints et carreaux</li>
+                        </ul>
+                    </div>
+
+                    <!-- Regular Cleaning -->
+                    <div style="margin: 1rem 0;">
+                        <h4 style="color: #dc2626; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem;"
+                            data-i18n="service.regular.title">Nettoyage régulier</h4>
+                        <p style="font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;"
+                            data-i18n="service.regular.included">Ce qui est inclus :</p>
+                        <ul class="service-list" style="margin-left: 1rem;">
+                            <li data-i18n="service.regular.item1">Dépoussiérage de toutes les surfaces, meubles et décor
+                            </li>
+                            <li data-i18n="service.regular.item2">Aspiration et lavage de tous les planchers</li>
+                            <li data-i18n="service.regular.item3">Désinfection complète de la salle de bain</li>
+                            <li data-i18n="service.regular.item4">Nettoyage et désinfection de la cuisine</li>
+                            <li data-i18n="service.regular.item5">Enlèvement et remplacement des ordures</li>
+                        </ul>
+                    </div>
+
+                    <!-- Move in/Out Cleaning -->
+                    <div style="margin: 1rem 0;">
+                        <h4 style="color: #dc2626; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem;"
+                            data-i18n="service.move.title">Nettoyage déménagement</h4>
+                        <p style="font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;"
+                            data-i18n="service.move.included">Ce qui est inclus :</p>
+                        <ul class="service-list" style="margin-left: 1rem;">
+                            <li data-i18n="service.move.item1">Intérieur de toutes les armoires, placards et tiroirs
+                            </li>
+                            <li data-i18n="service.move.item2">Nettoyage complet des électroménagers (intérieur et
+                                extérieur)</li>
+                            <li data-i18n="service.move.item3">Toutes les surfaces, plinthes et accessoires</li>
+                            <li data-i18n="service.move.item4">Rails et rebords de fenêtres</li>
+                            <li data-i18n="service.move.item5">Planchers nettoyés et désinfectés</li>
+                        </ul>
+                    </div>
+
+                    <a href="#contact" class="service-link" data-i18n="services.link">Demander un devis →</a>
+                </div>
+
+                <!-- Service 2: Nettoyage commercial -->
+                <div class="service-card featured">
+                    <div class="service-badge" data-i18n="services.badge.popular">Populaire</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="service2.title">Nettoyage commercial</h3>
+                    <p class="service-description" data-i18n="service2.desc">
+                        Un espace de travail propre reflète le professionnalisme de votre entreprise.
+                    </p>
+                    <ul class="service-list">
+                        <li data-i18n="service2.item1">Bureaux et espaces professionnels</li>
+                        <li data-i18n="service2.item2">Commerces et restaurants</li>
+                        <li data-i18n="service2.item3">Aires communes et condominiums</li>
+                        <li data-i18n="service2.item4">Entretien quotidien ou hebdomadaire</li>
+                        <li data-i18n="service2.item5">Adaptation à vos horaires</li>
+                    </ul>
+                    <a href="#contact" class="service-link" data-i18n="services.link">Demander un devis →</a>
+                </div>
+
+                <!-- Service 3: Conciergerie & Airbnb -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="service3.title">Conciergerie & Airbnb</h3>
+                    <p class="service-description" data-i18n="service3.desc">
+                        Service clé en main pour vos locations courte durée. Expérience 5 étoiles.
+                    </p>
+                    <ul class="service-list">
+                        <li data-i18n="service.airbnb.item1">Nettoyage complet entre chaque séjour</li>
+                        <li data-i18n="service.airbnb.item2">Installation de la literie et préparation</li>
+                        <li data-i18n="service.airbnb.item3">Inspection et réapprovisionnement</li>
+                        <li data-i18n="service.airbnb.item4">Présentation soignée des espaces</li>
+                        <li data-i18n="service.airbnb.item5">Service rapide et fiable</li>
+                    </ul>
+                    <a href="#contact" class="service-link" data-i18n="services.link">Demander un devis →</a>
+                </div>
+
+                <!-- Service 4: Carpet Cleaning -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M3 9h18"></path>
+                            <path d="M9 21V9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-i18n="service4.title">Nettoyage de Tapis</h3>
+                    <p class="service-description" data-i18n="service4.desc">
+                        Nettoyage professionnel de tapis utilisant l'extraction à l'eau chaude pour éliminer la saleté
+                        incrustée, les taches et les allergènes.
+                    </p>
+
+                    <!-- Carpet Cleaning Details -->
+                    <div style="margin: 1rem 0;">
+                        <p style="font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem;"
+                            data-i18n="service.carpet.included">Ce qui est inclus :</p>
+                        <ul class="service-list" style="margin-left: 1rem;">
+                            <li data-i18n="service.carpet.item1">Extraction à l'eau chaude (nettoyage à la vapeur)</li>
+                            <li data-i18n="service.carpet.item2">Prétraitement pour les taches tenaces</li>
+                            <li data-i18n="service.carpet.item3">Équipement de qualité professionnelle</li>
+                            <li data-i18n="service.carpet.item4">Solutions de nettoyage écologiques</li>
+                            <li data-i18n="service.carpet.item5">Élimination des taches et salissures</li>
+                        </ul>
+                    </div>
+
+                    <!-- Questions Section -->
+                    <div style="margin: 0.75rem 0; padding: 0.75rem; background-color: #f9fafb; border-radius: 6px;">
+                        <h4 style="color: #dc2626; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.75rem;"
+                            data-i18n="service.carpet.questions">Questions :</h4>
+
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="font-weight: 600; color: #dc2626; margin-bottom: 0.2rem; font-size: 0.85rem;"
+                                data-i18n="service.carpet.q1">Quelle méthode utilisez-vous ?</p>
+                            <p style="font-size: 0.8rem; color: #4b5563; line-height: 1.4;"
+                                data-i18n="service.carpet.a1">Nous utilisons l'extraction à l'eau chaude, recommandée
+                                par la plupart des fabricants.</p>
+                        </div>
+
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="font-weight: 600; color: #dc2626; margin-bottom: 0.2rem; font-size: 0.85rem;"
+                                data-i18n="service.carpet.q2">Combien de temps avant que les tapis ne soient secs ?</p>
+                            <p style="font-size: 0.8rem; color: #4b5563; line-height: 1.4;"
+                                data-i18n="service.carpet.a2">6 à 12 heures avec une ventilation adéquate.</p>
+                        </div>
+
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="font-weight: 600; color: #dc2626; margin-bottom: 0.2rem; font-size: 0.85rem;"
+                                data-i18n="service.carpet.q3">Pouvez-vous enlever toutes les taches ?</p>
+                            <p style="font-size: 0.8rem; color: #4b5563; line-height: 1.4;"
+                                data-i18n="service.carpet.a3">Nous utilisons des traitements professionnels et
+                                établissons des attentes réalistes.</p>
+                        </div>
+
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="font-weight: 600; color: #dc2626; margin-bottom: 0.2rem; font-size: 0.85rem;"
+                                data-i18n="service.carpet.q4">Est-ce sûr pour les animaux et les enfants ?</p>
+                            <p style="font-size: 0.8rem; color: #4b5563; line-height: 1.4;"
+                                data-i18n="service.carpet.a4">Oui ! Nos solutions sont écologiques et non toxiques.</p>
+                        </div>
+
+                        <div style="margin-bottom: 0;">
+                            <p style="font-weight: 600; color: #dc2626; margin-bottom: 0.2rem; font-size: 0.85rem;"
+                                data-i18n="service.carpet.q5">À quelle fréquence nettoyer ?</p>
+                            <p style="font-size: 0.8rem; color: #4b5563; line-height: 1.4;"
+                                data-i18n="service.carpet.a5">Tous les 12 à 18 mois pour les ménages normaux.</p>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="service-link" data-i18n="services.link">Demander un devis →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION PROCESSUS - Comment nous travaillons
+         ================================================ -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-i18n="process.label">Notre méthode</span>
+                <h2 class="section-title" data-i18n="process.title">Un processus simple et efficace</h2>
+                <p class="section-description" data-i18n="process.description">
+                    De la demande de devis au nettoyage final, nous assurons un service
+                    structuré et professionnel à chaque étape.
+                </p>
+            </div>
+
+            <div class="process-steps">
+
+                <!-- Étape 1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="process.step1.title">Demande de devis</h3>
+                        <p class="step-description" data-i18n="process.step1.desc">
+                            Contactez-nous par téléphone, email ou formulaire.
+                            Nous discutons de vos besoins spécifiques et établissons un devis gratuit.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item" data-i18n="process.step1.meta1">⌛️ Réponse en 24h</span>
+                            <span class="meta-item" data-i18n="process.step1.meta2">📋 Devis détaillé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="process.step2.title">Planification</h3>
+                        <p class="step-description" data-i18n="process.step2.desc">
+                            Une fois le devis accepté, nous planifions l'intervention selon
+                            votre disponibilité et vos préférences.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item" data-i18n="process.step2.meta1">📅 Horaires flexibles</span>
+                            <span class="meta-item" data-i18n="process.step2.meta2">✅ Confirmation rapide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="process.step3.title">Intervention professionnelle</h3>
+                        <p class="step-description" data-i18n="process.step3.desc">
+                            Notre équipe qualifiée se présente à l'heure prévue avec tout
+                            le matériel et les produits nécessaires pour un nettoyage impeccable.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item" data-i18n="process.step3.meta1">👥 Équipe formée</span>
+                            <span class="meta-item" data-i18n="process.step3.meta2">🧴 Produits écologiques</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title" data-i18n="process.step4.title">Contrôle qualité</h3>
+                        <p class="step-description" data-i18n="process.step4.desc">
+                            Nous vérifions minutieusement le travail effectué et nous assurons
+                            de votre satisfaction complète avant de partir.
+                        </p>
+                        <div class="step-meta">
+                            <span class="meta-item" data-i18n="process.step4.meta1">⭐ Satisfaction garantie</span>
+                            <span class="meta-item" data-i18n="process.step4.meta2">🔄 Retouches gratuites</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION CONTACT - Formulaire et informations
+         ================================================ -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label" data-i18n="contact.label">Contactez-nous</span>
+                <h2 class="section-title" data-i18n="contact.title">Prêt à transformer vos espaces ?</h2>
+                <p class="section-description" data-i18n="contact.description">
+                    Demandez votre devis gratuit dès aujourd'hui et découvrez l'excellence
+                    du service G.D.F Pro-Cleaners.
+                </p>
+            </div>
+
+            <div class="contact-content">
+
+                <!-- Formulaire de contact -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+
+                        <!-- Type de service -->
+                        <div class="form-group">
+                            <label for="serviceType" class="form-label" data-i18n="form.serviceType.label">Type de
+                                service *</label>
+                            <select id="serviceType" name="serviceType" class="form-input" required>
+                                <option value="" data-i18n="form.serviceType.placeholder">Sélectionnez un service
+                                </option>
+                                <option value="residential" data-i18n="form.serviceType.residential">Nettoyage
+                                    résidentiel</option>
+                                <option value="commercial" data-i18n="form.serviceType.commercial">Nettoyage commercial
+                                </option>
+                                <option value="airbnb" data-i18n="form.serviceType.airbnb">Conciergerie & Airbnb
+                                </option>
+                                <option value="carpet" data-i18n="form.serviceType.carpet">Carpet Cleaning
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Fréquence -->
+                        <div class="form-group">
+                            <label for="frequency" class="form-label" data-i18n="form.frequency.label">Fréquence
+                                *</label>
+                            <select id="frequency" name="frequency" class="form-input" required>
+                                <option value="" data-i18n="form.frequency.placeholder">Sélectionnez une fréquence
+                                </option>
+                                <option value="one-time" data-i18n="form.frequency.oneTime">Nettoyage ponctuel</option>
+                                <option value="weekly" data-i18n="form.frequency.weekly">Hebdomadaire</option>
+                                <option value="biweekly" data-i18n="form.frequency.biweekly">Bi-hebdomadaire</option>
+                                <option value="monthly" data-i18n="form.frequency.monthly">Mensuel</option>
+                            </select>
+                        </div>
+
+                        <!-- Nom complet -->
+                        <div class="form-group">
+                            <label for="fullName" class="form-label" data-i18n="form.fullName.label">Nom complet
+                                *</label>
+                            <input type="text" id="fullName" name="fullName" class="form-input"
+                                placeholder="Jean Dupont" data-i18n-placeholder="form.fullName.placeholder" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="form-label" data-i18n="form.email.label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input"
+                                placeholder="jean.dupont@example.com" data-i18n-placeholder="form.email.placeholder"
+                                required>
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="form-group">
+                            <label for="phone" class="form-label" data-i18n="form.phone.label">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(613) 123-4567"
+                                data-i18n-placeholder="form.phone.placeholder" required>
+                        </div>
+
+                        <!-- Pays -->
+                        <div class="form-group">
+                            <label for="country" class="form-label" data-i18n="form.country.label">Pays *</label>
+                            <select id="country" name="country" class="form-input" required>
+                                <option value="" data-i18n="form.country.placeholder">Sélectionnez un pays</option>
+                                <option value="AF">🇦🇫 Afghanistan</option>
+                                <option value="ZA">🇿🇦 Afrique du Sud / South Africa</option>
+                                <option value="AL">🇦🇱 Albanie / Albania</option>
+                                <option value="DZ">🇩🇿 Algérie / Algeria</option>
+                                <option value="DE">🇩🇪 Allemagne / Germany</option>
+                                <option value="AD">🇦🇩 Andorre / Andorra</option>
+                                <option value="AO">🇦🇴 Angola</option>
+                                <option value="AG">🇦🇬 Antigua-et-Barbuda</option>
+                                <option value="SA">🇸🇦 Arabie Saoudite / Saudi Arabia</option>
+                                <option value="AR">🇦🇷 Argentine / Argentina</option>
+                                <option value="AM">🇦🇲 Arménie / Armenia</option>
+                                <option value="AU">🇦🇺 Australie / Australia</option>
+                                <option value="AT">🇦🇹 Autriche / Austria</option>
+                                <option value="AZ">🇦🇿 Azerbaïdjan / Azerbaijan</option>
+                                <option value="BS">🇧🇸 Bahamas</option>
+                                <option value="BH">🇧🇭 Bahreïn / Bahrain</option>
+                                <option value="BD">🇧🇩 Bangladesh</option>
+                                <option value="BB">🇧🇧 Barbade / Barbados</option>
+                                <option value="BE">🇧🇪 Belgique / Belgium</option>
+                                <option value="BZ">🇧🇿 Belize</option>
+                                <option value="BJ">🇧🇯 Bénin / Benin</option>
+                                <option value="BT">🇧🇹 Bhoutan / Bhutan</option>
+                                <option value="BY">🇧🇾 Biélorussie / Belarus</option>
+                                <option value="BO">🇧🇴 Bolivie / Bolivia</option>
+                                <option value="BA">🇧🇦 Bosnie-Herzégovine</option>
+                                <option value="BW">🇧🇼 Botswana</option>
+                                <option value="BR">🇧🇷 Brésil / Brazil</option>
+                                <option value="BN">🇧🇳 Brunei</option>
+                                <option value="BG">🇧🇬 Bulgarie / Bulgaria</option>
+                                <option value="BF">🇧🇫 Burkina Faso</option>
+                                <option value="BI">🇧🇮 Burundi</option>
+                                <option value="KH">🇰🇭 Cambodge / Cambodia</option>
+                                <option value="CM">🇨🇲 Cameroun / Cameroon</option>
+                                <option value="CA">🇨🇦 Canada</option>
+                                <option value="CV">🇨🇻 Cap-Vert / Cape Verde</option>
+                                <option value="CL">🇨🇱 Chili / Chile</option>
+                                <option value="CN">🇨🇳 Chine / China</option>
+                                <option value="CY">🇨🇾 Chypre / Cyprus</option>
+                                <option value="CO">🇨🇴 Colombie / Colombia</option>
+                                <option value="KM">🇰🇲 Comores / Comoros</option>
+                                <option value="CG">🇨🇬 Congo-Brazzaville</option>
+                                <option value="CD">🇨🇩 Congo-Kinshasa (RDC)</option>
+                                <option value="KP">🇰🇵 Corée du Nord / North Korea</option>
+                                <option value="KR">🇰🇷 Corée du Sud / South Korea</option>
+                                <option value="CR">🇨🇷 Costa Rica</option>
+                                <option value="CI">🇨🇮 Côte d'Ivoire</option>
+                                <option value="HR">🇭🇷 Croatie / Croatia</option>
+                                <option value="CU">🇨🇺 Cuba</option>
+                                <option value="DK">🇩🇰 Danemark / Denmark</option>
+                                <option value="DJ">🇩🇯 Djibouti</option>
+                                <option value="DM">🇩🇲 Dominique / Dominica</option>
+                                <option value="EG">🇪🇬 Égypte / Egypt</option>
+                                <option value="AE">🇦🇪 Émirats Arabes Unis / UAE</option>
+                                <option value="EC">🇪🇨 Équateur / Ecuador</option>
+                                <option value="ER">🇪🇷 Érythrée / Eritrea</option>
+                                <option value="ES">🇪🇸 Espagne / Spain</option>
+                                <option value="EE">🇪🇪 Estonie / Estonia</option>
+                                <option value="SZ">🇸🇿 Eswatini</option>
+                                <option value="US">🇺🇸 États-Unis / United States</option>
+                                <option value="ET">🇪🇹 Éthiopie / Ethiopia</option>
+                                <option value="FJ">🇫🇯 Fidji / Fiji</option>
+                                <option value="FI">🇫🇮 Finlande / Finland</option>
+                                <option value="FR">🇫🇷 France</option>
+                                <option value="GA">🇬🇦 Gabon</option>
+                                <option value="GM">🇬🇲 Gambie / Gambia</option>
+                                <option value="GE">🇬🇪 Géorgie / Georgia</option>
+                                <option value="GH">🇬🇭 Ghana</option>
+                                <option value="GR">🇬🇷 Grèce / Greece</option>
+                                <option value="GD">🇬🇩 Grenade / Grenada</option>
+                                <option value="GT">🇬🇹 Guatemala</option>
+                                <option value="GN">🇬🇳 Guinée / Guinea</option>
+                                <option value="GQ">🇬🇶 Guinée équatoriale</option>
+                                <option value="GW">🇬🇼 Guinée-Bissau</option>
+                                <option value="GY">🇬🇾 Guyana</option>
+                                <option value="HT">🇭🇹 Haïti / Haiti</option>
+                                <option value="HN">🇭🇳 Honduras</option>
+                                <option value="HU">🇭🇺 Hongrie / Hungary</option>
+                                <option value="IN">🇮🇳 Inde / India</option>
+                                <option value="ID">🇮🇩 Indonésie / Indonesia</option>
+                                <option value="IQ">🇮🇶 Irak / Iraq</option>
+                                <option value="IR">🇮🇷 Iran</option>
+                                <option value="IE">🇮🇪 Irlande / Ireland</option>
+                                <option value="IS">🇮🇸 Islande / Iceland</option>
+                                <option value="IL">🇮🇱 Israël / Israel</option>
+                                <option value="IT">🇮🇹 Italie / Italy</option>
+                                <option value="JM">🇯🇲 Jamaïque / Jamaica</option>
+                                <option value="JP">🇯🇵 Japon / Japan</option>
+                                <option value="JO">🇯🇴 Jordanie / Jordan</option>
+                                <option value="KZ">🇰🇿 Kazakhstan</option>
+                                <option value="KE">🇰🇪 Kenya</option>
+                                <option value="KG">🇰🇬 Kirghizistan / Kyrgyzstan</option>
+                                <option value="KI">🇰🇮 Kiribati</option>
+                                <option value="KW">🇰🇼 Koweït / Kuwait</option>
+                                <option value="LA">🇱🇦 Laos</option>
+                                <option value="LS">🇱🇸 Lesotho</option>
+                                <option value="LV">🇱🇻 Lettonie / Latvia</option>
+                                <option value="LB">🇱🇧 Liban / Lebanon</option>
+                                <option value="LR">🇱🇷 Liberia</option>
+                                <option value="LY">🇱🇾 Libye / Libya</option>
+                                <option value="LI">🇱🇮 Liechtenstein</option>
+                                <option value="LT">🇱🇹 Lituanie / Lithuania</option>
+                                <option value="LU">🇱🇺 Luxembourg</option>
+                                <option value="MK">🇲🇰 Macédoine du Nord</option>
+                                <option value="MG">🇲🇬 Madagascar</option>
+                                <option value="MY">🇲🇾 Malaisie / Malaysia</option>
+                                <option value="MW">🇲🇼 Malawi</option>
+                                <option value="MV">🇲🇻 Maldives</option>
+                                <option value="ML">🇲🇱 Mali</option>
+                                <option value="MT">🇲🇹 Malte / Malta</option>
+                                <option value="MA">🇲🇦 Maroc / Morocco</option>
+                                <option value="MH">🇲🇭 Îles Marshall</option>
+                                <option value="MU">🇲🇺 Maurice / Mauritius</option>
+                                <option value="MR">🇲🇷 Mauritanie / Mauritania</option>
+                                <option value="MX">🇲🇽 Mexique / Mexico</option>
+                                <option value="FM">🇫🇲 Micronésie</option>
+                                <option value="MD">🇲🇩 Moldavie / Moldova</option>
+                                <option value="MC">🇲🇨 Monaco</option>
+                                <option value="MN">🇲🇳 Mongolie / Mongolia</option>
+                                <option value="ME">🇲🇪 Monténégro / Montenegro</option>
+                                <option value="MZ">🇲🇿 Mozambique</option>
+                                <option value="MM">🇲🇲 Myanmar (Birmanie)</option>
+                                <option value="NA">🇳🇦 Namibie / Namibia</option>
+                                <option value="NR">🇳🇷 Nauru</option>
+                                <option value="NP">🇳🇵 Népal / Nepal</option>
+                                <option value="NI">🇳🇮 Nicaragua</option>
+                                <option value="NE">🇳🇪 Niger</option>
+                                <option value="NG">🇳🇬 Nigéria / Nigeria</option>
+                                <option value="NO">🇳🇴 Norvège / Norway</option>
+                                <option value="NZ">🇳🇿 Nouvelle-Zélande / New Zealand</option>
+                                <option value="OM">🇴🇲 Oman</option>
+                                <option value="UG">🇺🇬 Ouganda / Uganda</option>
+                                <option value="UZ">🇺🇿 Ouzbékistan / Uzbekistan</option>
+                                <option value="PK">🇵🇰 Pakistan</option>
+                                <option value="PW">🇵🇼 Palaos / Palau</option>
+                                <option value="PA">🇵🇦 Panama</option>
+                                <option value="PG">🇵🇬 Papouasie-Nouvelle-Guinée</option>
+                                <option value="PY">🇵🇾 Paraguay</option>
+                                <option value="NL">🇳🇱 Pays-Bas / Netherlands</option>
+                                <option value="PE">🇵🇪 Pérou / Peru</option>
+                                <option value="PH">🇵🇭 Philippines</option>
+                                <option value="PL">🇵🇱 Pologne / Poland</option>
+                                <option value="PT">🇵🇹 Portugal</option>
+                                <option value="QA">🇶🇦 Qatar</option>
+                                <option value="DO">🇩🇴 République Dominicaine</option>
+                                <option value="CZ">🇨🇿 République Tchèque / Czech Republic</option>
+                                <option value="RO">🇷🇴 Roumanie / Romania</option>
+                                <option value="GB">🇬🇧 Royaume-Uni / United Kingdom</option>
+                                <option value="RU">🇷🇺 Russie / Russia</option>
+                                <option value="RW">🇷🇼 Rwanda</option>
+                                <option value="KN">🇰🇳 Saint-Christophe-et-Niévès</option>
+                                <option value="SM">🇸🇲 Saint-Marin / San Marino</option>
+                                <option value="VC">🇻🇨 Saint-Vincent-et-les-Grenadines</option>
+                                <option value="LC">🇱🇨 Sainte-Lucie</option>
+                                <option value="SB">🇸🇧 Îles Salomon</option>
+                                <option value="SV">🇸🇻 Salvador / El Salvador</option>
+                                <option value="WS">🇼🇸 Samoa</option>
+                                <option value="ST">🇸🇹 Sao Tomé-et-Principe</option>
+                                <option value="SN">🇸🇳 Sénégal / Senegal</option>
+                                <option value="RS">🇷🇸 Serbie / Serbia</option>
+                                <option value="SC">🇸🇨 Seychelles</option>
+                                <option value="SL">🇸🇱 Sierra Leone</option>
+                                <option value="SG">🇸🇬 Singapour / Singapore</option>
+                                <option value="SK">🇸🇰 Slovaquie / Slovakia</option>
+                                <option value="SI">🇸🇮 Slovénie / Slovenia</option>
+                                <option value="SO">🇸🇴 Somalie / Somalia</option>
+                                <option value="SD">🇸🇩 Soudan / Sudan</option>
+                                <option value="SS">🇸🇸 Soudan du Sud / South Sudan</option>
+                                <option value="LK">🇱🇰 Sri Lanka</option>
+                                <option value="SE">🇸🇪 Suède / Sweden</option>
+                                <option value="CH">🇨🇭 Suisse / Switzerland</option>
+                                <option value="SR">🇸🇷 Suriname</option>
+                                <option value="SY">🇸🇾 Syrie / Syria</option>
+                                <option value="TJ">🇹🇯 Tadjikistan / Tajikistan</option>
+                                <option value="TZ">🇹🇿 Tanzanie / Tanzania</option>
+                                <option value="TD">🇹🇩 Tchad / Chad</option>
+                                <option value="TH">🇹🇭 Thaïlande / Thailand</option>
+                                <option value="TL">🇹🇱 Timor oriental</option>
+                                <option value="TG">🇹🇬 Togo</option>
+                                <option value="TO">🇹🇴 Tonga</option>
+                                <option value="TT">🇹🇹 Trinité-et-Tobago</option>
+                                <option value="TN">🇹🇳 Tunisie / Tunisia</option>
+                                <option value="TM">🇹🇲 Turkménistan / Turkmenistan</option>
+                                <option value="TR">🇹🇷 Turquie / Turkey</option>
+                                <option value="TV">🇹🇻 Tuvalu</option>
+                                <option value="UA">🇺🇦 Ukraine</option>
+                                <option value="UY">🇺🇾 Uruguay</option>
+                                <option value="VU">🇻🇺 Vanuatu</option>
+                                <option value="VA">🇻🇦 Vatican</option>
+                                <option value="VE">🇻🇪 Venezuela</option>
+                                <option value="VN">🇻🇳 Vietnam</option>
+                                <option value="YE">🇾🇪 Yémen / Yemen</option>
+                                <option value="ZM">🇿🇲 Zambie / Zambia</option>
+                                <option value="ZW">🇿🇼 Zimbabwe</option>
+                            </select>
+                        </div>
+
+                        <!-- Ville -->
+                        <div class="form-group">
+                            <label for="city" class="form-label" data-i18n="form.city.label">Ville *</label>
+                            <input type="text" id="city" name="city" class="form-input" placeholder="Gatineau"
+                                data-i18n-placeholder="form.city.placeholder" required>
+                        </div>
+
+                        <!-- Code postal -->
+                        <div class="form-group">
+                            <label for="postalCode" class="form-label" data-i18n="form.postalCode.label">Code postal
+                                *</label>
+                            <input type="text" id="postalCode" name="postalCode" class="form-input"
+                                placeholder="J8X 1A1" data-i18n-placeholder="form.postalCode.placeholder" required>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group form-group-full">
+                            <label for="message" class="form-label" data-i18n="form.message.label">Message /
+                                Détails</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" rows="5"
+                                placeholder="Décrivez vos besoins spécifiques, la taille de l'espace, etc."
+                                data-i18n-placeholder="form.message.placeholder"></textarea>
+                        </div>
+
+                        <!-- Bouton de soumission -->
+                        <div class="form-group form-group-full">
+                            <button type="submit" class="btn btn-primary btn-large btn-block" data-i18n="form.submit">
+                                Envoyer la demande
+                            </button>
+                        </div>
+
+                        <!-- Message de confirmation (caché par défaut) -->
+                        <div class="form-message" id="formMessage"></div>
+
+                    </form>
+                </div>
+
+                <!-- Informations de contact -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="contact.info1.title">Téléphone</h4>
+                        <p><a href="tel:+16138053338">(613) 805-3338</a></p>
+                        <p class="info-meta" data-i18n="contact.info1.meta">Disponible 24/7</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="contact.info2.title">Email</h4>
+                        <p><a href="mailto:info@gdfpro-cleaners.com">info@gdfpro-cleaners.com</a></p>
+                        <p class="info-meta" data-i18n="contact.info2.meta">Réponse en 24h</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="contact.info3.title">Zone de service</h4>
+                        <p data-i18n="contact.info3.location">Gatineau, Ottawa</p>
+                        <p class="info-meta" data-i18n="contact.info3.meta">et environs</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h4 data-i18n="contact.info4.title">Heures d'ouverture</h4>
+                        <div id="business-hours" style="font-size: 0.9rem; line-height: 1.6;">
+                            <p style="margin: 0.25rem 0;"><strong>Lun - Ven:</strong> 8h - 20h</p>
+                            <p style="margin: 0.25rem 0;"><strong>Samedi:</strong> 8h - 16h</p>
+                            <p style="margin: 0.25rem 0;"><strong>Dimanche:</strong> 8h - 15h</p>
+                        </div>
+                        <p class="info-meta" data-i18n="contact.info4.meta">Service flexible</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         FOOTER - Pied de page avec liens et infos
+         ================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <!-- Colonne 1: À propos -->
+                <div class="footer-column">
+                    <h3 class="footer-title" style="text-transform: uppercase; font-weight: 700;">G.D.F PRO-CLEANERS
+                    </h3>
+                    <p class="footer-description" data-i18n="footer.description">
+                        Services de nettoyage professionnel écologique pour résidences,
+                        commerces et locations courte durée à Gatineau, Ottawa et environs.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne 2: Services -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-i18n="footer.services.title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" data-i18n="footer.services.residential">Nettoyage résidentiel</a></li>
+                        <li><a href="#services" data-i18n="footer.services.commercial">Nettoyage commercial</a></li>
+                        <li><a href="#services" data-i18n="footer.services.airbnb">Conciergerie & Airbnb</a></li>
+                        <li><a href="#services" data-i18n="footer.services.carpet">Nettoyage de Tapis</a></li>
+                        <li><a href="#contact" data-i18n="footer.services.quote">Demander un devis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3: Entreprise -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-i18n="footer.company.title">Entreprise</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about" data-i18n="footer.company.about">À propos</a></li>
+                        <li><a href="#process" data-i18n="footer.company.process">Notre processus</a></li>
+                        <li><a href="#contact" data-i18n="footer.company.contact">Contact</a></li>
+                        <li><a href="#home" data-i18n="footer.company.zones">Zones d'intervention</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4: Contact rapide -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-i18n="footer.contact.title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+16138053338">(613) 805-3338</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:info@gdfpro-cleaners.com">info@gdfpro-cleaners.com</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Gatineau, Ottawa, QC</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Barre de copyright -->
+            <div class="footer-bottom">
+                <p class="copyright" data-i18n="footer.copyright">
+                    © 2025 G.D.F Pro-Cleaners Inc. Tous droits réservés.
+                </p>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="legal-link" data-i18n="footer.terms">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================================================
+         BOUTON RETOUR EN HAUT - Apparaît au scroll
+         ================================================ -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Retour en haut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- ================================================
+         SCRIPTS JAVASCRIPT - Chargement en fin de page
+         ================================================ -->
+    <script src="js/script.js"></script>
+    <script>
+        // Logo slider
+        const logoImages = [
+            "assets/img/WhatsApp Image 2025-12-20 at 15.17.39.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.17.41.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.00.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.04 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.05.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.06.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.07.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.08.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.09.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.10.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.11.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.12.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (2).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (3).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (4).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13 (5).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.13.jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.14 (1).jpeg",
+            "assets/img/WhatsApp Image 2025-12-20 at 15.18.14.jpeg"
+        ];
+
+        let currentLogoIndex = 0;
+        const aboutLogoSlider = document.getElementById('aboutLogoSlider');
+
+        function changeLogoImage() {
+            currentLogoIndex = (currentLogoIndex + 1) % logoImages.length;
+            aboutLogoSlider.style.opacity = '0';
+
+            setTimeout(() => {
+                aboutLogoSlider.src = logoImages[currentLogoIndex];
+                aboutLogoSlider.style.opacity = '1';
+            }, 300);
+        }
+
+        // Change image every 3 seconds
+        setInterval(changeLogoImage, 3000);
+    </script>
+
+</body>
+
+</html>

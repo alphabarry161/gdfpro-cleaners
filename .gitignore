@@ -1,0 +1,40 @@
+# Fichiers et dossiers à ignorer pour Git
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.temp
+*~
+
+# Dossiers IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (si vous ajoutez npm plus tard)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environnement
+.env
+.env.local
+
+# Build et production
+dist/
+build/
+*.zip
+
+# Backups
+*.bak
+backup/
