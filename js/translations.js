@@ -24,7 +24,7 @@ const translations = {
         // Hero Section
         'hero.title.part1': 'Transformez vos espaces avec',
         'hero.title.part2': 'G.D.F Pro-Cleaners',
-        'hero.subtitle': 'Services de nettoyage professionnel pour résidences et commerces. Plus de 1200 clients satisfaits à Gatineau, Ottawa et environs.',
+        'hero.subtitle': 'Services de nettoyage professionnel pour résidences et commerces. Plus de 1200 clients satisfaits à Orleans, Ontario et environs.',
         'hero.btn.primary': 'Demander un devis gratuit',
         'hero.btn.secondary': 'Découvrir nos services',
         'hero.stat1.number': '1200+',
@@ -256,7 +256,7 @@ const translations = {
         'contact.info4.meta': 'Service flexible',
 
         // Footer
-        'footer.description': 'Services de nettoyage professionnel écologique pour résidences, commerces et locations courte durée à Gatineau, Ottawa et environs.',
+        'footer.description': 'Services de nettoyage professionnel écologique pour résidences, commerces et locations courte durée à Orleans, Ontario et environs.',
         'footer.services.title': 'Services',
         'footer.services.residential': 'Nettoyage résidentiel',
         'footer.services.commercial': 'Nettoyage commercial',
@@ -310,8 +310,8 @@ const translations = {
         'calc.reset': 'Réinitialiser',
 
         // Meta tags
-        'meta.description': 'G.D.F Pro-Cleaners - Services de nettoyage professionnel résidentiel et commercial à Gatineau, Ottawa et environs. Plus de 1200 clients satisfaits.',
-        'meta.title': 'G.D.F Pro-Cleaners | Nettoyage Professionnel - Gatineau & Ottawa',
+        'meta.description': 'G.D.F Pro-Cleaners - Services de nettoyage professionnel résidentiel et commercial à Orleans, Ontario et environs. Plus de 1200 clients satisfaits.',
+        'meta.title': 'G.D.F Pro-Cleaners | Nettoyage Professionnel - Orleans & Ontario',
     },
 
     en: {
@@ -326,7 +326,7 @@ const translations = {
         // Hero Section
         'hero.title.part1': 'Transform your spaces with',
         'hero.title.part2': 'G.D.F Pro-Cleaners',
-        'hero.subtitle': 'Professional cleaning services for residential and commercial spaces. Over 1200 satisfied clients in Gatineau, Ottawa and surrounding areas.',
+        'hero.subtitle': 'Professional cleaning services for residential and commercial spaces. Over 1200 satisfied clients in Orleans, Ontario and surrounding areas.',
         'hero.btn.primary': 'Get a Free Quote',
         'hero.btn.secondary': 'Discover Our Services',
         'hero.stat1.number': '1200+',
@@ -558,7 +558,7 @@ const translations = {
         'contact.info4.meta': 'Flexible Service',
 
         // Footer
-        'footer.description': 'Professional eco-friendly cleaning services for residences, businesses, and short-term rentals in Gatineau, Ottawa and surrounding areas.',
+        'footer.description': 'Professional eco-friendly cleaning services for residences, businesses, and short-term rentals in Orleans, Ontario and surrounding areas.',
         'footer.services.title': 'Services',
         'footer.services.residential': 'Residential Cleaning',
         'footer.services.commercial': 'Commercial Cleaning',
@@ -612,8 +612,8 @@ const translations = {
         'calc.reset': 'Reset',
 
         // Meta tags
-        'meta.description': 'G.D.F Pro-Cleaners - Professional residential and commercial cleaning services in Gatineau, Ottawa and surrounding areas. Over 1200 satisfied clients.',
-        'meta.title': 'G.D.F Pro-Cleaners | Professional Cleaning - Gatineau & Ottawa',
+        'meta.description': 'G.D.F Pro-Cleaners - Professional residential and commercial cleaning services in Orleans, Ontario and surrounding areas. Over 1200 satisfied clients.',
+        'meta.title': 'G.D.F Pro-Cleaners | Professional Cleaning - Orleans & Ontario',
     }
 };
 
