@@ -34,6 +34,10 @@ const translations = {
         'hero.stat3.number': '24/7',
         'hero.stat3.label': 'Service disponible',
 
+        // Gallery Section
+        'gallery.label': 'Notre Travail',
+        'gallery.title': 'Galerie d\'Images',
+
         // About Section
         'about.label': 'Qui sommes-nous',
         'about.title': 'Excellence en nettoyage depuis des années',
@@ -295,6 +299,10 @@ const translations = {
         'hero.stat2.label': 'Eco-Friendly Products',
         'hero.stat3.number': '24/7',
         'hero.stat3.label': 'Available Service',
+
+        // Gallery Section
+        'gallery.label': 'Our Work',
+        'gallery.title': 'Image Gallery',
 
         // About Section
         'about.label': 'About Us',
