@@ -23,7 +23,8 @@
                 <span data-i18n="calc.back">Retour</span>
             </a>
             <div class="logo-section">
-                <img src="assets/images/logos/logogdf.jpg" alt="G.D.F Pro-Cleaners" class="calculator-logo" style="max-width: 180px; height: auto;">
+                <img src="assets/images/logos/logogdf.jpg" alt="G.D.F Pro-Cleaners" class="calculator-logo"
+                    style="max-width: 180px; height: auto;">
                 <h1 data-i18n="calc.title">Calculateur de Devis</h1>
                 <p data-i18n="calc.subtitle">Obtenez une estimation instantanée de votre service de nettoyage</p>
             </div>
@@ -116,20 +117,20 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="kitchen" data-i18n="calc.kitchen">Cuisine</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="kitchen">−</button>
-                                <input type="number" id="kitchen" value="0" min="0" max="5" readonly>
-                                <button type="button" class="plus" data-target="kitchen">+</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
                             <label for="basement" data-i18n="calc.basement">Sous-sol</label>
                             <div class="number-input">
                                 <button type="button" class="minus" data-target="basement">−</button>
                                 <input type="number" id="basement" value="0" min="0" max="5" readonly>
                                 <button type="button" class="plus" data-target="basement">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="carpet-sqft" data-step="50">−</button>
+                                <input type="number" id="carpet-sqft" value="0" min="0" max="5000" readonly>
+                                <button type="button" class="plus" data-target="carpet-sqft" data-step="50">+</button>
                             </div>
                         </div>
                     </div>
@@ -155,11 +156,11 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="airbnb-kitchen" data-i18n="calc.kitchen">Cuisine</label>
+                            <label for="carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
                             <div class="number-input">
-                                <button type="button" class="minus" data-target="airbnb-kitchen">−</button>
-                                <input type="number" id="airbnb-kitchen" value="0" min="0" max="5" readonly>
-                                <button type="button" class="plus" data-target="airbnb-kitchen">+</button>
+                                <button type="button" class="minus" data-target="carpet-sqft" data-step="50">−</button>
+                                <input type="number" id="carpet-sqft" value="0" min="0" max="5000" readonly>
+                                <button type="button" class="plus" data-target="carpet-sqft" data-step="50">+</button>
                             </div>
                         </div>
                     </div>
@@ -167,96 +168,167 @@
                     <!-- Groupe Carpet -->
                     <div id="carpet-fields" class="service-fields" style="display: none;">
                         <div class="input-group">
-                            <label for="carpet-rooms" data-i18n="calc.roomsWithCarpet">Pièces avec tapis</label>
+                            <label for="carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
                             <div class="number-input">
-                                <button type="button" class="minus" data-target="carpet-rooms">−</button>
-                                <input type="number" id="carpet-rooms" value="0" min="0" max="10" readonly>
-                                <button type="button" class="plus" data-target="carpet-rooms">+</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="carpet-basement" data-i18n="calc.basementCarpet">Sous-sol avec tapis</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="carpet-basement">−</button>
-                                <input type="number" id="carpet-basement" value="0" min="0" max="5" readonly>
-                                <button type="button" class="plus" data-target="carpet-basement">+</button>
+                                <button type="button" class="minus" data-target="carpet-sqft" data-step="50">−</button>
+                                <input type="number" id="carpet-sqft" value="0" min="0" max="5000" readonly>
+                                <button type="button" class="plus" data-target="carpet-sqft" data-step="50">+</button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Groupe Commercial -->
-                    <div id="commercial-fields" class="service-fields" style="display: none;">
-                        <div class="input-group">
-                            <label for="square-feet" data-i18n="calc.squareFeet">Superficie (pieds carrés)</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="square-feet" data-step="100">−</button>
-                                <input type="number" id="square-feet" value="0" min="0" max="50000" step="100" readonly>
-                                <button type="button" class="plus" data-target="square-feet" data-step="100">+</button>
-                            </div>
-                            <p class="input-hint" data-i18n="calc.sqftHint">~1000-5000 pi² pour bureau moyen</p>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="frequency" data-i18n="calc.frequency">Fréquence</label>
-                            <select id="frequency" class="form-select">
-                                <option value="one-time" data-i18n="calc.oneTime">Ponctuel</option>
-                                <option value="weekly" data-i18n="calc.weekly">Hebdomadaire</option>
-                                <option value="biweekly" data-i18n="calc.biweekly">2x/semaine</option>
-                                <option value="monthly" data-i18n="calc.monthly">Mensuel</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column 3: Summary -->
-                <div class="calculator-summary">
-                    <div class="summary-card">
-                        <h2 class="summary-title" data-i18n="calc.estimate">Estimation</h2>
-
-                        <div class="summary-details">
-                            <div class="detail-row highlight">
-                                <span data-i18n="calc.serviceType">Type de service:</span>
-                                <span id="summary-service" data-i18n="calc.deepCleaning">Deep Cleaning</span>
-                            </div>
-                            <div id="summary-rooms"></div>
-                        </div>
-
-                        <div class="summary-divider"></div>
-
-                        <div class="summary-total">
-                            <div class="total-row">
-                                <span data-i18n="calc.estimatedTime">Temps estimé:</span>
-                                <span id="total-time" class="total-value">0 heure</span>
-                            </div>
-                            <div class="total-row price">
-                                <span data-i18n="calc.estimatedPrice">Prix estimé:</span>
-                                <span id="total-price" class="total-value price-value">$0 CAD</span>
-                            </div>
-                        </div>
-
-                        <div class="disclaimer">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="12" y1="16" x2="12" y2="12"></line>
-                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                            </svg>
-                            <p data-i18n="calc.disclaimer">Prix et durée approximatifs. Une évaluation précise sera
-                                fournie après inspection.</p>
-                        </div>
-
-                        <button id="continue-btn" class="continue-btn" data-i18n="calc.continueBtn">
-                            Continuer avec G.D.F Pro-Cleaners →
-                        </button>
-
-                        <button class="reset-btn" id="reset-btn" data-i18n="calc.reset">
-                            Réinitialiser
-                        </button>
+                    <div class="number-input">
+                        <button type="button" class="minus" data-target="carpet-basement">−</button>
+                        <input type="number" id="carpet-basement" value="0" min="0" max="5" readonly>
+                        <button type="button" class="plus" data-target="carpet-basement">+</button>
                     </div>
                 </div>
             </div>
+
+            <!-- Groupe Commercial -->
+            <div id="commercial-fields" class="service-fields" style="display: none;">
+                <div class="input-group">
+                    <label for="square-feet" data-i18n="calc.squareFeet">Superficie (pieds carrés)</label>
+                    <div class="number-input">
+                        <button type="button" class="minus" data-target="square-feet" data-step="100">−</button>
+                        <input type="number" id="square-feet" value="0" min="0" max="50000" step="100" readonly>
+                        <button type="button" class="plus" data-target="square-feet" data-step="100">+</button>
+                    </div>
+                    <p class="input-hint" data-i18n="calc.sqftHint">~1000-5000 pi² pour bureau moyen</p>
+                </div>
+
+                <div class="input-group">
+                    <label for="frequency" data-i18n="calc.frequency">Fréquence</label>
+                    <select id="frequency" class="form-select">
+                        <option value="one-time" data-i18n="calc.oneTime">Ponctuel</option>
+                        <option value="weekly" data-i18n="calc.weekly">Hebdomadaire</option>
+                        <option value="biweekly" data-i18n="calc.biweekly">2x/semaine</option>
+                        <option value="monthly" data-i18n="calc.monthly">Mensuel</option>
+                    </select>
+                </div>
+            </div>
         </div>
+
+        <!-- Column 3: Summary -->
+        <div class="calculator-summary">
+            <div class="summary-card">
+                <h2 class="summary-title" data-i18n="calc.estimate">Estimation</h2>
+
+                <div class="summary-details">
+                    <div class="detail-row highlight">
+                        <span data-i18n="calc.serviceType">Type de service:</span>
+                        <span id="summary-service" data-i18n="calc.deepCleaning">Deep Cleaning</span>
+                    </div>
+                    <div id="summary-rooms"></div>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <div class="total-row">
+                        <span data-i18n="calc.estimatedTime">Temps estimé:</span>
+                        <span id="total-time" class="total-value">0 heure</span>
+                    </div>
+                    <div class="total-row price">
+                        <span data-i18n="calc.estimatedPrice">Prix estimé:</span>
+                        <span id="total-price" class="total-value price-value">$0 CAD</span>
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <p data-i18n="calc.disclaimer">Prix et durée approximatifs. Une évaluation précise sera
+                        fournie après inspection.</p>
+                </div>
+
+                <button id="continue-btn" class="continue-btn" data-i18n="calc.continueBtn">
+                    Continuer avec G.D.F Pro-Cleaners →
+                </button>
+
+                <button class="reset-btn" id="reset-btn" data-i18n="calc.reset">
+                    Réinitialiser
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Pricing Summary Section -->
+    <div class="container" style="margin-top: 2rem;">
+        <div class="pricing-summary" style="background: #f8f9fa; border-radius: 12px; padding: 2rem; max-width: 800px;">
+            <h3 style="color: #1f2937; margin-bottom: 1.5rem; font-size: 1.25rem; font-weight: 600;"
+                data-i18n="calc.pricingSummary">Résumé des Prix</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <!-- Deep Cleaning -->
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h4 style="color: #dc2626; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="calc.deepCleaning">
+                        Nettoyage en Profondeur</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;" data-i18n="calc.deepBase">Prix de base:
+                        250$ CAD*</p>
+                    <ul
+                        style="margin: 0.5rem 0 0 1rem; padding: 0; list-style: disc; color: #6b7280; font-size: 0.875rem;">
+                        <li data-i18n="calc.deepBedroom">Chambre: +20$/unité</li>
+                        <li data-i18n="calc.deepBathroom">Salle de bain: +25$/unité</li>
+                        <li data-i18n="calc.deepBasement">Sous-sol: +30$/unité</li>
+                        <li data-i18n="calc.deepCarpet">Tapis: +0.25$/pi²</li>
+                    </ul>
+                </div>
+
+                <!-- Moving Cleaning -->
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h4 style="color: #dc2626; font-weight: 600; margin-bottom: 0.5rem;"
+                        data-i18n="calc.movingCleaning">Nettoyage Déménagement</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;" data-i18n="calc.movingBase">Prix de base:
+                        300$ CAD*</p>
+                    <ul
+                        style="margin: 0.5rem 0 0 1rem; padding: 0; list-style: disc; color: #6b7280; font-size: 0.875rem;">
+                        <li data-i18n="calc.movingBedroom">Chambre: +25$/unité</li>
+                        <li data-i18n="calc.movingBathroom">Salle de bain: +30$/unité</li>
+                        <li data-i18n="calc.movingBasement">Sous-sol: +35$/unité</li>
+                        <li data-i18n="calc.movingCarpet">Tapis: +0.25$/pi²</li>
+                    </ul>
+                </div>
+
+                <!-- AirBNB Cleaning -->
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h4 style="color: #dc2626; font-weight: 600; margin-bottom: 0.5rem;"
+                        data-i18n="calc.airbnbCleaning">Nettoyage AirBNB</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;" data-i18n="calc.airbnbBase">Prix de base:
+                        100$ CAD*</p>
+                    <ul
+                        style="margin: 0.5rem 0 0 1rem; padding: 0; list-style: disc; color: #6b7280; font-size: 0.875rem;">
+                        <li data-i18n="calc.airbnbBedroom">Chambre: +10$/unité</li>
+                        <li data-i18n="calc.airbnbBathroom">Salle de bain: +15$/unité</li>
+                        <li data-i18n="calc.airbnbBasement">Sous-sol: +20$/unité</li>
+                        <li data-i18n="calc.airbnbCarpet">Tapis: +0.20$/pi²</li>
+                    </ul>
+                </div>
+
+                <!-- Regular Cleaning -->
+                <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h4 style="color: #dc2626; font-weight: 600; margin-bottom: 0.5rem;"
+                        data-i18n="calc.regularCleaning">Nettoyage Régulier</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;" data-i18n="calc.regularBase">Prix de
+                        base: 120$ CAD*</p>
+                    <ul
+                        style="margin: 0.5rem 0 0 1rem; padding: 0; list-style: disc; color: #6b7280; font-size: 0.875rem;">
+                        <li data-i18n="calc.regularBedroom">Chambre: +15$/unité</li>
+                        <li data-i18n="calc.regularBathroom">Salle de bain: +20$/unité</li>
+                        <li data-i18n="calc.regularBasement">Sous-sol: +25$/unité</li>
+                        <li data-i18n="calc.regularCarpet">Tapis: +0.20$/pi²</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="margin-top: 1rem; color: #6b7280; font-size: 0.875rem; font-style: italic;"
+                data-i18n="calc.basePriceNote">*Le prix de base inclut toute la maison/appartement (cuisine, salon,
+                couloirs, etc.) sauf les chambres, salles de bain et sous-sol qui sont facturés séparément.</p>
+        </div>
+    </div>
     </div>
 
     <script src="js/translations.js"></script>

@@ -6,59 +6,53 @@
 
 // Prix basés sur le fichier Excel
 const PRICING = {
-    // Prix de base pour chaque service
+    // Prix de base pour chaque service (inclut toute la maison SAUF chambres, salles de bain, basement)
     basePrice: {
-        deep: 200,        // Deep cleaning: 200$ de base (2-3 chambres)
-        moving: 250,      // Moving/Out: 250$ de base
-        airbnb: 80,       // AirBNB: 80$ de base (studio/1 chambre)
-        regular: 100,     // Regular: 100$ de base
-        carpet: 150       // Carpet: 150$ de base
+        deep: 250,        // Deep cleaning: 250$ de base
+        moving: 300,      // Moving/Out: 300$ de base
+        airbnb: 100,      // AirBNB: 100$ de base
+        regular: 120      // Regular: 120$ de base
     },
-    // Prix additionnels par pièce
+    // Prix additionnels par pièce (chambres, salles de bain, basement seulement)
     bedrooms: {
+        deep: 20,
+        moving: 25,
+        airbnb: 10,
+        regular: 15
+    },
+    bathrooms: {
         deep: 25,
         moving: 30,
         airbnb: 15,
-        regular: 20,
-        carpet: 35
+        regular: 20
     },
-    bathrooms: {
+    basement: {
         deep: 30,
         moving: 35,
         airbnb: 20,
-        regular: 25,
-        carpet: 0
+        regular: 25
     },
-    kitchen: {
-        deep: 30,
-        moving: 40,
-        airbnb: 20,
-        regular: 25,
-        carpet: 0
-    },
-    basement: {
-        deep: 40,
-        moving: 50,
-        airbnb: 0,
-        regular: 35,
-        carpet: 50
+    // Prix pour les tapis (en $/pi²)
+    carpet: {
+        deep: 0.25,       // 0.25$ par pi²
+        moving: 0.25,     // 0.25$ par pi²
+        airbnb: 0.20,     // 0.20$ par pi²
+        regular: 0.20     // 0.20$ par pi²
     }
 };
 
 // Temps estimés (en heures) - basés sur le fichier Excel
 const TIME_ESTIMATES = {
-    deep: 4,
-    moving: 5,
-    airbnb: 1.5,
-    regular: 2,
-    carpet: 3
+    deep: 6,
+    moving: 6,
+    airbnb: 3,
+    regular: 4
 };
 
 // Temps additionnel par pièce (en minutes)
 const TIME_PER_ROOM = {
     bedroom: 30,      // 30 minutes par chambre
     bathroom: 20,     // 20 minutes par salle de bain
-    kitchen: 30,      // 30 minutes pour la cuisine
     basement: 45      // 45 minutes pour le sous-sol
 };
 
@@ -66,13 +60,10 @@ const TIME_PER_ROOM = {
 let state = {
     bedrooms: 0,
     bathrooms: 0,
-    kitchen: 0,
     basement: 0,
     'airbnb-bedrooms': 0,
     'airbnb-bathrooms': 0,
-    'airbnb-kitchen': 0,
-    'carpet-rooms': 0,
-    'carpet-basement': 0,
+    'carpet-sqft': 0,
     'square-feet': 0,
     frequency: 'one-time',
     service: 'deep'
@@ -102,13 +93,10 @@ function showFieldsForService(service) {
     // Réinitialiser l'état pour tous les champs
     state.bedrooms = 0;
     state.bathrooms = 0;
-    state.kitchen = 0;
     state.basement = 0;
     state['airbnb-bedrooms'] = 0;
     state['airbnb-bathrooms'] = 0;
-    state['airbnb-kitchen'] = 0;
-    state['carpet-rooms'] = 0;
-    state['carpet-basement'] = 0;
+    state['carpet-sqft'] = 0;
     state['square-feet'] = 0;
 
     // Afficher le groupe approprié
@@ -250,71 +238,60 @@ function calculateTotal() {
     let totalTime = 0;
 
     if (service === 'deep' || service === 'moving' || service === 'regular') {
-        // Services résidentiels - commencer avec le prix de base
-        const totalRooms = state.bedrooms + state.bathrooms + state.kitchen + state.basement;
+        // Services résidentiels - Prix de base TOUJOURS affiché (inclut la maison sauf chambres, salles de bain, basement)
+        totalPrice = PRICING.basePrice[service];
+        totalTime = TIME_ESTIMATES[service];
 
-        if (totalRooms === 0) {
-            totalPrice = 0;
-            totalTime = 0;
-        } else {
-            // Prix de base + coûts additionnels par pièce
-            totalPrice = PRICING.basePrice[service];
-            totalPrice += state.bedrooms * PRICING.bedrooms[service];
-            totalPrice += state.bathrooms * PRICING.bathrooms[service];
-            totalPrice += state.kitchen * PRICING.kitchen[service];
-            totalPrice += state.basement * PRICING.basement[service];
+        // Ajouter les coûts additionnels seulement pour chambres, salles de bain et basement
+        totalPrice += state.bedrooms * PRICING.bedrooms[service];
+        totalPrice += state.bathrooms * PRICING.bathrooms[service];
+        totalPrice += state.basement * PRICING.basement[service];
 
-            // Temps estimé: temps de base + temps additionnel par pièce
-            let additionalTime = 0;
-            additionalTime += state.bedrooms * TIME_PER_ROOM.bedroom;
-            additionalTime += state.bathrooms * TIME_PER_ROOM.bathroom;
-            if (state.kitchen > 0) additionalTime += TIME_PER_ROOM.kitchen;
-            if (state.basement > 0) additionalTime += TIME_PER_ROOM.basement;
-            
-            totalTime = TIME_ESTIMATES[service] + (additionalTime / 60); // Convertir minutes en heures
+        // Temps additionnel par pièce
+        let additionalTime = 0;
+        additionalTime += state.bedrooms * TIME_PER_ROOM.bedroom;
+        additionalTime += state.bathrooms * TIME_PER_ROOM.bathroom;
+        if (state.basement > 0) additionalTime += TIME_PER_ROOM.basement;
+
+        totalTime += (additionalTime / 60); // Convertir minutes en heures
+
+        // Ajouter le coût des tapis si applicable
+        if (state['carpet-sqft'] > 0) {
+            totalPrice += state['carpet-sqft'] * PRICING.carpet[service];
         }
+
     } else if (service === 'airbnb') {
-        // AirBNB (pas de sous-sol)
-        const totalRooms = state['airbnb-bedrooms'] + state['airbnb-bathrooms'] + state['airbnb-kitchen'];
+        // AirBNB - Prix de base TOUJOURS affiché
+        totalPrice = PRICING.basePrice.airbnb;
+        totalTime = TIME_ESTIMATES.airbnb;
 
-        if (totalRooms === 0) {
-            totalPrice = 0;
-            totalTime = 0;
-        } else {
-            // Prix de base + coûts additionnels
-            totalPrice = PRICING.basePrice.airbnb;
-            totalPrice += state['airbnb-bedrooms'] * PRICING.bedrooms.airbnb;
-            totalPrice += state['airbnb-bathrooms'] * PRICING.bathrooms.airbnb;
-            totalPrice += state['airbnb-kitchen'] * PRICING.kitchen.airbnb;
+        // Ajouter les coûts additionnels
+        totalPrice += state['airbnb-bedrooms'] * PRICING.bedrooms.airbnb;
+        totalPrice += state['airbnb-bathrooms'] * PRICING.bathrooms.airbnb;
 
-            // Temps estimé: temps de base + temps additionnel
-            let additionalTime = 0;
-            additionalTime += state['airbnb-bedrooms'] * TIME_PER_ROOM.bedroom;
-            additionalTime += state['airbnb-bathrooms'] * TIME_PER_ROOM.bathroom;
-            if (state['airbnb-kitchen'] > 0) additionalTime += TIME_PER_ROOM.kitchen;
-            
-            totalTime = TIME_ESTIMATES.airbnb + (additionalTime / 60);
+        // Temps additionnel
+        let additionalTime = 0;
+        additionalTime += state['airbnb-bedrooms'] * TIME_PER_ROOM.bedroom;
+        additionalTime += state['airbnb-bathrooms'] * TIME_PER_ROOM.bathroom;
+
+        totalTime += (additionalTime / 60);
+
+        // Ajouter le coût des tapis si applicable
+        if (state['carpet-sqft'] > 0) {
+            totalPrice += state['carpet-sqft'] * PRICING.carpet.airbnb;
         }
+
     } else if (service === 'carpet') {
-        // Nettoyage de tapis
-        const totalRooms = state['carpet-rooms'] + state['carpet-basement'];
-
-        if (totalRooms === 0) {
+        // Nettoyage de tapis SEULEMENT - basé sur pieds carrés
+        if (state['carpet-sqft'] === 0) {
             totalPrice = 0;
             totalTime = 0;
         } else {
-            // Prix de base + coûts additionnels
-            totalPrice = PRICING.basePrice.carpet;
-            totalPrice += state['carpet-rooms'] * PRICING.bedrooms.carpet;
-            totalPrice += state['carpet-basement'] * PRICING.basement.carpet;
-
-            // Temps estimé: temps de base + temps additionnel
-            let additionalTime = 0;
-            additionalTime += state['carpet-rooms'] * TIME_PER_ROOM.bedroom;
-            if (state['carpet-basement'] > 0) additionalTime += TIME_PER_ROOM.basement;
-            
-            totalTime = TIME_ESTIMATES.carpet + (additionalTime / 60);
+            // Utiliser le prix de deep cleaning comme base pour tapis seul
+            totalPrice = state['carpet-sqft'] * 0.25;
+            totalTime = 2 + (state['carpet-sqft'] / 200) * 0.5; // Temps basé sur superficie
         }
+
     } else if (service === 'commercial') {
         // Commercial - basé sur pieds carrés
         const sqft = state['square-feet'];
@@ -359,10 +336,14 @@ function updateCalculation() {
 
     // Construire le résumé des pièces selon le type de service
     let summaryHTML = '';
+    const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
 
     if (service === 'deep' || service === 'moving' || service === 'regular') {
-        const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
         summaryHTML = `
+            <div class="detail-row">
+                <span>${currentLang === 'fr' ? 'Prix de base' : 'Base Price'}:</span>
+                <span>$${PRICING.basePrice[service]}</span>
+            </div>
             <div class="detail-row">
                 <span>${currentLang === 'fr' ? 'Chambres' : 'Bedrooms'}:</span>
                 <span>${state.bedrooms}</span>
@@ -372,17 +353,25 @@ function updateCalculation() {
                 <span>${state.bathrooms}</span>
             </div>
             <div class="detail-row">
-                <span>${currentLang === 'fr' ? 'Cuisine' : 'Kitchen'}:</span>
-                <span>${state.kitchen}</span>
-            </div>
-            <div class="detail-row">
                 <span>${currentLang === 'fr' ? 'Sous-sol' : 'Basement'}:</span>
                 <span>${state.basement}</span>
             </div>
         `;
+
+        if (state['carpet-sqft'] > 0) {
+            summaryHTML += `
+                <div class="detail-row">
+                    <span>${currentLang === 'fr' ? 'Tapis' : 'Carpet'}:</span>
+                    <span>${state['carpet-sqft']} pi²</span>
+                </div>
+            `;
+        }
     } else if (service === 'airbnb') {
-        const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
         summaryHTML = `
+            <div class="detail-row">
+                <span>${currentLang === 'fr' ? 'Prix de base' : 'Base Price'}:</span>
+                <span>$${PRICING.basePrice.airbnb}</span>
+            </div>
             <div class="detail-row">
                 <span>${currentLang === 'fr' ? 'Chambres' : 'Bedrooms'}:</span>
                 <span>${state['airbnb-bedrooms']}</span>
@@ -391,25 +380,24 @@ function updateCalculation() {
                 <span>${currentLang === 'fr' ? 'Salles de bain' : 'Bathrooms'}:</span>
                 <span>${state['airbnb-bathrooms']}</span>
             </div>
-            <div class="detail-row">
-                <span>${currentLang === 'fr' ? 'Cuisine' : 'Kitchen'}:</span>
-                <span>${state['airbnb-kitchen']}</span>
-            </div>
         `;
+
+        if (state['carpet-sqft'] > 0) {
+            summaryHTML += `
+                <div class="detail-row">
+                    <span>${currentLang === 'fr' ? 'Tapis' : 'Carpet'}:</span>
+                    <span>${state['carpet-sqft']} pi²</span>
+                </div>
+            `;
+        }
     } else if (service === 'carpet') {
-        const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
         summaryHTML = `
             <div class="detail-row">
-                <span>${currentLang === 'fr' ? 'Pièces avec tapis' : 'Rooms with Carpet'}:</span>
-                <span>${state['carpet-rooms']}</span>
-            </div>
-            <div class="detail-row">
-                <span>${currentLang === 'fr' ? 'Sous-sol avec tapis' : 'Basement with Carpet'}:</span>
-                <span>${state['carpet-basement']}</span>
+                <span>${currentLang === 'fr' ? 'Tapis (pieds carrés)' : 'Carpet (sq ft)'}:</span>
+                <span>${state['carpet-sqft']} pi²</span>
             </div>
         `;
     } else if (service === 'commercial') {
-        const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
         const freqNames = {
             'one-time': { fr: 'Ponctuel', en: 'One-time' },
             'weekly': { fr: 'Hebdomadaire', en: 'Weekly' },
