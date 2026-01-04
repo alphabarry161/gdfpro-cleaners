@@ -129,23 +129,34 @@ function initializeCalculator() {
                 return;
             }
 
-            const currentValue = parseInt(input.value) || 0;
-            const max = parseInt(input.max);
-            const min = parseInt(input.min);
-            const step = parseInt(this.dataset.step) || 1;
+            const currentValue = parseFloat(input.value) || 0;
+            const max = parseFloat(input.max);
+            const min = parseFloat(input.min);
+            const step = parseFloat(this.dataset.step) || 1;
 
             console.log('Button clicked:', this.classList.contains('plus') ? 'plus' : 'minus', 'target:', target, 'current:', currentValue);
 
             if (this.classList.contains('plus') && currentValue < max) {
-                input.value = currentValue + step;
-                state[target] = currentValue + step;
+                const newValue = Math.round((currentValue + step) * 10) / 10; // Round to 1 decimal
+                input.value = newValue;
+                state[target] = newValue;
                 console.log('Updated state[' + target + '] to', state[target]);
             } else if (this.classList.contains('minus') && currentValue > min) {
-                input.value = currentValue - step;
-                state[target] = currentValue - step;
+                const newValue = Math.round((currentValue - step) * 10) / 10; // Round to 1 decimal
+                input.value = newValue;
+                state[target] = newValue;
                 console.log('Updated state[' + target + '] to', state[target]);
             }
 
+            updateCalculation();
+        });
+    });
+
+    // Écouter les changements manuels dans tous les champs input number
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.addEventListener('input', function () {
+            const value = parseFloat(this.value) || 0;
+            state[this.id] = value;
             updateCalculation();
         });
     });

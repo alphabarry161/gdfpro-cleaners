@@ -133,18 +133,28 @@ body {
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 400px;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: var(--spacing-xl);
+    align-items: start;
 }
 
 /* Section Styles */
+.calculator-section {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
 .section-title {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-md);
     border-bottom: 3px solid var(--primary-color);
+    text-align: center;
 }
 
 /* Input Groups */
@@ -165,18 +175,24 @@ body {
     align-items: center;
     gap: var(--spacing-sm);
     background-color: var(--bg-light);
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
     border-radius: var(--radius-md);
     border: 2px solid var(--border-color);
+    transition: border-color var(--transition-fast);
+}
+
+.number-input:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .number-input button {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border: none;
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     color: white;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
@@ -184,11 +200,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: var(--shadow-sm);
 }
 
 .number-input button:hover {
-    background-color: var(--primary-light);
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .number-input button:active {
@@ -200,9 +217,11 @@ body {
     text-align: center;
     font-size: 1.25rem;
     font-weight: 600;
-    border: none;
-    background: transparent;
     color: var(--text-primary);
+    background: transparent;
+    border: none;
+    outline: none;
+    min-width: 60px;
 }
 
 .input-hint {
