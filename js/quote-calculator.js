@@ -58,11 +58,14 @@ const TIME_PER_ROOM = {
 
 // État global
 let state = {
+    'carpet-sqft-carpet': 0,
     bedrooms: 0,
     bathrooms: 0,
     basement: 0,
     'airbnb-bedrooms': 0,
     'airbnb-bathrooms': 0,
+    'airbnb-basement': 0,
+    'airbnb-carpet-sqft': 0,
     'carpet-sqft': 0,
     'square-feet': 0,
     frequency: 'one-time',
@@ -130,8 +133,8 @@ function initializeCalculator() {
             }
 
             const currentValue = parseFloat(input.value) || 0;
-            const max = parseFloat(input.max);
-            const min = parseFloat(input.min);
+            const max = parseFloat(input.max) || Infinity;
+            const min = parseFloat(input.min) || 0;
             const step = parseFloat(this.dataset.step) || 1;
 
             console.log('Button clicked:', this.classList.contains('plus') ? 'plus' : 'minus', 'target:', target, 'current:', currentValue);
@@ -277,30 +280,33 @@ function calculateTotal() {
         totalTime = TIME_ESTIMATES.airbnb;
 
         // Ajouter les coûts additionnels
-        totalPrice += state['airbnb-bedrooms'] * PRICING.bedrooms.airbnb;
-        totalPrice += state['airbnb-bathrooms'] * PRICING.bathrooms.airbnb;
+        totalPrice += (state['airbnb-bedrooms'] || 0) * PRICING.bedrooms.airbnb;
+        totalPrice += (state['airbnb-bathrooms'] || 0) * PRICING.bathrooms.airbnb;
+        totalPrice += (state['airbnb-basement'] || 0) * PRICING.basement.airbnb;
 
         // Temps additionnel
         let additionalTime = 0;
-        additionalTime += state['airbnb-bedrooms'] * TIME_PER_ROOM.bedroom;
-        additionalTime += state['airbnb-bathrooms'] * TIME_PER_ROOM.bathroom;
+        additionalTime += (state['airbnb-bedrooms'] || 0) * TIME_PER_ROOM.bedroom;
+        additionalTime += (state['airbnb-bathrooms'] || 0) * TIME_PER_ROOM.bathroom;
+        if ((state['airbnb-basement'] || 0) > 0) additionalTime += TIME_PER_ROOM.basement;
 
         totalTime += (additionalTime / 60);
 
         // Ajouter le coût des tapis si applicable
-        if (state['carpet-sqft'] > 0) {
-            totalPrice += state['carpet-sqft'] * PRICING.carpet.airbnb;
+        if ((state['airbnb-carpet-sqft'] || 0) > 0) {
+            totalPrice += (state['airbnb-carpet-sqft'] || 0) * PRICING.carpet.airbnb;
         }
 
     } else if (service === 'carpet') {
         // Nettoyage de tapis SEULEMENT - basé sur pieds carrés
-        if (state['carpet-sqft'] === 0) {
+        const carpetSqft = state['carpet-sqft-carpet'] || 0;
+        if (carpetSqft === 0) {
             totalPrice = 0;
             totalTime = 0;
         } else {
             // Utiliser le prix de deep cleaning comme base pour tapis seul
-            totalPrice = state['carpet-sqft'] * 0.25;
-            totalTime = 2 + (state['carpet-sqft'] / 200) * 0.5; // Temps basé sur superficie
+            totalPrice = carpetSqft * 0.25;
+            totalTime = 2 + (carpetSqft / 200) * 0.5; // Temps basé sur superficie
         }
 
     } else if (service === 'commercial') {
@@ -391,13 +397,17 @@ function updateCalculation() {
                 <span>${currentLang === 'fr' ? 'Salles de bain' : 'Bathrooms'}:</span>
                 <span>${state['airbnb-bathrooms']}</span>
             </div>
+            <div class="detail-row">
+                <span>${currentLang === 'fr' ? 'Sous-sol' : 'Basement'}:</span>
+                <span>${state['airbnb-basement'] || 0}</span>
+            </div>
         `;
 
-        if (state['carpet-sqft'] > 0) {
+        if ((state['airbnb-carpet-sqft'] || 0) > 0) {
             summaryHTML += `
                 <div class="detail-row">
                     <span>${currentLang === 'fr' ? 'Tapis' : 'Carpet'}:</span>
-                    <span>${state['carpet-sqft']} pi²</span>
+                    <span>${state['airbnb-carpet-sqft']} pi²</span>
                 </div>
             `;
         }
@@ -405,7 +415,7 @@ function updateCalculation() {
         summaryHTML = `
             <div class="detail-row">
                 <span>${currentLang === 'fr' ? 'Tapis (pieds carrés)' : 'Carpet (sq ft)'}:</span>
-                <span>${state['carpet-sqft']} pi²</span>
+                <span>${state['carpet-sqft-carpet'] || 0} pi²</span>
             </div>
         `;
     } else if (service === 'commercial') {

@@ -156,11 +156,22 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
+                            <label for="airbnb-basement" data-i18n="calc.basement">Sous-sol</label>
                             <div class="number-input">
-                                <button type="button" class="minus" data-target="carpet-sqft" data-step="0.5">−</button>
-                                <input type="number" id="carpet-sqft" value="0" min="0" max="5000" step="0.5">
-                                <button type="button" class="plus" data-target="carpet-sqft" data-step="0.5">+</button>
+                                <button type="button" class="minus" data-target="airbnb-basement">−</button>
+                                <input type="number" id="airbnb-basement" value="0" min="0" max="5" readonly>
+                                <button type="button" class="plus" data-target="airbnb-basement">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="airbnb-carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="airbnb-carpet-sqft"
+                                    data-step="0.5">−</button>
+                                <input type="number" id="airbnb-carpet-sqft" value="0" min="0" max="5000" step="0.5">
+                                <button type="button" class="plus" data-target="airbnb-carpet-sqft"
+                                    data-step="0.5">+</button>
                             </div>
                         </div>
                     </div>
@@ -178,20 +189,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="number-input">
-                        <button type="button" class="minus" data-target="carpet-basement">−</button>
-                        <input type="number" id="carpet-basement" value="0" min="0" max="5" readonly>
-                        <button type="button" class="plus" data-target="carpet-basement">+</button>
-                    </div>
 
                     <!-- Groupe Commercial -->
                     <div id="commercial-fields" class="service-fields" style="display: none;">
                         <div class="input-group">
                             <label for="square-feet" data-i18n="calc.squareFeet">Superficie (pieds carrés)</label>
                             <div class="number-input">
-                                <button type="button" class="minus" data-target="square-feet" data-step="100">−</button>
-                                <input type="number" id="square-feet" value="0" min="0" max="50000" step="100" readonly>
-                                <button type="button" class="plus" data-target="square-feet" data-step="100">+</button>
+                                <button type="button" class="minus" data-target="square-feet" data-step="0.5">−</button>
+                                <input type="number" id="square-feet" value="0" min="0" step="0.5">
+                                <button type="button" class="plus" data-target="square-feet" data-step="0.5">+</button>
                             </div>
                             <p class="input-hint" data-i18n="calc.sqftHint">~1000-5000 pi² pour bureau moyen</p>
                         </div>
