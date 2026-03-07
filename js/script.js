@@ -334,6 +334,18 @@ function validateForm(formData) {
         errors.push('Veuillez sélectionner une fréquence');
     }
 
+    if (!formData.country) {
+        errors.push('Veuillez sélectionner un pays');
+    }
+
+    if (!formData.city || formData.city.trim().length < 2) {
+        errors.push('Veuillez entrer une ville valide');
+    }
+
+    if (!formData.postalCode || formData.postalCode.trim().length < 3) {
+        errors.push('Veuillez entrer un code postal valide');
+    }
+
     return {
         isValid: errors.length === 0,
         errors: errors
@@ -368,6 +380,10 @@ function showFormMessage(message, type = 'success') {
  * Gestion de la soumission du formulaire de contact
  */
 if (contactForm) {
+    // Gère la validation côté JS pour éviter que le navigateur bloque silencieusement le submit
+    // (ex: champs required non remplis => aucun handler JS déclenché)
+    contactForm.setAttribute('novalidate', 'novalidate');
+
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -378,8 +394,12 @@ if (contactForm) {
             fullName: document.getElementById('fullName').value,
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
-            address: document.getElementById('address').value,
-            message: document.getElementById('message').value
+            country: document.getElementById('country').value,
+            countryLabel: document.getElementById('country').selectedOptions?.[0]?.textContent || '',
+            city: document.getElementById('city').value,
+            postalCode: document.getElementById('postalCode').value,
+            message: document.getElementById('message').value,
+            lang: currentLanguage
         };
 
         // Validation du formulaire
@@ -396,18 +416,16 @@ if (contactForm) {
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
         submitButton.disabled = true;
-        submitButton.textContent = 'Envoi en cours...';
+        submitButton.textContent = currentLanguage === 'en' ? 'Sending...' : 'Envoi en cours...';
 
         try {
-            // Simulation d'envoi de formulaire (à remplacer par un vrai appel API)
-            // Dans un environnement de production, vous devriez envoyer les données
-            // à un serveur backend ou utiliser un service comme Formspree, EmailJS, etc.
-
             await simulateFormSubmission(formData);
 
             // Affiche le message de succès
             showFormMessage(
-                'Merci pour votre demande ! Nous vous contactons dans les 24 heures.',
+                currentLanguage === 'en'
+                    ? 'Thanks! We received your request and will contact you within 24 hours.'
+                    : 'Merci pour votre demande ! Nous vous contactons dans les 24 heures.',
                 'success'
             );
 
@@ -418,7 +436,9 @@ if (contactForm) {
             // Gestion des erreurs
             console.error('Erreur lors de l\'envoi du formulaire:', error);
             showFormMessage(
-                'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.',
+                currentLanguage === 'en'
+                    ? 'An error occurred. Please try again or contact us by phone.'
+                    : 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.',
                 'error'
             );
         } finally {
@@ -435,26 +455,25 @@ if (contactForm) {
  * @returns {Promise}
  */
 function simulateFormSubmission(data) {
-    return new Promise((resolve) => {
-        // Log les données pour le développement
-        console.log('Données du formulaire:', data);
+    return fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(async (response) => {
+        const payload = await response.json().catch(() => ({}));
 
-        // Simule un délai réseau
-        setTimeout(() => {
-            resolve({ success: true });
-        }, 1500);
+        if (!response.ok) {
+            const message = payload && payload.error
+                ? payload.error
+                : 'Request failed';
+            const err = new Error(message);
+            err.details = payload;
+            throw err;
+        }
 
-        // Dans un environnement de production, remplacer par :
-        /*
-        return fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json());
-        */
+        return payload;
     });
 }
 

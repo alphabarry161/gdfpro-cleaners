@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Site web professionnel pour G.D.F Pro-Cleaners - Services de nettoyage résidentiel et commercial",
     "main": "index.html",
+    "dependencies": {
+        "nodemailer": "^8.0.1"
+    },
     "scripts": {
         "start": "python3 -m http.server 8000",
         "dev": "python3 -m http.server 8000"

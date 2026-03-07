@@ -143,7 +143,21 @@ Les informations suivantes sont configurées dans le site :
 
 ## 🔐 Configuration du formulaire de contact
 
-Le formulaire est actuellement en mode "simulation". Pour l'activer en production :
+Le formulaire est maintenant connecté à une API Vercel `/api/contact` qui :
+
+- envoie un **accusé de réception** au client
+- envoie la **demande complète** à `gdfprocleaners@gmail.com`
+
+### Variables d'environnement (Vercel)
+
+Sur Vercel, ajoutez ces variables d'environnement (Project Settings → Environment Variables) :
+
+- `GDF_GMAIL_USER` : `gdfprocleaners@gmail.com`
+- `GDF_GMAIL_APP_PASSWORD` : mot de passe d'application Gmail
+
+> Gmail nécessite généralement un **mot de passe d'application** (pas votre mot de passe normal), et l'adresse d'envoi doit correspondre à l'utilisateur SMTP.
+
+### Alternative (sans backend)
 
 ### Option 1 : EmailJS (gratuit, facile)
 1. Créez un compte sur [EmailJS](https://www.emailjs.com/)
