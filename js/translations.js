@@ -22,17 +22,20 @@ const translations = {
         'nav.cta': 'Demander un devis',
 
         // Hero Section
-        'hero.title.part1': 'Transformez vos espaces avec',
+        'hero.title.part1': 'Services de nettoyage',
         'hero.title.part2': 'G.D.F Pro-Cleaners',
-        'hero.subtitle': 'Services de nettoyage professionnel pour résidences et commerces. Plus de 1200 clients satisfaits à Orleans, Ontario et environs.',
-        'hero.btn.primary': 'Demander un devis gratuit',
-        'hero.btn.secondary': 'Découvrir nos services',
+        'hero.subtitle': 'Nettoyage résidentiel et commercial à Orléans (Ontario) et environs.',
+        'hero.btn.primary': 'Demander un devis',
+        'hero.btn.secondary': 'Voir les services',
         'hero.stat1.number': '1200+',
         'hero.stat1.label': 'Clients satisfaits',
         'hero.stat2.number': '100%',
         'hero.stat2.label': 'Produits écologiques',
         'hero.stat3.number': '24/7',
         'hero.stat3.label': 'Service disponible',
+
+        // UI
+        'ui.scrollTop': 'Haut',
 
         // Gallery Section
         'gallery.label': 'Notre Travail',
@@ -80,7 +83,7 @@ const translations = {
 
         // Service 3: Airbnb
         'service3.title': 'Conciergerie & Airbnb',
-        'service3.desc': 'Service clé en main pour vos locations courte durée. Offrez une expérience 5 étoiles à vos voyageurs.',
+        'service3.desc': 'Service clé en main pour vos locations courte durée.',
         'service3.item1': 'Nettoyage complet entre chaque séjour',
         'service3.item2': 'Mise en place de la literie',
         'service3.item3': 'Vérification et réapprovisionnement',
@@ -152,28 +155,28 @@ const translations = {
 
         'process.step1.title': 'Demande de devis',
         'process.step1.desc': 'Contactez-nous par téléphone, email ou formulaire. Nous discutons de vos besoins spécifiques et établissons un devis gratuit.',
-        'process.step1.meta1': '⏱️ Réponse en 24h',
-        'process.step1.meta2': '📋 Devis détaillé',
+        'process.step1.meta1': 'Réponse en 24h',
+        'process.step1.meta2': 'Devis détaillé',
 
         'process.step2.title': 'Planification',
         'process.step2.desc': 'Une fois le devis accepté, nous planifions l\'intervention selon votre disponibilité et vos préférences.',
-        'process.step2.meta1': '📅 Horaires flexibles',
-        'process.step2.meta2': '✅ Confirmation rapide',
+        'process.step2.meta1': 'Horaires flexibles',
+        'process.step2.meta2': 'Confirmation rapide',
 
         'process.step3.title': 'Intervention professionnelle',
         'process.step3.desc': 'Notre équipe qualifiée se présente à l\'heure prévue avec tout le matériel et les produits nécessaires pour un nettoyage impeccable.',
-        'process.step3.meta1': '👥 Équipe formée',
-        'process.step3.meta2': '🧴 Produits écologiques',
+        'process.step3.meta1': 'Équipe formée',
+        'process.step3.meta2': 'Produits écologiques',
 
         'process.step4.title': 'Contrôle qualité',
         'process.step4.desc': 'Nous vérifions minutieusement le travail effectué et nous assurons de votre satisfaction complète avant de partir.',
-        'process.step4.meta1': '⭐ Satisfaction garantie',
-        'process.step4.meta2': '🔄 Retouches gratuites',
+        'process.step4.meta1': 'Satisfaction',
+        'process.step4.meta2': 'Retouches si nécessaire',
 
         // Contact Section
         'contact.label': 'Contactez-nous',
-        'contact.title': 'Prêt à transformer vos espaces ?',
-        'contact.description': 'Demandez votre devis gratuit dès aujourd\'hui et découvrez l\'excellence du service G.D.F Pro-Cleaners.',
+        'contact.title': 'Demander un devis',
+        'contact.description': 'Écrivez-nous et nous vous recontactons rapidement.',
 
         'form.serviceType.label': 'Type de service *',
         'form.serviceType.placeholder': 'Sélectionnez un service',
@@ -190,19 +193,19 @@ const translations = {
         'form.frequency.monthly': 'Mensuel',
 
         'form.fullName.label': 'Nom complet *',
-        'form.fullName.placeholder': 'Jean Dupont',
+        'form.fullName.placeholder': 'Votre nom',
         'form.email.label': 'Email *',
-        'form.email.placeholder': 'jean.dupont@example.com',
+        'form.email.placeholder': 'nom@exemple.com',
         'form.phone.label': 'Téléphone *',
-        'form.phone.placeholder': '(613) 123-4567',
+        'form.phone.placeholder': '819 555-1234',
         'form.country.label': 'Pays *',
         'form.country.placeholder': 'Sélectionnez un pays',
         'form.city.label': 'Ville *',
-        'form.city.placeholder': 'Gatineau',
+        'form.city.placeholder': 'Orléans',
         'form.postalCode.label': 'Code postal *',
-        'form.postalCode.placeholder': 'J8X 1A1',
+        'form.postalCode.placeholder': 'K1C 0A1',
         'form.message.label': 'Message / Détails',
-        'form.message.placeholder': 'Décrivez vos besoins spécifiques, la taille de l\'espace, etc.',
+        'form.message.placeholder': 'Décrivez brièvement vos besoins (type de lieu, fréquence, détails utiles).',
         'form.submit': 'Envoyer la demande',
         'form.success': 'Merci pour votre demande ! Nous vous contactons dans les 24 heures.',
         'form.error': 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.',
@@ -333,7 +336,7 @@ const translations = {
         'calc.basePriceNote': '*Le prix de base inclut toute la maison/appartement (cuisine, salon, couloirs, etc.) sauf les chambres, salles de bain et sous-sol qui sont facturés séparément.',
 
         // Meta tags
-        'meta.description': 'G.D.F Pro-Cleaners - Services de nettoyage professionnel résidentiel et commercial à Orleans, Ontario et environs. Plus de 1200 clients satisfaits.',
+        'meta.description': 'G.D.F Pro-Cleaners - Services de nettoyage résidentiel et commercial à Orléans, Ontario et environs.',
         'meta.title': 'G.D.F Pro-Cleaners | Nettoyage Professionnel - Orleans & Ontario',
     },
 
@@ -347,17 +350,20 @@ const translations = {
         'nav.cta': 'Get a Quote',
 
         // Hero Section
-        'hero.title.part1': 'Transform your spaces with',
+        'hero.title.part1': 'Cleaning services',
         'hero.title.part2': 'G.D.F Pro-Cleaners',
-        'hero.subtitle': 'Professional cleaning services for residential and commercial spaces. Over 1200 satisfied clients in Orleans, Ontario and surrounding areas.',
-        'hero.btn.primary': 'Get a Free Quote',
-        'hero.btn.secondary': 'Discover Our Services',
+        'hero.subtitle': 'Residential and commercial cleaning in Orléans (Ontario) and surrounding areas.',
+        'hero.btn.primary': 'Request a quote',
+        'hero.btn.secondary': 'View services',
         'hero.stat1.number': '1200+',
         'hero.stat1.label': 'Satisfied Clients',
         'hero.stat2.number': '100%',
         'hero.stat2.label': 'Eco-Friendly Products',
         'hero.stat3.number': '24/7',
         'hero.stat3.label': 'Available Service',
+
+        // UI
+        'ui.scrollTop': 'Top',
 
         // Gallery Section
         'gallery.label': 'Our Work',
@@ -405,7 +411,7 @@ const translations = {
 
         // Service 3: Airbnb
         'service3.title': 'Concierge & Airbnb',
-        'service3.desc': 'Turnkey service for your short-term rentals. Offer a 5-star experience to your travelers.',
+        'service3.desc': 'Turnkey service for your short-term rentals.',
         'service3.item1': 'Complete cleaning between each stay',
         'service3.item2': 'Linen setup',
         'service3.item3': 'Inspection and restocking',
@@ -477,28 +483,28 @@ const translations = {
 
         'process.step1.title': 'Quote Request',
         'process.step1.desc': 'Contact us by phone, email, or form. We discuss your specific needs and provide a free quote.',
-        'process.step1.meta1': '⏱️ 24h Response',
-        'process.step1.meta2': '📋 Detailed Quote',
+        'process.step1.meta1': '24h response',
+        'process.step1.meta2': 'Detailed quote',
 
         'process.step2.title': 'Scheduling',
         'process.step2.desc': 'Once the quote is accepted, we schedule the intervention according to your availability and preferences.',
-        'process.step2.meta1': '📅 Flexible Hours',
-        'process.step2.meta2': '✅ Quick Confirmation',
+        'process.step2.meta1': 'Flexible hours',
+        'process.step2.meta2': 'Quick confirmation',
 
         'process.step3.title': 'Professional Intervention',
         'process.step3.desc': 'Our qualified team arrives on time with all necessary equipment and products for impeccable cleaning.',
-        'process.step3.meta1': '👥 Trained Team',
-        'process.step3.meta2': '🧴 Eco-Friendly Products',
+        'process.step3.meta1': 'Trained team',
+        'process.step3.meta2': 'Eco-friendly products',
 
         'process.step4.title': 'Quality Control',
         'process.step4.desc': 'We thoroughly verify the work done and ensure your complete satisfaction before leaving.',
-        'process.step4.meta1': '⭐ Satisfaction Guaranteed',
-        'process.step4.meta2': '🔄 Free Touch-ups',
+        'process.step4.meta1': 'Satisfaction',
+        'process.step4.meta2': 'Touch-ups if needed',
 
         // Contact Section
         'contact.label': 'Contact Us',
-        'contact.title': 'Ready to Transform Your Spaces?',
-        'contact.description': 'Request your free quote today and discover the excellence of G.D.F Pro-Cleaners service.',
+        'contact.title': 'Request a quote',
+        'contact.description': 'Send us a message and we will get back to you quickly.',
 
         'form.serviceType.label': 'Service Type *',
         'form.serviceType.placeholder': 'Select a service',
@@ -515,19 +521,19 @@ const translations = {
         'form.frequency.monthly': 'Monthly',
 
         'form.fullName.label': 'Full Name *',
-        'form.fullName.placeholder': 'John Smith',
+        'form.fullName.placeholder': 'Your name',
         'form.email.label': 'Email *',
-        'form.email.placeholder': 'john.smith@example.com',
+        'form.email.placeholder': 'name@example.com',
         'form.phone.label': 'Phone *',
-        'form.phone.placeholder': '(613) 123-4567',
+        'form.phone.placeholder': '613 555-1234',
         'form.country.label': 'Country *',
         'form.country.placeholder': 'Select a country',
         'form.city.label': 'City *',
-        'form.city.placeholder': 'Gatineau',
+        'form.city.placeholder': 'Orléans',
         'form.postalCode.label': 'Postal Code *',
-        'form.postalCode.placeholder': 'J8X 1A1',
+        'form.postalCode.placeholder': 'K1C 0A1',
         'form.message.label': 'Message / Details',
-        'form.message.placeholder': 'Describe your specific needs, space size, etc.',
+        'form.message.placeholder': 'Briefly describe your needs (place type, frequency, helpful details).',
         'form.submit': 'Send Request',
         'form.success': 'Thank you for your request! We will contact you within 24 hours.',
         'form.error': 'An error occurred. Please try again or contact us directly by phone.',
@@ -658,7 +664,7 @@ const translations = {
         'calc.basePriceNote': '*Base price includes the entire house/apartment (kitchen, living room, hallways, etc.) except bedrooms, bathrooms, and basement which are billed separately.',
 
         // Meta tags
-        'meta.description': 'G.D.F Pro-Cleaners - Professional residential and commercial cleaning services in Orleans, Ontario and surrounding areas. Over 1200 satisfied clients.',
+        'meta.description': 'G.D.F Pro-Cleaners - Residential and commercial cleaning services in Orléans, Ontario and surrounding areas.',
         'meta.title': 'G.D.F Pro-Cleaners | Professional Cleaning - Orleans & Ontario',
     }
 };

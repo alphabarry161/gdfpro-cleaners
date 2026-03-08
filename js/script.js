@@ -139,6 +139,21 @@ const scrollToTopBtn = document.getElementById('scrollToTop');
 const contactForm = document.getElementById('contactForm');
 
 
+/**
+ * Nettoie les options du sélecteur de pays (retire les drapeaux/emoji)
+ * pour un rendu plus épuré, sans modifier la valeur des options.
+ */
+function normalizeCountrySelectOptions() {
+    const countrySelect = document.getElementById('country');
+    if (!countrySelect) return;
+
+    const leadingFlagEmoji = /^[\u{1F1E6}-\u{1F1FF}]{2}\s*/u;
+    Array.from(countrySelect.options).forEach(option => {
+        option.textContent = option.textContent.replace(leadingFlagEmoji, '');
+    });
+}
+
+
 // ================================================================
 // 2. NAVIGATION ET MENU MOBILE
 // ================================================================
@@ -577,6 +592,9 @@ function initScrollAnimations() {
 function init() {
     // Initialise le système de traduction en premier
     initLanguageSystem();
+
+    // Nettoie l'affichage du pays (drapeaux) pour une UI plus minimaliste
+    normalizeCountrySelectOptions();
 
     // Initialise l'état de la navbar au chargement
     handleNavbarScroll();

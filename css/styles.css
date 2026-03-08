@@ -500,12 +500,8 @@ button {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-image:
-        linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(79, 70, 229, 0.9) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-    background-size: cover;
-    background-position: center;
+    background-color: var(--primary-color);
+    background-image: none;
     padding: var(--spacing-2xl) 0;
     overflow: hidden;
 }
@@ -533,21 +529,17 @@ button {
 
 .hero-title {
     font-size: var(--text-5xl);
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-white);
     margin-bottom: var(--spacing-md);
     line-height: 1.1;
     animation: fadeInUp 0.8s ease-out;
-    text-transform: uppercase;
 }
 
 .hero-title .highlight {
     display: block;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
     margin-top: var(--spacing-sm);
 }
 
@@ -757,7 +749,7 @@ button {
     background-color: var(--bg-white);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
     border: 2px solid transparent;
     display: flex;
@@ -765,15 +757,14 @@ button {
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-md);
     border-color: var(--primary-color);
 }
 
 /* Carte mise en avant */
 .service-card.featured {
     border-color: var(--primary-color);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(79, 70, 229, 0.05) 100%);
+    background-color: var(--bg-white);
 }
 
 .service-badge {
@@ -811,7 +802,6 @@ button {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-sm);
-    text-transform: uppercase;
 }
 
 .service-description {
@@ -829,17 +819,13 @@ button {
     font-size: var(--text-sm);
     color: var(--text-secondary);
     padding: 0.35rem 0;
-    padding-left: var(--spacing-md);
     position: relative;
 }
 
 /* Icône de check pour chaque élément de liste */
 .service-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: 700;
+    content: '';
+    display: none;
 }
 
 .service-link {
@@ -888,7 +874,7 @@ button {
     top: 70px;
     width: 2px;
     height: calc(100% + var(--spacing-xl));
-    background: linear-gradient(to bottom, var(--primary-color), var(--primary-light));
+    background-color: var(--border-color);
     opacity: 0.3;
 }
 
@@ -896,7 +882,7 @@ button {
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    background-color: var(--primary-color);
     color: var(--text-white);
     border-radius: 50%;
     display: flex;
@@ -904,7 +890,7 @@ button {
     justify-content: center;
     font-size: var(--text-2xl);
     font-weight: 700;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .step-content {
@@ -917,7 +903,6 @@ button {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-sm);
-    text-transform: uppercase;
 }
 
 .step-description {
@@ -962,7 +947,7 @@ button {
     background-color: var(--bg-white);
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .contact-form {
@@ -1046,8 +1031,8 @@ button {
     background-color: var(--bg-white);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    text-align: center;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
 }
 
 .info-icon {
@@ -1153,30 +1138,24 @@ button {
 /* Réseaux sociaux */
 .footer-social {
     display: flex;
-    gap: var(--spacing-md);
+    flex-direction: column;
+    gap: var(--spacing-sm);
     margin-top: var(--spacing-md);
 }
 
 .social-link {
-    width: 40px;
-    height: 40px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: var(--text-white);
-    transition: all var(--transition-normal);
+    justify-content: flex-start;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-fast);
 }
 
 .social-link:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-.social-link svg {
-    width: 20px;
-    height: 20px;
+    color: var(--primary-light);
 }
 
 /* Contact dans le footer */
@@ -1188,7 +1167,7 @@ button {
 
 .footer-contact li {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: 0;
     align-items: center;
     font-size: var(--text-sm);
 }
@@ -1252,15 +1231,16 @@ button {
     position: fixed;
     bottom: var(--spacing-lg);
     right: var(--spacing-lg);
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: auto;
+    padding: 0.6rem 0.9rem;
     background-color: var(--primary-color);
     color: var(--text-white);
-    border-radius: 50%;
+    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-normal);
@@ -1275,12 +1255,6 @@ button {
 
 .scroll-to-top:hover {
     background-color: var(--primary-dark);
-    transform: translateY(-5px);
-}
-
-.scroll-to-top svg {
-    width: 24px;
-    height: 24px;
 }
 
 
