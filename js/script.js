@@ -435,10 +435,36 @@ if (contactForm) {
         } catch (error) {
             // Gestion des erreurs
             console.error('Erreur lors de l\'envoi du formulaire:', error);
+
+            const apiError = error && typeof error === 'object' ? error.details : null;
+            const apiErrorCode = apiError?.details?.code || apiError?.code || null;
+            const apiErrorMsg = apiError?.details?.message || apiError?.message || null;
+
+            let friendlyMessage = currentLanguage === 'en'
+                ? 'An error occurred. Please try again or contact us by phone.'
+                : 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.';
+
+            if (apiError?.error === 'Missing email configuration') {
+                friendlyMessage = currentLanguage === 'en'
+                    ? 'Email configuration is missing on the server. Please contact the site administrator.'
+                    : 'La configuration email du serveur est manquante. Veuillez contacter l\'administrateur du site.';
+            } else if (apiError?.error === 'Validation error') {
+                friendlyMessage = currentLanguage === 'en'
+                    ? 'Please verify the form fields and try again.'
+                    : 'Veuillez vérifier les champs du formulaire et réessayer.';
+            } else if (apiError?.error === 'Email send failed') {
+                friendlyMessage = currentLanguage === 'en'
+                    ? 'We could not send the email at the moment. Please try again later.'
+                    : 'Impossible d\'envoyer le courriel pour le moment. Veuillez réessayer plus tard.';
+
+                if (apiErrorCode || apiErrorMsg) {
+                    const extra = [apiErrorCode, apiErrorMsg].filter(Boolean).join(' - ');
+                    friendlyMessage += ` (${extra})`;
+                }
+            }
+
             showFormMessage(
-                currentLanguage === 'en'
-                    ? 'An error occurred. Please try again or contact us by phone.'
-                    : 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.',
+                friendlyMessage,
                 'error'
             );
         } finally {

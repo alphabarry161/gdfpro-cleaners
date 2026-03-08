@@ -212,6 +212,18 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true });
     } catch (err) {
         console.error('Email send error:', err);
-        return res.status(502).json({ ok: false, error: 'Email send failed' });
+
+        const errorMessage = typeof err?.message === 'string' ? err.message.replace(/\s+/g, ' ').trim() : '';
+        const safeMessage = errorMessage ? errorMessage.slice(0, 220) : '';
+
+        return res.status(502).json({
+            ok: false,
+            error: 'Email send failed',
+            details: {
+                code: err?.code || null,
+                responseCode: err?.responseCode || null,
+                message: safeMessage || null
+            }
+        });
     }
 };
