@@ -153,8 +153,21 @@ function buildInternalEmailText(payload) {
 }
 
 module.exports = async function handler(req, res) {
+    if (req.method === 'GET') {
+        const gmailUser = getEnv('GDF_GMAIL_USER', 'GMAIL_USER');
+        const gmailAppPassword = getEnv('GDF_GMAIL_APP_PASSWORD', 'GMAIL_APP_PASSWORD');
+
+        return res.status(200).json({
+            ok: true,
+            service: 'contact-email',
+            configured: Boolean(gmailUser && gmailAppPassword),
+            hasUser: Boolean(gmailUser),
+            hasAppPassword: Boolean(gmailAppPassword)
+        });
+    }
+
     if (req.method !== 'POST') {
-        res.setHeader('Allow', 'POST');
+        res.setHeader('Allow', 'GET, POST');
         return res.status(405).json({ ok: false, error: 'Method Not Allowed' });
     }
 

@@ -437,6 +437,7 @@ if (contactForm) {
             console.error('Erreur lors de l\'envoi du formulaire:', error);
 
             const apiError = error && typeof error === 'object' ? error.details : null;
+            const httpStatus = error && typeof error === 'object' ? error.status : null;
             const apiErrorCode = apiError?.details?.code || apiError?.code || null;
             const apiErrorMsg = apiError?.details?.message || apiError?.message || null;
 
@@ -461,6 +462,10 @@ if (contactForm) {
                     const extra = [apiErrorCode, apiErrorMsg].filter(Boolean).join(' - ');
                     friendlyMessage += ` (${extra})`;
                 }
+            }
+
+            if (httpStatus && apiError?.error !== 'Email send failed') {
+                friendlyMessage += ` (HTTP ${httpStatus})`;
             }
 
             showFormMessage(
@@ -488,7 +493,15 @@ function simulateFormSubmission(data) {
         },
         body: JSON.stringify(data)
     }).then(async (response) => {
-        const payload = await response.json().catch(() => ({}));
+        const rawText = await response.text().catch(() => '');
+        let payload = {};
+        if (rawText) {
+            try {
+                payload = JSON.parse(rawText);
+            } catch {
+                payload = { raw: rawText.slice(0, 180) };
+            }
+        }
 
         if (!response.ok) {
             const message = payload && payload.error
@@ -496,6 +509,8 @@ function simulateFormSubmission(data) {
                 : 'Request failed';
             const err = new Error(message);
             err.details = payload;
+            err.status = response.status;
+            err.statusText = response.statusText;
             throw err;
         }
 
