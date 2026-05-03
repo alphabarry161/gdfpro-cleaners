@@ -636,9 +636,9 @@ if (typeof translations !== 'undefined') {
     translations.fr['calc.deepQuote.payment'] = 'Paiement';
     translations.fr['calc.deepQuote.paymentValue'] = 'comptant, virement ou transfert';
     translations.fr['calc.deepQuote.signature'] = 'Signature';
-    translations.fr['calc.deepQuote.adviceTitle'] = 'Petit conseil';
-    translations.fr['calc.deepQuote.adviceLine1'] = 'Si c’est très sale (trop de poussière, traces, tâches, poils, etc.), le prix peut monter entre 750 $ et 800 $.';
-    translations.fr['calc.deepQuote.adviceLine2'] = 'Si le client est régulier, le prix peut descendre entre 550 $ et 600 $.';
+    translations.fr['calc.deepQuote.adviceTitle'] = 'Notes sur la tarification';
+    translations.fr['calc.deepQuote.adviceLine1'] = 'Les montants peuvent varier selon l’état des lieux. En cas d’encrassement important, un ajustement à la hausse peut s’appliquer (jusqu’à 750–800 $).';
+    translations.fr['calc.deepQuote.adviceLine2'] = 'Pour un client régulier, un tarif préférentiel peut être proposé (environ 550–600 $).';
 
     // Anglais
     translations.en['calc.selectRooms'] = 'Select Your Rooms';
@@ -686,7 +686,7 @@ if (typeof translations !== 'undefined') {
     translations.en['calc.deepQuote.payment'] = 'Payment';
     translations.en['calc.deepQuote.paymentValue'] = 'cash, e-transfer, or bank transfer';
     translations.en['calc.deepQuote.signature'] = 'Signature';
-    translations.en['calc.deepQuote.adviceTitle'] = 'Quick note';
-    translations.en['calc.deepQuote.adviceLine1'] = 'If it is very dirty (heavy dust, marks, stains, hair, etc.), the price can go up to $750–$800.';
-    translations.en['calc.deepQuote.adviceLine2'] = 'If the client is a regular, the price can go down to $550–$600.';
+    translations.en['calc.deepQuote.adviceTitle'] = 'Pricing notes';
+    translations.en['calc.deepQuote.adviceLine1'] = 'Amounts may vary depending on the condition of the property. In case of heavy soiling, an upward adjustment may apply (up to $750–$800).';
+    translations.en['calc.deepQuote.adviceLine2'] = 'For recurring clients, a preferred rate may be offered (approximately $550–$600).';
 }
