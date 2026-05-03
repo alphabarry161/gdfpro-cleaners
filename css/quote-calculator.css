@@ -484,11 +484,12 @@ body {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-xs);
+    font-size: 0.95rem;
 }
 
 .addons-note {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -505,9 +506,12 @@ body {
 }
 
 .addons-block label {
-    font-size: 0.9rem;
-    line-height: 1.25;
+    font-size: 0.82rem;
+    line-height: 1.2;
     margin-bottom: var(--spacing-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .addons-block .number-input {
@@ -521,7 +525,7 @@ body {
 }
 
 .addons-block .number-input input {
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .total-row {
