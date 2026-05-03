@@ -433,6 +433,13 @@ body {
     gap: var(--spacing-md);
 }
 
+.deep-quote-qty {
+    margin-left: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .deep-quote-item span:last-child {
     font-weight: 700;
     white-space: nowrap;
@@ -463,6 +470,32 @@ body {
     background-color: rgba(255, 255, 255, 0.10);
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
+}
+
+/* Deep Cleaning add-ons block (qty inputs) */
+.addons-block {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.addons-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.addons-note {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.addons-unit-price {
+    float: right;
+    color: var(--text-secondary);
+    font-weight: 800;
 }
 
 .total-row {

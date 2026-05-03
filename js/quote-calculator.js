@@ -38,8 +38,32 @@ const PRICING = {
         moving: 0.25,     // 0.25$ par pi²
         airbnb: 0.20,     // 0.20$ par pi²
         regular: 0.20     // 0.20$ par pi²
+    },
+    // Prestations ajustables (Deep cleaning seulement)
+    deepAddons: {
+        'deep-addon-fridge': 40,
+        'deep-addon-stove': 45,
+        'deep-addon-microwave': 20,
+        'deep-addon-windows': 120,
+        'deep-addon-living': 80,
+        'deep-addon-garage': 100,
+        'deep-addon-closets': 75,
+        'deep-addon-drawers': 20,
+        'deep-addon-toilets': 150
     }
 };
+
+const DEEP_ADDON_ITEMS = [
+    { id: 'deep-addon-fridge', labelKey: 'calc.deepQuote.item.fridge', qtyElId: 'deep-quote-fridge-qty', amountElId: 'deep-quote-fridge-amount' },
+    { id: 'deep-addon-stove', labelKey: 'calc.deepQuote.item.stove', qtyElId: 'deep-quote-stove-qty', amountElId: 'deep-quote-stove-amount' },
+    { id: 'deep-addon-microwave', labelKey: 'calc.deepQuote.item.microwave', qtyElId: 'deep-quote-microwave-qty', amountElId: 'deep-quote-microwave-amount' },
+    { id: 'deep-addon-windows', labelKey: 'calc.deepQuote.item.windows', qtyElId: 'deep-quote-windows-qty', amountElId: 'deep-quote-windows-amount' },
+    { id: 'deep-addon-living', labelKey: 'calc.deepQuote.item.living', qtyElId: 'deep-quote-living-qty', amountElId: 'deep-quote-living-amount' },
+    { id: 'deep-addon-garage', labelKey: 'calc.deepQuote.item.garage', qtyElId: 'deep-quote-garage-qty', amountElId: 'deep-quote-garage-amount' },
+    { id: 'deep-addon-closets', labelKey: 'calc.deepQuote.item.closets', qtyElId: 'deep-quote-closets-qty', amountElId: 'deep-quote-closets-amount' },
+    { id: 'deep-addon-drawers', labelKey: 'calc.deepQuote.item.drawers', qtyElId: 'deep-quote-drawers-qty', amountElId: 'deep-quote-drawers-amount' },
+    { id: 'deep-addon-toilets', labelKey: 'calc.deepQuote.item.toilets', qtyElId: 'deep-quote-toilets-qty', amountElId: 'deep-quote-toilets-amount' }
+];
 
 // Temps estimés (en heures) - basés sur le fichier Excel
 const TIME_ESTIMATES = {
@@ -62,6 +86,15 @@ let state = {
     bedrooms: 0,
     bathrooms: 0,
     basement: 0,
+    'deep-addon-fridge': 0,
+    'deep-addon-stove': 0,
+    'deep-addon-microwave': 0,
+    'deep-addon-windows': 0,
+    'deep-addon-living': 0,
+    'deep-addon-garage': 0,
+    'deep-addon-closets': 0,
+    'deep-addon-drawers': 0,
+    'deep-addon-toilets': 0,
     'airbnb-bedrooms': 0,
     'airbnb-bathrooms': 0,
     'airbnb-basement': 0,
@@ -102,6 +135,11 @@ function showFieldsForService(service) {
     state['carpet-sqft'] = 0;
     state['square-feet'] = 0;
 
+    // Réinitialiser les prestations ajustables (deep)
+    DEEP_ADDON_ITEMS.forEach(item => {
+        state[item.id] = 0;
+    });
+
     // Afficher le groupe approprié
     if (service === 'deep' || service === 'moving' || service === 'regular') {
         document.getElementById('residential-fields').style.display = 'block';
@@ -112,6 +150,26 @@ function showFieldsForService(service) {
     } else if (service === 'commercial') {
         document.getElementById('commercial-fields').style.display = 'block';
     }
+
+    updateDeepAddonsVisibility();
+}
+
+function updateDeepAddonsVisibility() {
+    const block = document.getElementById('deep-addons');
+    if (!block) return;
+
+    const shouldShow = state.service === 'deep';
+    block.style.display = shouldShow ? 'block' : 'none';
+}
+
+function getDeepAddonsTotal() {
+    if (state.service !== 'deep') return 0;
+
+    return DEEP_ADDON_ITEMS.reduce((sum, item) => {
+        const qty = state[item.id] || 0;
+        const unit = PRICING.deepAddons[item.id] || 0;
+        return sum + (qty * unit);
+    }, 0);
 }
 
 function initializeCalculator() {
@@ -221,6 +279,15 @@ function initializeCalculator() {
             bathrooms: 0,
             kitchen: 0,
             basement: 0,
+            'deep-addon-fridge': 0,
+            'deep-addon-stove': 0,
+            'deep-addon-microwave': 0,
+            'deep-addon-windows': 0,
+            'deep-addon-living': 0,
+            'deep-addon-garage': 0,
+            'deep-addon-closets': 0,
+            'deep-addon-drawers': 0,
+            'deep-addon-toilets': 0,
             'airbnb-bedrooms': 0,
             'airbnb-bathrooms': 0,
             'airbnb-kitchen': 0,
@@ -272,6 +339,11 @@ function calculateTotal() {
         // Ajouter le coût des tapis si applicable
         if (state['carpet-sqft'] > 0) {
             totalPrice += state['carpet-sqft'] * PRICING.carpet[service];
+        }
+
+        // Ajouter les prestations ajustables (Deep cleaning seulement)
+        if (service === 'deep') {
+            totalPrice += getDeepAddonsTotal();
         }
 
     } else if (service === 'airbnb') {
@@ -375,6 +447,26 @@ function updateCalculation() {
             </div>
         `;
 
+        if (service === 'deep') {
+            DEEP_ADDON_ITEMS.forEach(item => {
+                const qty = state[item.id] || 0;
+                if (!qty) return;
+
+                const unit = PRICING.deepAddons[item.id] || 0;
+                const lineTotal = qty * unit;
+                const label = (translations && translations[currentLang] && translations[currentLang][item.labelKey])
+                    ? translations[currentLang][item.labelKey]
+                    : item.id;
+
+                summaryHTML += `
+                    <div class="detail-row">
+                        <span>${label} × ${qty}</span>
+                        <span>$${lineTotal}</span>
+                    </div>
+                `;
+            });
+        }
+
         if (state['carpet-sqft'] > 0) {
             summaryHTML += `
                 <div class="detail-row">
@@ -458,6 +550,29 @@ function updateCalculation() {
 
     updateDeepQuoteVisibility();
     updateDeepQuoteValues(price);
+    updateDeepQuoteAddons();
+}
+
+function updateDeepQuoteAddons() {
+    const details = document.getElementById('deep-quote-details');
+    if (!details) return;
+
+    DEEP_ADDON_ITEMS.forEach(item => {
+        const row = details.querySelector(`.deep-quote-item[data-addon-target="${item.id}"]`);
+        if (!row) return;
+
+        const qty = state.service === 'deep' ? (state[item.id] || 0) : 0;
+        const unit = PRICING.deepAddons[item.id] || 0;
+        const lineTotal = qty * unit;
+
+        row.style.display = qty > 0 ? 'flex' : 'none';
+
+        const qtyEl = document.getElementById(item.qtyElId);
+        if (qtyEl) qtyEl.textContent = `×${qty}`;
+
+        const amountEl = document.getElementById(item.amountElId);
+        if (amountEl) amountEl.textContent = `${lineTotal} $`;
+    });
 }
 
 function updateDeepQuoteVisibility() {
@@ -617,15 +732,15 @@ if (typeof translations !== 'undefined') {
     translations.fr['calc.deepQuote.address'] = 'Adresse';
     translations.fr['calc.deepQuote.date'] = 'Date';
     translations.fr['calc.deepQuote.services'] = 'Détail des prestations';
-    translations.fr['calc.deepQuote.item.fridge'] = 'Nettoyage en profondeur d’1 réfrigérateur';
-    translations.fr['calc.deepQuote.item.stove'] = 'Nettoyage en profondeur d’1 cuisinière';
-    translations.fr['calc.deepQuote.item.microwave'] = 'Nettoyage en profondeur d’1 micro-ondes';
-    translations.fr['calc.deepQuote.item.windows'] = 'Nettoyage intérieur des fenêtres (exemple)';
-    translations.fr['calc.deepQuote.item.living'] = 'Nettoyage en profondeur du salon';
-    translations.fr['calc.deepQuote.item.garage'] = 'Nettoyage en profondeur du garage';
-    translations.fr['calc.deepQuote.item.closets'] = 'Nettoyage en profondeur de 3 garde-robes';
-    translations.fr['calc.deepQuote.item.drawers'] = 'Nettoyage de 2 tiroirs';
-    translations.fr['calc.deepQuote.item.toilets'] = 'Nettoyage complet de 3 toilettes (intérieur/extérieur)';
+    translations.fr['calc.deepQuote.item.fridge'] = 'Réfrigérateur (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.item.stove'] = 'Cuisinière (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.item.microwave'] = 'Micro-ondes (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.item.windows'] = 'Fenêtres – intérieur (indicatif)';
+    translations.fr['calc.deepQuote.item.living'] = 'Salon (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.item.garage'] = 'Garage (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.item.closets'] = 'Garde-robes (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.item.drawers'] = 'Tiroirs (nettoyage)';
+    translations.fr['calc.deepQuote.item.toilets'] = 'Toilettes (nettoyage complet intérieur/extérieur)';
     translations.fr['calc.deepQuote.total'] = 'Total estimé';
     translations.fr['calc.deepQuote.conditions'] = 'Conditions';
     translations.fr['calc.deepQuote.conditionsValue'] = 'Produits de nettoyage inclus';
@@ -639,6 +754,10 @@ if (typeof translations !== 'undefined') {
     translations.fr['calc.deepQuote.adviceTitle'] = 'Notes sur la tarification';
     translations.fr['calc.deepQuote.adviceLine1'] = 'Les montants peuvent varier selon l’état des lieux. En cas d’encrassement important, un ajustement à la hausse peut s’appliquer (jusqu’à 750–800 $).';
     translations.fr['calc.deepQuote.adviceLine2'] = 'Pour un client régulier, un tarif préférentiel peut être proposé (environ 550–600 $).';
+
+    translations.fr['calc.deepAddons.title'] = 'Détail des prestations';
+    translations.fr['calc.deepAddons.note'] = 'Ajustez les quantités ci-dessous. Le prix estimé se met à jour automatiquement.';
+    translations.fr['calc.deepAddons.pricingTitle'] = 'Prestations ajustables (prix unitaire)';
 
     // Anglais
     translations.en['calc.selectRooms'] = 'Select Your Rooms';
@@ -667,15 +786,15 @@ if (typeof translations !== 'undefined') {
     translations.en['calc.deepQuote.address'] = 'Address';
     translations.en['calc.deepQuote.date'] = 'Date';
     translations.en['calc.deepQuote.services'] = 'Service breakdown';
-    translations.en['calc.deepQuote.item.fridge'] = 'Deep cleaning of 1 refrigerator';
-    translations.en['calc.deepQuote.item.stove'] = 'Deep cleaning of 1 stove';
-    translations.en['calc.deepQuote.item.microwave'] = 'Deep cleaning of 1 microwave';
-    translations.en['calc.deepQuote.item.windows'] = 'Interior window cleaning (example)';
-    translations.en['calc.deepQuote.item.living'] = 'Deep cleaning of the living room';
-    translations.en['calc.deepQuote.item.garage'] = 'Deep cleaning of the garage';
-    translations.en['calc.deepQuote.item.closets'] = 'Deep cleaning of 3 closets';
-    translations.en['calc.deepQuote.item.drawers'] = 'Cleaning of 2 drawers';
-    translations.en['calc.deepQuote.item.toilets'] = 'Full cleaning of 3 toilets (inside/outside)';
+    translations.en['calc.deepQuote.item.fridge'] = 'Refrigerator (deep clean)';
+    translations.en['calc.deepQuote.item.stove'] = 'Stove (deep clean)';
+    translations.en['calc.deepQuote.item.microwave'] = 'Microwave (deep clean)';
+    translations.en['calc.deepQuote.item.windows'] = 'Windows – interior (guide)';
+    translations.en['calc.deepQuote.item.living'] = 'Living room (deep clean)';
+    translations.en['calc.deepQuote.item.garage'] = 'Garage (deep clean)';
+    translations.en['calc.deepQuote.item.closets'] = 'Closets (deep clean)';
+    translations.en['calc.deepQuote.item.drawers'] = 'Drawers (cleaning)';
+    translations.en['calc.deepQuote.item.toilets'] = 'Toilets (full clean inside/outside)';
     translations.en['calc.deepQuote.total'] = 'Estimated total';
     translations.en['calc.deepQuote.conditions'] = 'Conditions';
     translations.en['calc.deepQuote.conditionsValue'] = 'Cleaning products included';
@@ -689,4 +808,8 @@ if (typeof translations !== 'undefined') {
     translations.en['calc.deepQuote.adviceTitle'] = 'Pricing notes';
     translations.en['calc.deepQuote.adviceLine1'] = 'Amounts may vary depending on the condition of the property. In case of heavy soiling, an upward adjustment may apply (up to $750–$800).';
     translations.en['calc.deepQuote.adviceLine2'] = 'For recurring clients, a preferred rate may be offered (approximately $550–$600).';
+
+    translations.en['calc.deepAddons.title'] = 'Service details';
+    translations.en['calc.deepAddons.note'] = 'Adjust quantities below. The estimated price updates automatically.';
+    translations.en['calc.deepAddons.pricingTitle'] = 'Adjustable services (unit price)';
 }

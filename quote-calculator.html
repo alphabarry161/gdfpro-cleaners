@@ -98,6 +98,127 @@
 
                     <!-- Groupe Résidentiel (Deep, Moving, Regular) -->
                     <div id="residential-fields" class="service-fields">
+                        <!-- Deep Cleaning Add-ons (Deep only) -->
+                        <div id="deep-addons" class="addons-block" style="display: none;">
+                            <div class="addons-title" data-i18n="calc.deepAddons.title">Détail des prestations</div>
+                            <div class="addons-note" data-i18n="calc.deepAddons.note">Ajustez les quantités ci-dessous.
+                                Le prix estimé se met à jour automatiquement.</div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-fridge">
+                                    <span data-i18n="calc.deepQuote.item.fridge">Réfrigérateur (nettoyage en
+                                        profondeur)</span>
+                                    <span class="addons-unit-price">$40</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-fridge">−</button>
+                                    <input type="number" id="deep-addon-fridge" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-fridge">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-stove">
+                                    <span data-i18n="calc.deepQuote.item.stove">Cuisinière (nettoyage en
+                                        profondeur)</span>
+                                    <span class="addons-unit-price">$45</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-stove">−</button>
+                                    <input type="number" id="deep-addon-stove" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-stove">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-microwave">
+                                    <span data-i18n="calc.deepQuote.item.microwave">Micro-ondes (nettoyage en
+                                        profondeur)</span>
+                                    <span class="addons-unit-price">$20</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-microwave">−</button>
+                                    <input type="number" id="deep-addon-microwave" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-microwave">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-windows">
+                                    <span data-i18n="calc.deepQuote.item.windows">Fenêtres – intérieur
+                                        (indicatif)</span>
+                                    <span class="addons-unit-price">$120</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-windows">−</button>
+                                    <input type="number" id="deep-addon-windows" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-windows">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-living">
+                                    <span data-i18n="calc.deepQuote.item.living">Salon (nettoyage en profondeur)</span>
+                                    <span class="addons-unit-price">$80</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-living">−</button>
+                                    <input type="number" id="deep-addon-living" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-living">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-garage">
+                                    <span data-i18n="calc.deepQuote.item.garage">Garage (nettoyage en profondeur)</span>
+                                    <span class="addons-unit-price">$100</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-garage">−</button>
+                                    <input type="number" id="deep-addon-garage" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-garage">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-closets">
+                                    <span data-i18n="calc.deepQuote.item.closets">Garde-robes (nettoyage en
+                                        profondeur)</span>
+                                    <span class="addons-unit-price">$75</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-closets">−</button>
+                                    <input type="number" id="deep-addon-closets" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-closets">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-drawers">
+                                    <span data-i18n="calc.deepQuote.item.drawers">Tiroirs (nettoyage)</span>
+                                    <span class="addons-unit-price">$20</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-drawers">−</button>
+                                    <input type="number" id="deep-addon-drawers" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-drawers">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group" style="margin-bottom: 0;">
+                                <label for="deep-addon-toilets">
+                                    <span data-i18n="calc.deepQuote.item.toilets">Toilettes (nettoyage complet
+                                        intérieur/extérieur)</span>
+                                    <span class="addons-unit-price">$150</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-toilets">−</button>
+                                    <input type="number" id="deep-addon-toilets" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-toilets">+</button>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="input-group">
                             <label for="bedrooms" data-i18n="calc.bedrooms">Chambres</label>
                             <div class="number-input">
@@ -256,33 +377,60 @@
                                     <div class="deep-quote-subtitle" data-i18n="calc.deepQuote.services">Détail des
                                         prestations</div>
                                     <div class="deep-quote-items">
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.fridge">Nettoyage en profondeur d’1
-                                                réfrigérateur</span><span>40 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.stove">Nettoyage en profondeur d’1
-                                                cuisinière</span><span>45 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.microwave">Nettoyage en profondeur d’1
-                                                micro-ondes</span><span>20 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.windows">Nettoyage intérieur des fenêtres
-                                                (exemple)</span><span>120 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.living">Nettoyage en profondeur du
-                                                salon</span><span>80 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.garage">Nettoyage en profondeur du
-                                                garage</span><span>100 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.closets">Nettoyage en profondeur de 3
-                                                garde-robes</span><span>75 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.drawers">Nettoyage de 2
-                                                tiroirs</span><span>20 $</span></div>
-                                        <div class="deep-quote-item"><span
-                                                data-i18n="calc.deepQuote.item.toilets">Nettoyage complet de 3 toilettes
-                                                (intérieur/extérieur)</span><span>150 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-fridge"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.fridge">Réfrigérateur (nettoyage en
+                                                    profondeur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-fridge-qty">×0</span></span><span
+                                                id="deep-quote-fridge-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-stove"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.stove">Cuisinière (nettoyage en
+                                                    profondeur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-stove-qty">×0</span></span><span
+                                                id="deep-quote-stove-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-microwave"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.microwave">Micro-ondes (nettoyage en
+                                                    profondeur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-microwave-qty">×0</span></span><span
+                                                id="deep-quote-microwave-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-windows"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.windows">Fenêtres – intérieur
+                                                    (indicatif)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-windows-qty">×0</span></span><span
+                                                id="deep-quote-windows-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-living"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.living">Salon (nettoyage en
+                                                    profondeur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-living-qty">×0</span></span><span
+                                                id="deep-quote-living-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-garage"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.garage">Garage (nettoyage en
+                                                    profondeur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-garage-qty">×0</span></span><span
+                                                id="deep-quote-garage-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-closets"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.closets">Garde-robes (nettoyage en
+                                                    profondeur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-closets-qty">×0</span></span><span
+                                                id="deep-quote-closets-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-drawers"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.drawers">Tiroirs
+                                                    (nettoyage)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-drawers-qty">×0</span></span><span
+                                                id="deep-quote-drawers-amount">0 $</span></div>
+                                        <div class="deep-quote-item" data-addon-target="deep-addon-toilets"
+                                            style="display: none;"><span><span
+                                                    data-i18n="calc.deepQuote.item.toilets">Toilettes (nettoyage complet
+                                                    intérieur/extérieur)</span><span class="deep-quote-qty"
+                                                    id="deep-quote-toilets-qty">×0</span></span><span
+                                                id="deep-quote-toilets-amount">0 $</span></div>
                                     </div>
 
                                     <div class="deep-quote-total"><span data-i18n="calc.deepQuote.total">Total
@@ -366,6 +514,30 @@
                             <li data-i18n="calc.deepBathroom">Salle de bain: +25$/unité</li>
                             <li data-i18n="calc.deepBasement">Sous-sol: +30$/unité</li>
                             <li data-i18n="calc.deepCarpet">Tapis: +0.25$/pi²</li>
+                        </ul>
+
+                        <p style="margin: 0.75rem 0 0; color: #6b7280; font-size: 0.875rem; font-weight: 600;"
+                            data-i18n="calc.deepAddons.pricingTitle">Prestations ajustables (prix unitaire)</p>
+                        <ul
+                            style="margin: 0.5rem 0 0 1rem; padding: 0; list-style: disc; color: #6b7280; font-size: 0.875rem;">
+                            <li><span data-i18n="calc.deepQuote.item.fridge">Réfrigérateur (nettoyage en
+                                    profondeur)</span>: +40$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.stove">Cuisinière (nettoyage en profondeur)</span>:
+                                +45$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.microwave">Micro-ondes (nettoyage en
+                                    profondeur)</span>: +20$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.windows">Fenêtres – intérieur (indicatif)</span>:
+                                +120$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.living">Salon (nettoyage en profondeur)</span>:
+                                +80$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.garage">Garage (nettoyage en profondeur)</span>:
+                                +100$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.closets">Garde-robes (nettoyage en
+                                    profondeur)</span>: +75$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.drawers">Tiroirs (nettoyage)</span>: +20$/unité
+                            </li>
+                            <li><span data-i18n="calc.deepQuote.item.toilets">Toilettes (nettoyage complet
+                                    intérieur/extérieur)</span>: +150$/unité</li>
                         </ul>
                     </div>
 
