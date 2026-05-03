@@ -98,11 +98,47 @@
 
                     <!-- Groupe Résidentiel (Deep, Moving, Regular) -->
                     <div id="residential-fields" class="service-fields">
+                        <div class="input-group">
+                            <label for="bedrooms" data-i18n="calc.bedrooms">Chambres</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="bedrooms">−</button>
+                                <input type="number" id="bedrooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="bedrooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="bathrooms" data-i18n="calc.bathrooms">Salles de bain</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="bathrooms">−</button>
+                                <input type="number" id="bathrooms" value="0" min="0" max="10" readonly>
+                                <button type="button" class="plus" data-target="bathrooms">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="basement" data-i18n="calc.basement">Sous-sol</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="basement">−</button>
+                                <input type="number" id="basement" value="0" min="0" max="5" readonly>
+                                <button type="button" class="plus" data-target="basement">+</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
+                            <div class="number-input">
+                                <button type="button" class="minus" data-target="carpet-sqft" data-step="0.5">−</button>
+                                <input type="number" id="carpet-sqft" value="0" min="0" max="5000" step="0.5">
+                                <button type="button" class="plus" data-target="carpet-sqft" data-step="0.5">+</button>
+                            </div>
+                        </div>
+
                         <!-- Deep Cleaning Add-ons (Deep only) -->
                         <div id="deep-addons" class="addons-block" style="display: none;">
                             <div class="addons-title" data-i18n="calc.deepAddons.title">Détail des prestations</div>
                             <div class="addons-note" data-i18n="calc.deepAddons.note">Ajustez les quantités ci-dessous.
-                                Le prix estimé se met à jour automatiquement.</div>
+                                L'estimation se met à jour automatiquement.</div>
 
                             <div class="input-group">
                                 <label for="deep-addon-fridge">
@@ -207,42 +243,6 @@
                                     <input type="number" id="deep-addon-toilets" value="0" min="0" max="10" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-toilets">+</button>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="bedrooms" data-i18n="calc.bedrooms">Chambres</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="bedrooms">−</button>
-                                <input type="number" id="bedrooms" value="0" min="0" max="10" readonly>
-                                <button type="button" class="plus" data-target="bedrooms">+</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="bathrooms" data-i18n="calc.bathrooms">Salles de bain</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="bathrooms">−</button>
-                                <input type="number" id="bathrooms" value="0" min="0" max="10" readonly>
-                                <button type="button" class="plus" data-target="bathrooms">+</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="basement" data-i18n="calc.basement">Sous-sol</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="basement">−</button>
-                                <input type="number" id="basement" value="0" min="0" max="5" readonly>
-                                <button type="button" class="plus" data-target="basement">+</button>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="carpet-sqft" data-i18n="calc.carpetSqft">Tapis (pieds carrés)</label>
-                            <div class="number-input">
-                                <button type="button" class="minus" data-target="carpet-sqft" data-step="0.5">−</button>
-                                <input type="number" id="carpet-sqft" value="0" min="0" max="5000" step="0.5">
-                                <button type="button" class="plus" data-target="carpet-sqft" data-step="0.5">+</button>
                             </div>
                         </div>
                     </div>
