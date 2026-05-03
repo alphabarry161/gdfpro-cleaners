@@ -361,6 +361,110 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
+/* Deep Cleaning detailed quote (template) */
+.deep-quote {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.deep-quote summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    list-style: none;
+}
+
+.deep-quote summary::-webkit-details-marker {
+    display: none;
+}
+
+.deep-quote summary::after {
+    content: '▾';
+    float: right;
+    opacity: 0.9;
+}
+
+.deep-quote[open] summary::after {
+    content: '▴';
+}
+
+.deep-quote-body {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.deep-quote-title {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.deep-quote-fields {
+    display: grid;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    opacity: 0.95;
+}
+
+.deep-quote-section {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.deep-quote-subtitle {
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.deep-quote-items {
+    display: grid;
+    gap: var(--spacing-xs);
+}
+
+.deep-quote-item {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.deep-quote-item span:last-child {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.deep-quote-total {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    font-weight: 800;
+}
+
+.deep-quote-notes {
+    display: grid;
+    gap: var(--spacing-xs);
+    opacity: 0.95;
+}
+
+.deep-quote-label {
+    font-weight: 700;
+}
+
+.deep-quote-advice {
+    margin-top: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
 .total-row {
     display: flex;
     justify-content: space-between;

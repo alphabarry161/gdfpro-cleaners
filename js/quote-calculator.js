@@ -455,6 +455,30 @@ function updateCalculation() {
     setTimeout(() => {
         document.getElementById('total-price').style.transform = 'scale(1)';
     }, 200);
+
+    updateDeepQuoteVisibility();
+    updateDeepQuoteValues(price);
+}
+
+function updateDeepQuoteVisibility() {
+    const details = document.getElementById('deep-quote-details');
+    if (!details) return;
+
+    const shouldShow = state.service === 'deep';
+    details.style.display = shouldShow ? 'block' : 'none';
+    if (!shouldShow) details.open = false;
+}
+
+function updateDeepQuoteValues(price) {
+    const totalEl = document.getElementById('deep-quote-total');
+    if (!totalEl) return;
+
+    if (state.service !== 'deep') {
+        totalEl.textContent = '$0 CAD';
+        return;
+    }
+
+    totalEl.textContent = `$${price} CAD`;
 }
 
 function getServiceName(serviceCode) {
@@ -586,6 +610,36 @@ if (typeof translations !== 'undefined') {
     translations.fr['calc.continueBtn'] = 'Continuer avec G.D.F Pro-Cleaners →';
     translations.fr['calc.reset'] = 'Réinitialiser';
 
+    // Devis détaillé (Deep Cleaning)
+    translations.fr['calc.deepQuote.summary'] = 'Devis détaillé (nettoyage en profondeur)';
+    translations.fr['calc.deepQuote.title'] = 'DEVIS – NETTOYAGE EN PROFONDEUR';
+    translations.fr['calc.deepQuote.client'] = 'Client';
+    translations.fr['calc.deepQuote.address'] = 'Adresse';
+    translations.fr['calc.deepQuote.date'] = 'Date';
+    translations.fr['calc.deepQuote.services'] = 'Détail des prestations';
+    translations.fr['calc.deepQuote.item.fridge'] = 'Nettoyage en profondeur d’1 réfrigérateur';
+    translations.fr['calc.deepQuote.item.stove'] = 'Nettoyage en profondeur d’1 cuisinière';
+    translations.fr['calc.deepQuote.item.microwave'] = 'Nettoyage en profondeur d’1 micro-ondes';
+    translations.fr['calc.deepQuote.item.windows'] = 'Nettoyage intérieur des fenêtres (exemple)';
+    translations.fr['calc.deepQuote.item.living'] = 'Nettoyage en profondeur du salon';
+    translations.fr['calc.deepQuote.item.garage'] = 'Nettoyage en profondeur du garage';
+    translations.fr['calc.deepQuote.item.closets'] = 'Nettoyage en profondeur de 3 garde-robes';
+    translations.fr['calc.deepQuote.item.drawers'] = 'Nettoyage de 2 tiroirs';
+    translations.fr['calc.deepQuote.item.toilets'] = 'Nettoyage complet de 3 toilettes (intérieur/extérieur)';
+    translations.fr['calc.deepQuote.total'] = 'Total estimé';
+    translations.fr['calc.deepQuote.conditions'] = 'Conditions';
+    translations.fr['calc.deepQuote.conditionsValue'] = 'Produits de nettoyage inclus';
+    translations.fr['calc.deepQuote.windowRates'] = 'Tarifs vitres (indicatif)';
+    translations.fr['calc.deepQuote.windowRatesValue'] = 'petite fenêtre 10 $, double fenêtre 15 $, porte vitrée 20 $';
+    translations.fr['calc.deepQuote.duration'] = 'Durée estimée';
+    translations.fr['calc.deepQuote.durationValue'] = '6 à 8 heures (selon l’état)';
+    translations.fr['calc.deepQuote.payment'] = 'Paiement';
+    translations.fr['calc.deepQuote.paymentValue'] = 'comptant, virement ou transfert';
+    translations.fr['calc.deepQuote.signature'] = 'Signature';
+    translations.fr['calc.deepQuote.adviceTitle'] = 'Petit conseil';
+    translations.fr['calc.deepQuote.adviceLine1'] = 'Si c’est très sale (trop de poussière, traces, tâches, poils, etc.), le prix peut monter entre 750 $ et 800 $.';
+    translations.fr['calc.deepQuote.adviceLine2'] = 'Si le client est régulier, le prix peut descendre entre 550 $ et 600 $.';
+
     // Anglais
     translations.en['calc.selectRooms'] = 'Select Your Rooms';
     translations.en['calc.bedrooms'] = 'Bedrooms';
@@ -605,4 +659,34 @@ if (typeof translations !== 'undefined') {
     translations.en['calc.disclaimer'] = 'Approximate pricing and duration. Accurate quote will be provided after inspection.';
     translations.en['calc.continueBtn'] = 'Continue with G.D.F Pro-Cleaners →';
     translations.en['calc.reset'] = 'Reset';
+
+    // Detailed quote (Deep Cleaning)
+    translations.en['calc.deepQuote.summary'] = 'Detailed quote (deep cleaning)';
+    translations.en['calc.deepQuote.title'] = 'QUOTE – DEEP CLEANING';
+    translations.en['calc.deepQuote.client'] = 'Client';
+    translations.en['calc.deepQuote.address'] = 'Address';
+    translations.en['calc.deepQuote.date'] = 'Date';
+    translations.en['calc.deepQuote.services'] = 'Service breakdown';
+    translations.en['calc.deepQuote.item.fridge'] = 'Deep cleaning of 1 refrigerator';
+    translations.en['calc.deepQuote.item.stove'] = 'Deep cleaning of 1 stove';
+    translations.en['calc.deepQuote.item.microwave'] = 'Deep cleaning of 1 microwave';
+    translations.en['calc.deepQuote.item.windows'] = 'Interior window cleaning (example)';
+    translations.en['calc.deepQuote.item.living'] = 'Deep cleaning of the living room';
+    translations.en['calc.deepQuote.item.garage'] = 'Deep cleaning of the garage';
+    translations.en['calc.deepQuote.item.closets'] = 'Deep cleaning of 3 closets';
+    translations.en['calc.deepQuote.item.drawers'] = 'Cleaning of 2 drawers';
+    translations.en['calc.deepQuote.item.toilets'] = 'Full cleaning of 3 toilets (inside/outside)';
+    translations.en['calc.deepQuote.total'] = 'Estimated total';
+    translations.en['calc.deepQuote.conditions'] = 'Conditions';
+    translations.en['calc.deepQuote.conditionsValue'] = 'Cleaning products included';
+    translations.en['calc.deepQuote.windowRates'] = 'Glass rates (guide)';
+    translations.en['calc.deepQuote.windowRatesValue'] = 'small window $10, double window $15, glass door $20';
+    translations.en['calc.deepQuote.duration'] = 'Estimated duration';
+    translations.en['calc.deepQuote.durationValue'] = '6 to 8 hours (depending on condition)';
+    translations.en['calc.deepQuote.payment'] = 'Payment';
+    translations.en['calc.deepQuote.paymentValue'] = 'cash, e-transfer, or bank transfer';
+    translations.en['calc.deepQuote.signature'] = 'Signature';
+    translations.en['calc.deepQuote.adviceTitle'] = 'Quick note';
+    translations.en['calc.deepQuote.adviceLine1'] = 'If it is very dirty (heavy dust, marks, stains, hair, etc.), the price can go up to $750–$800.';
+    translations.en['calc.deepQuote.adviceLine2'] = 'If the client is a regular, the price can go down to $550–$600.';
 }
