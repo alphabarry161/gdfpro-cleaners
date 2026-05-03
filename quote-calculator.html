@@ -134,7 +134,7 @@
                             </div>
                         </div>
 
-                        <!-- Deep Cleaning Add-ons (Deep only) -->
+                        <!-- Deep Cleaning Add-ons (Deep + Moving/Out) -->
                         <div id="deep-addons" class="addons-block" style="display: none;">
                             <div class="addons-title" data-i18n="calc.deepAddons.title">Détail des prestations</div>
                             <div class="addons-note" data-i18n="calc.deepAddons.note">Ajustez les quantités ci-dessous.
@@ -147,7 +147,7 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-fridge">−</button>
-                                    <input type="number" id="deep-addon-fridge" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-fridge" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-fridge">+</button>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-stove">−</button>
-                                    <input type="number" id="deep-addon-stove" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-stove" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-stove">+</button>
                                 </div>
                             </div>
@@ -171,8 +171,20 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-microwave">−</button>
-                                    <input type="number" id="deep-addon-microwave" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-microwave" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-microwave">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-dishwasher">
+                                    <span data-i18n="calc.deepQuote.item.dishwasher">Lave-vaisselle (nettoyage en
+                                        profondeur)</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-dishwasher">−</button>
+                                    <input type="number" id="deep-addon-dishwasher" value="0" min="0" max="20" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-dishwasher">+</button>
                                 </div>
                             </div>
 
@@ -183,8 +195,19 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-windows">−</button>
-                                    <input type="number" id="deep-addon-windows" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-windows" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-windows">+</button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="deep-addon-doors">
+                                    <span data-i18n="calc.deepQuote.item.doors">Portes (nettoyage en profondeur)</span>
+                                </label>
+                                <div class="number-input">
+                                    <button type="button" class="minus" data-target="deep-addon-doors">−</button>
+                                    <input type="number" id="deep-addon-doors" value="0" min="0" max="20" readonly>
+                                    <button type="button" class="plus" data-target="deep-addon-doors">+</button>
                                 </div>
                             </div>
 
@@ -194,7 +217,7 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-living">−</button>
-                                    <input type="number" id="deep-addon-living" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-living" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-living">+</button>
                                 </div>
                             </div>
@@ -205,7 +228,7 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-garage">−</button>
-                                    <input type="number" id="deep-addon-garage" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-garage" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-garage">+</button>
                                 </div>
                             </div>
@@ -217,7 +240,7 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-closets">−</button>
-                                    <input type="number" id="deep-addon-closets" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-closets" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-closets">+</button>
                                 </div>
                             </div>
@@ -228,19 +251,18 @@
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-drawers">−</button>
-                                    <input type="number" id="deep-addon-drawers" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-drawers" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-drawers">+</button>
                                 </div>
                             </div>
 
                             <div class="input-group" style="margin-bottom: 0;">
                                 <label for="deep-addon-toilets">
-                                    <span data-i18n="calc.deepQuote.item.toilets">Toilettes (nettoyage complet
-                                        intérieur/extérieur)</span>
+                                    <span data-i18n="calc.deepQuote.item.toilets">Toilette 1/2</span>
                                 </label>
                                 <div class="number-input">
                                     <button type="button" class="minus" data-target="deep-addon-toilets">−</button>
-                                    <input type="number" id="deep-addon-toilets" value="0" min="0" max="10" readonly>
+                                    <input type="number" id="deep-addon-toilets" value="0" min="0" max="20" readonly>
                                     <button type="button" class="plus" data-target="deep-addon-toilets">+</button>
                                 </div>
                             </div>
@@ -409,8 +431,12 @@
                                 +45$/unité</li>
                             <li><span data-i18n="calc.deepQuote.item.microwave">Micro-ondes (nettoyage en
                                     profondeur)</span>: +20$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.dishwasher">Lave-vaisselle (nettoyage en
+                                    profondeur)</span>: +25$/unité</li>
                             <li><span data-i18n="calc.deepQuote.item.windows">Fenêtres – intérieur (indicatif)</span>:
                                 +15$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.doors">Portes (nettoyage en profondeur)</span>:
+                                +30$/unité</li>
                             <li><span data-i18n="calc.deepQuote.item.living">Salon (nettoyage en profondeur)</span>:
                                 +80$/unité</li>
                             <li><span data-i18n="calc.deepQuote.item.garage">Garage (nettoyage en profondeur)</span>:
@@ -419,8 +445,7 @@
                                     profondeur)</span>: +75$/unité</li>
                             <li><span data-i18n="calc.deepQuote.item.drawers">Tiroirs (nettoyage)</span>: +20$/unité
                             </li>
-                            <li><span data-i18n="calc.deepQuote.item.toilets">Toilettes (nettoyage complet
-                                    intérieur/extérieur)</span>: +50$/unité</li>
+                            <li><span data-i18n="calc.deepQuote.item.toilets">Toilette 1/2</span>: +25$/unité</li>
                         </ul>
                     </div>
 
@@ -434,7 +459,7 @@
                         <ul
                             style="margin: 0.5rem 0 0 1rem; padding: 0; list-style: disc; color: #6b7280; font-size: 0.875rem;">
                             <li data-i18n="calc.movingBedroom">Chambre: +25$/unité</li>
-                            <li data-i18n="calc.movingBathroom">Salle de bain: +30$/unité</li>
+                            <li data-i18n="calc.movingBathroom">Salle de bain: +50$/unité</li>
                             <li data-i18n="calc.movingBasement">Sous-sol: +35$/unité</li>
                             <li data-i18n="calc.movingCarpet">Tapis: +0.25$/pi²</li>
                         </ul>
