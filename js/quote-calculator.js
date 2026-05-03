@@ -756,7 +756,7 @@ if (typeof translations !== 'undefined') {
     translations.fr['calc.deepQuote.adviceLine2'] = 'Pour un client régulier, un tarif préférentiel peut être proposé (environ 550–600 $).';
 
     translations.fr['calc.deepAddons.title'] = 'Détail des prestations';
-    translations.fr['calc.deepAddons.note'] = 'Ajustez les quantités ci-dessous. Le prix estimé se met à jour automatiquement.';
+    translations.fr['calc.deepAddons.note'] = 'Ajustez les quantités ci-dessous. L\'estimation se met à jour automatiquement.';
     translations.fr['calc.deepAddons.pricingTitle'] = 'Prestations ajustables (prix unitaire)';
 
     // Anglais
@@ -810,6 +810,6 @@ if (typeof translations !== 'undefined') {
     translations.en['calc.deepQuote.adviceLine2'] = 'For recurring clients, a preferred rate may be offered (approximately $550–$600).';
 
     translations.en['calc.deepAddons.title'] = 'Service details';
-    translations.en['calc.deepAddons.note'] = 'Adjust quantities below. The estimated price updates automatically.';
+    translations.en['calc.deepAddons.note'] = 'Adjust quantities below. The estimate updates automatically.';
     translations.en['calc.deepAddons.pricingTitle'] = 'Adjustable services (unit price)';
 }

@@ -474,7 +474,7 @@ body {
 
 /* Deep Cleaning add-ons block (qty inputs) */
 .addons-block {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-md);
     border: 2px solid var(--border-color);
     background-color: var(--bg-light);
@@ -489,13 +489,39 @@ body {
 .addons-note {
     color: var(--text-secondary);
     font-size: 0.85rem;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .addons-unit-price {
-    float: right;
-    color: var(--text-secondary);
-    font-weight: 800;
+    display: none;
+}
+
+.addons-block .input-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.addons-block .input-group:last-child {
+    margin-bottom: 0;
+}
+
+.addons-block label {
+    font-size: 0.9rem;
+    line-height: 1.25;
+    margin-bottom: var(--spacing-xs);
+}
+
+.addons-block .number-input {
+    padding: var(--spacing-sm);
+}
+
+.addons-block .number-input button {
+    width: 38px;
+    height: 38px;
+    font-size: 1.25rem;
+}
+
+.addons-block .number-input input {
+    font-size: 1.05rem;
 }
 
 .total-row {
