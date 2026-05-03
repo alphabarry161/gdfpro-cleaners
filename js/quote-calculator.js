@@ -130,6 +130,7 @@ function showFieldsForService(service) {
     // Réinitialiser tous les champs à 0
     document.querySelectorAll('.service-fields input[type="number"]').forEach(input => {
         input.value = 0;
+        state[input.id] = 0;
     });
 
     // Réinitialiser l'état pour tous les champs
@@ -288,7 +289,9 @@ function initializeCalculator() {
             'deep-addon-fridge': 0,
             'deep-addon-stove': 0,
             'deep-addon-microwave': 0,
+            'deep-addon-dishwasher': 0,
             'deep-addon-windows': 0,
+            'deep-addon-doors': 0,
             'deep-addon-living': 0,
             'deep-addon-garage': 0,
             'deep-addon-closets': 0,
@@ -296,7 +299,11 @@ function initializeCalculator() {
             'deep-addon-toilets': 0,
             'airbnb-bedrooms': 0,
             'airbnb-bathrooms': 0,
+            'airbnb-basement': 0,
             'airbnb-kitchen': 0,
+            'airbnb-carpet-sqft': 0,
+            'carpet-sqft': 0,
+            'carpet-sqft-carpet': 0,
             'carpet-rooms': 0,
             'carpet-basement': 0,
             'square-feet': 0,
@@ -389,9 +396,7 @@ function calculateTotal() {
 
     } else if (service === 'commercial') {
         // Commercial - basé sur pieds carrés
-        'deep-addon-dishwasher': 0,
         const sqft = state['square-feet'];
-        'deep-addon-doors': 0,
         if (sqft === 0) {
             totalPrice = 0;
             totalTime = 0;
