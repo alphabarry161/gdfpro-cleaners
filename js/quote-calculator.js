@@ -43,13 +43,13 @@ const PRICING = {
     deepAddons: {
         'deep-addon-fridge': 40,
         'deep-addon-stove': 45,
-        'deep-addon-microwave': 20,
+        'deep-addon-microwave': 15,
         'deep-addon-dishwasher': 25,
         'deep-addon-windows': 15,
         'deep-addon-doors': 30,
         'deep-addon-living': 80,
         'deep-addon-garage': 80,
-        'deep-addon-closets': 75,
+        'deep-addon-closets': 15,
         'deep-addon-toilets': 25
     }
 };
