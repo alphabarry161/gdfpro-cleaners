@@ -361,6 +361,11 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
+/* Temporary: hide estimated time row */
+.summary-total .total-row:not(.price) {
+    display: none;
+}
+
 /* Deep Cleaning detailed quote (template) */
 .deep-quote {
     background-color: rgba(255, 255, 255, 0.12);
