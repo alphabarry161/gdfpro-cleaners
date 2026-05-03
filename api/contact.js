@@ -91,6 +91,86 @@ function labelFrEn(map, key) {
     return { fr, en };
 }
 
+function toSafeNumber(value) {
+    const num = Number(value);
+    return Number.isFinite(num) ? num : null;
+}
+
+function sanitizeMessage(message) {
+    const raw = asTrimmedString(message);
+    if (!raw) return '';
+    return raw
+        .split(/\r?\n/)
+        .filter(line => {
+            const trimmed = line.trim();
+            if (!trimmed) return true;
+            return !/^\-?\s*(Temps estim[ée]|Estimated time)\s*:/i.test(trimmed);
+        })
+        .join('\n')
+        .trim();
+}
+
+function buildCalculatorQuoteBlock(payload) {
+    const quote = payload && typeof payload.calculatorQuote === 'object' ? payload.calculatorQuote : null;
+    if (!quote) return [];
+
+    const lines = [];
+
+    const service = asTrimmedString(quote.service);
+    const estimatedPrice = asTrimmedString(quote.estimatedPrice);
+    const details = quote && typeof quote.details === 'object' ? quote.details : {};
+    const addons = Array.isArray(quote.addons) ? quote.addons : [];
+
+    lines.push('');
+    lines.push('---');
+    lines.push('Détails du calculateur / Calculator details');
+
+    if (service) lines.push(`Service (calculator): ${service}`);
+    if (estimatedPrice) lines.push(`Prix estimé / Estimated price: $${estimatedPrice} CAD`);
+
+    const detailLines = [];
+    const bedrooms = asTrimmedString(details.bedrooms);
+    const bathrooms = asTrimmedString(details.bathrooms);
+    const kitchen = asTrimmedString(details.kitchen);
+    const basement = asTrimmedString(details.basement);
+    const rooms = asTrimmedString(details.rooms);
+    const carpetSqft = asTrimmedString(details.carpetSqft);
+    const commercialSqft = asTrimmedString(details.commercialSqft);
+    const commercialFrequency = asTrimmedString(details.commercialFrequency);
+
+    if (bedrooms) detailLines.push(`- Chambres / Bedrooms: ${bedrooms}`);
+    if (bathrooms) detailLines.push(`- Salles de bain / Bathrooms: ${bathrooms}`);
+    if (kitchen) detailLines.push(`- Cuisine / Kitchen: ${kitchen}`);
+    if (basement) detailLines.push(`- Sous-sol / Basement: ${basement}`);
+    if (rooms) detailLines.push(`- Pièces / Rooms: ${rooms}`);
+    if (carpetSqft) detailLines.push(`- Tapis (pi²) / Carpet (sqft): ${carpetSqft}`);
+    if (commercialSqft) detailLines.push(`- Superficie (pi²) / Square feet: ${commercialSqft}`);
+    if (commercialFrequency) detailLines.push(`- Fréquence / Frequency: ${commercialFrequency}`);
+
+    if (detailLines.length) {
+        lines.push('');
+        lines.push('Détails du service / Service details:');
+        lines.push(...detailLines);
+    }
+
+    const addonLines = [];
+    addons.forEach(a => {
+        if (!a || typeof a !== 'object') return;
+        const label = asTrimmedString(a.label) || asTrimmedString(a.id);
+        const qty = toSafeNumber(a.qty);
+        if (!label || !qty || qty <= 0) return;
+        addonLines.push(`- ${label}: ${Math.floor(qty)}`);
+    });
+
+    if (addonLines.length) {
+        lines.push('');
+        lines.push('Prestations / Add-ons:');
+        lines.push(...addonLines);
+    }
+
+    return lines;
+}
+
 function buildCustomerEmailText(payload) {
     const fullName = asTrimmedString(payload.fullName);
 
@@ -137,7 +217,12 @@ function buildInternalEmailText(payload) {
     lines.push(`Ville: ${asTrimmedString(payload.city)}`);
     lines.push(`Code postal: ${asTrimmedString(payload.postalCode)}`);
 
-    const message = asTrimmedString(payload.message);
+    const quoteBlock = buildCalculatorQuoteBlock(payload);
+    if (quoteBlock.length) {
+        lines.push(...quoteBlock);
+    }
+
+    const message = sanitizeMessage(payload.message);
     if (message) {
         lines.push('');
         lines.push('Message / Détails:');

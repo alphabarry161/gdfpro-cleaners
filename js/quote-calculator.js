@@ -260,13 +260,33 @@ function initializeCalculator() {
             params.append('bathrooms', state.bathrooms);
             params.append('kitchen', state.kitchen);
             params.append('basement', state.basement);
+
+            if ((state['carpet-sqft'] || 0) > 0) {
+                params.append('carpetSqft', state['carpet-sqft']);
+            }
+
+            // Prestations ajustables (Deep + Moving/Out)
+            if (state.service === 'deep' || state.service === 'moving') {
+                Object.keys(PRICING.deepAddons).forEach(addonId => {
+                    const qty = state[addonId] || 0;
+                    if (qty > 0) params.append(addonId, qty);
+                });
+            }
         } else if (state.service === 'airbnb') {
             params.append('bedrooms', state['airbnb-bedrooms']);
             params.append('bathrooms', state['airbnb-bathrooms']);
             params.append('kitchen', state['airbnb-kitchen']);
+
+            if ((state['airbnb-carpet-sqft'] || 0) > 0) {
+                params.append('carpetSqft', state['airbnb-carpet-sqft']);
+            }
         } else if (state.service === 'carpet') {
             params.append('rooms', state['carpet-rooms']);
             params.append('basement', state['carpet-basement']);
+
+            if ((state['carpet-sqft-carpet'] || 0) > 0) {
+                params.append('carpetSqft', state['carpet-sqft-carpet']);
+            }
         } else if (state.service === 'commercial') {
             params.append('sqft', state['square-feet']);
             params.append('frequency', state.frequency);

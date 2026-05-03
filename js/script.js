@@ -414,6 +414,9 @@ if (contactForm) {
             city: document.getElementById('city').value,
             postalCode: document.getElementById('postalCode').value,
             message: document.getElementById('message').value,
+            calculatorQuote: (window.__calculatorQuoteDetails && typeof window.__calculatorQuoteDetails === 'object')
+                ? window.__calculatorQuoteDetails
+                : null,
             lang: currentLanguage
         };
 
@@ -679,15 +682,72 @@ document.addEventListener('DOMContentLoaded', function () {
 if (window.location.search.includes('quote=true')) {
     const params = new URLSearchParams(window.location.search);
 
+    const CALCULATOR_SERVICE_LABELS = {
+        fr: {
+            deep: 'Nettoyage en profondeur',
+            moving: 'Moving/Out Cleaning',
+            regular: 'Regular Cleaning',
+            airbnb: 'AirBNB Cleaning',
+            carpet: 'Carpet Cleaning',
+            commercial: 'Commercial'
+        },
+        en: {
+            deep: 'Deep Cleaning',
+            moving: 'Moving/Out Cleaning',
+            regular: 'Regular Cleaning',
+            airbnb: 'AirBNB Cleaning',
+            carpet: 'Carpet Cleaning',
+            commercial: 'Commercial'
+        }
+    };
+
+    const CALCULATOR_ADDON_LABELS = {
+        fr: {
+            'deep-addon-fridge': 'Réfrigérateur (nettoyage en profondeur)',
+            'deep-addon-stove': 'Cuisinière (nettoyage en profondeur)',
+            'deep-addon-microwave': 'Micro-ondes (nettoyage en profondeur)',
+            'deep-addon-dishwasher': 'Lave-vaisselle (nettoyage en profondeur)',
+            'deep-addon-windows': 'Fenêtres – intérieur (indicatif)',
+            'deep-addon-doors': 'Portes (nettoyage en profondeur)',
+            'deep-addon-living': 'Salon (nettoyage en profondeur)',
+            'deep-addon-garage': 'Garage (nettoyage en profondeur)',
+            'deep-addon-closets': 'Garde-robes (nettoyage en profondeur)',
+            'deep-addon-toilets': 'Toilette 1/2'
+        },
+        en: {
+            'deep-addon-fridge': 'Fridge (deep cleaning)',
+            'deep-addon-stove': 'Stove (deep cleaning)',
+            'deep-addon-microwave': 'Microwave (deep cleaning)',
+            'deep-addon-dishwasher': 'Dishwasher (deep cleaning)',
+            'deep-addon-windows': 'Windows – interior (indicative)',
+            'deep-addon-doors': 'Doors (deep cleaning)',
+            'deep-addon-living': 'Living room (deep cleaning)',
+            'deep-addon-garage': 'Garage (deep cleaning)',
+            'deep-addon-closets': 'Closets (deep cleaning)',
+            'deep-addon-toilets': 'Half bathroom / toilet'
+        }
+    };
+
+    function toIntOrNull(value) {
+        const num = Number(value);
+        if (!Number.isFinite(num)) return null;
+        const intVal = Math.floor(num);
+        if (intVal <= 0) return null;
+        return intVal;
+    }
+
     // Pré-remplir le formulaire avec les données du calculateur
     document.addEventListener('DOMContentLoaded', function () {
         const service = params.get('service');
         const price = params.get('price');
-        const time = params.get('time');
         const bedrooms = params.get('bedrooms');
         const bathrooms = params.get('bathrooms');
         const kitchen = params.get('kitchen');
         const basement = params.get('basement');
+        const rooms = params.get('rooms');
+        const commercialSqft = params.get('sqft');
+        const commercialFrequency = params.get('frequency');
+        const carpetSqft = params.get('carpetSqft');
 
         // Pré-remplir le formulaire
         if (service) {
@@ -707,26 +767,87 @@ if (window.location.search.includes('quote=true')) {
             const lang = localStorage.getItem('preferredLanguage') || 'fr';
             let message = '';
 
+            const addons = [];
+            Object.keys(CALCULATOR_ADDON_LABELS.fr).forEach(addonId => {
+                const qty = toIntOrNull(params.get(addonId));
+                if (!qty) return;
+                const label = (CALCULATOR_ADDON_LABELS[lang] && CALCULATOR_ADDON_LABELS[lang][addonId])
+                    ? CALCULATOR_ADDON_LABELS[lang][addonId]
+                    : addonId;
+                addons.push({ addonId, label, qty });
+            });
+
+            // Exposer les détails du calculateur pour l'envoi API (sans durée)
+            window.__calculatorQuoteDetails = {
+                service: service || '',
+                estimatedPrice: price || '',
+                details: {
+                    bedrooms: bedrooms || '',
+                    bathrooms: bathrooms || '',
+                    kitchen: kitchen || '',
+                    basement: basement || '',
+                    rooms: rooms || '',
+                    carpetSqft: carpetSqft || '',
+                    commercialSqft: commercialSqft || '',
+                    commercialFrequency: commercialFrequency || ''
+                },
+                addons: addons.map(a => ({ id: a.addonId, label: a.label, qty: a.qty }))
+            };
+
             if (lang === 'fr') {
-                message = `Estimation du calculateur:\n`;
-                message += `- Chambres: ${bedrooms}\n`;
-                message += `- Salles de bain: ${bathrooms}\n`;
-                message += `- Cuisine: ${kitchen}\n`;
-                message += `- Sous-sol: ${basement}\n`;
-                message += `- Service: ${service}\n`;
-                message += `- Prix estimé: $${price} CAD\n`;
-                message += `- Temps estimé: ${time} heures\n\n`;
-                message += `Veuillez me contacter pour confirmer cette estimation.`;
+                const serviceLabel = (CALCULATOR_SERVICE_LABELS.fr[service] || service);
+                message = `Demande via calculateur:\n`;
+                message += `Service: ${serviceLabel}\n`;
+                message += `\nDétails du service:\n`;
+
+                if (bedrooms !== null && bedrooms !== '') message += `- Chambres: ${bedrooms}\n`;
+                if (bathrooms !== null && bathrooms !== '') message += `- Salles de bain: ${bathrooms}\n`;
+                if (kitchen !== null && kitchen !== '') message += `- Cuisine: ${kitchen}\n`;
+                if (basement !== null && basement !== '') message += `- Sous-sol: ${basement}\n`;
+                if (rooms !== null && rooms !== '') message += `- Pièces: ${rooms}\n`;
+                if (carpetSqft !== null && carpetSqft !== '') message += `- Tapis (pi²): ${carpetSqft}\n`;
+                if (commercialSqft !== null && commercialSqft !== '') message += `- Superficie (pi²): ${commercialSqft}\n`;
+                if (commercialFrequency !== null && commercialFrequency !== '') message += `- Fréquence: ${commercialFrequency}\n`;
+
+                if (addons.length) {
+                    message += `\nDétail des prestations:\n`;
+                    addons.forEach(a => {
+                        message += `- ${a.label}: ${a.qty}\n`;
+                    });
+                }
+
+                if (price !== null && price !== '') {
+                    message += `\nPrix estimé: $${price} CAD\n`;
+                }
+
+                message += `\nVeuillez me contacter pour confirmer cette estimation.`;
             } else {
-                message = `Calculator Estimate:\n`;
-                message += `- Bedrooms: ${bedrooms}\n`;
-                message += `- Bathrooms: ${bathrooms}\n`;
-                message += `- Kitchen: ${kitchen}\n`;
-                message += `- Basement: ${basement}\n`;
-                message += `- Service: ${service}\n`;
-                message += `- Estimated price: $${price} CAD\n`;
-                message += `- Estimated time: ${time} hours\n\n`;
-                message += `Please contact me to confirm this estimate.`;
+                const serviceLabel = (CALCULATOR_SERVICE_LABELS.en[service] || service);
+                message = `Request via calculator:\n`;
+                message += `Service: ${serviceLabel}\n`;
+                message += `\nService details:\n`;
+
+                if (bedrooms !== null && bedrooms !== '') message += `- Bedrooms: ${bedrooms}\n`;
+                if (bathrooms !== null && bathrooms !== '') message += `- Bathrooms: ${bathrooms}\n`;
+                if (kitchen !== null && kitchen !== '') message += `- Kitchen: ${kitchen}\n`;
+                if (basement !== null && basement !== '') message += `- Basement: ${basement}\n`;
+                if (rooms !== null && rooms !== '') message += `- Rooms: ${rooms}\n`;
+                if (carpetSqft !== null && carpetSqft !== '') message += `- Carpet (sqft): ${carpetSqft}\n`;
+                if (commercialSqft !== null && commercialSqft !== '') message += `- Square feet: ${commercialSqft}\n`;
+                if (commercialFrequency !== null && commercialFrequency !== '') message += `- Frequency: ${commercialFrequency}\n`;
+
+                if (addons.length) {
+                    message += `\nService add-ons:\n`;
+                    addons.forEach(a => {
+                        message += `- ${a.label}: ${a.qty}\n`;
+                    });
+                }
+
+                if (price !== null && price !== '') {
+                    message += `\nEstimated price: $${price} CAD\n`;
+                }
+
+                message += `\nPlease contact me to confirm this estimate.`;
             }
 
             messageField.value = message;
