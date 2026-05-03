@@ -358,7 +358,7 @@ function updateCalculation() {
     if (service === 'deep' || service === 'moving' || service === 'regular') {
         summaryHTML = `
             <div class="detail-row">
-                <span>${currentLang === 'fr' ? 'Prix de base' : 'Base Price'}:</span>
+                <span>${currentLang === 'fr' ? 'Prix de base (transport et matériel inclus)' : 'Base Price (transport and equipment included)'}:</span>
                 <span>$${PRICING.basePrice[service]}</span>
             </div>
             <div class="detail-row">
@@ -386,7 +386,7 @@ function updateCalculation() {
     } else if (service === 'airbnb') {
         summaryHTML = `
             <div class="detail-row">
-                <span>${currentLang === 'fr' ? 'Prix de base' : 'Base Price'}:</span>
+                <span>${currentLang === 'fr' ? 'Prix de base (transport et matériel inclus)' : 'Base Price (transport and equipment included)'}:</span>
                 <span>$${PRICING.basePrice.airbnb}</span>
             </div>
             <div class="detail-row">
