@@ -50,7 +50,6 @@ const PRICING = {
         'deep-addon-living': 80,
         'deep-addon-garage': 80,
         'deep-addon-closets': 75,
-        'deep-addon-drawers': 20,
         'deep-addon-toilets': 25
     }
 };
@@ -65,7 +64,6 @@ const DEEP_ADDON_ITEMS = [
     { id: 'deep-addon-living', labelKey: 'calc.deepQuote.item.living', qtyElId: 'deep-quote-living-qty', amountElId: 'deep-quote-living-amount' },
     { id: 'deep-addon-garage', labelKey: 'calc.deepQuote.item.garage', qtyElId: 'deep-quote-garage-qty', amountElId: 'deep-quote-garage-amount' },
     { id: 'deep-addon-closets', labelKey: 'calc.deepQuote.item.closets', qtyElId: 'deep-quote-closets-qty', amountElId: 'deep-quote-closets-amount' },
-    { id: 'deep-addon-drawers', labelKey: 'calc.deepQuote.item.drawers', qtyElId: 'deep-quote-drawers-qty', amountElId: 'deep-quote-drawers-amount' },
     { id: 'deep-addon-toilets', labelKey: 'calc.deepQuote.item.toilets', qtyElId: 'deep-quote-toilets-qty', amountElId: 'deep-quote-toilets-amount' }
 ];
 
@@ -99,7 +97,6 @@ let state = {
     'deep-addon-living': 0,
     'deep-addon-garage': 0,
     'deep-addon-closets': 0,
-    'deep-addon-drawers': 0,
     'deep-addon-toilets': 0,
     'airbnb-bedrooms': 0,
     'airbnb-bathrooms': 0,
@@ -295,7 +292,6 @@ function initializeCalculator() {
             'deep-addon-living': 0,
             'deep-addon-garage': 0,
             'deep-addon-closets': 0,
-            'deep-addon-drawers': 0,
             'deep-addon-toilets': 0,
             'airbnb-bedrooms': 0,
             'airbnb-bathrooms': 0,
